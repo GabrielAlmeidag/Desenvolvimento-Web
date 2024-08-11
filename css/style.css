@@ -245,10 +245,12 @@ button {
     float: left;
     font-size: 16px;
     color: #ffffff;
+
 }
 
 .call_text a {
     color: #ffffff;
+    font-weight: bold;
 }
 
 .call_text a:hover {
@@ -784,7 +786,7 @@ i.fa.fa-link {
 
 .work_text {
     width: 100%;
-    font-size: 20px;
+    font-size: 16px;
     color: #ffffff;
     font-weight: bold;
 }
@@ -1043,7 +1045,7 @@ i.fa.fa-link {
 .lorem_text {
     width: 100%;
     float: left;
-    font-size: 16px;
+    font-size: 18px;
     color: #ffffff;
     margin: 0px;
     font-family: 'Poppins', sans-serif;
@@ -1234,53 +1236,6 @@ i.fa.fa-link {
     margin-top: 90px;
 }
 
-.whatsapp-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 15px 25px;
-    background-color: #25D366;
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.whatsapp-button:hover {
-    background-color: #1DA851;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    transform: scale(1.05);
-}
-
-.whatsapp-button::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300%;
-    height: 300%;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    transition: transform 0.5s ease;
-}
-
-.whatsapp-button:hover::before {
-    transform: translate(-50%, -50%) scale(1);
-}
-
-.whatsapp-logo {
-    width: 30px;
-    height: 30px;
-    margin-right: 15px;
-}
-
 .mail_text, .massage_text {
     width: 100%;
     padding: 10px;
@@ -1293,3 +1248,32 @@ i.fa.fa-link {
     display: flex;
     flex-direction: column;
 }
+
+
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+  
+  .whatsapp-button a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-size: 30px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s;
+  }
+  
+  .whatsapp-button a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
