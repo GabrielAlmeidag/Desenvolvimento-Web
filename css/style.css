@@ -228,17 +228,7 @@ button {
 
 /* header top section start */
 
-.header_top_section {
-    width: 100%;
-    display: flex;
-    background-color: #07092f;
-    height: auto;
-    padding: 20px 0px;
-}
 
-.header_top_main {
-    display: flex;
-}
 
 .call_text {
     width: 100%;
@@ -304,9 +294,18 @@ button {
     width: 100%;
     float: left;
     background-image: url(../images/justica.jpg);
-    height: auto;
-    background-size: 100% 100%;
+    background-size: cover; /* Ajusta o tamanho da imagem para cobrir toda a área da seção */
+    background-position: center; /* Centraliza a imagem */
     background-repeat: no-repeat;
+    height: auto; /* Mantém a altura automática */
+    min-height: 200px; /* Define uma altura mínima para a seção */
+}
+
+@media (max-width: 768px) {
+    .header_section {
+        background-size: cover; /* Certifica-se de que a imagem cubra a área no celular */
+        height: 300px; /* Define uma altura específica para dispositivos móveis */
+    }
 }
 
 .header_bg {
@@ -330,10 +329,11 @@ button {
     padding-right: 10px;
     padding-left: 10px;
     font-size: 18px;
-    color: #fcfefe;
+    color: #ffffff;
     text-transform: uppercase;
 }
 
+    
 .navbar-light .navbar-nav .nav-link:focus,
 .navbar-light .navbar-nav .nav-link:hover {
     color: #fda417;
@@ -404,6 +404,7 @@ button {
     width: 100%;
     float: left;
     padding: 90px 0px;
+    height: auto;
 }
 
 .banner_taital_main {
@@ -415,7 +416,7 @@ button {
     width: 100%;
     float: left;
     font-size: 60px;
-    color: #ffffff;
+    color: hsla(0, 0%, 100%, 0);
     text-transform: uppercase;
     font-weight: bold;
     padding-bottom: 0px;
@@ -790,6 +791,38 @@ i.fa.fa-link {
     color: #ffffff;
     font-weight: bold;
 }
+
+.work_text2 {
+    padding-top: 20px;
+    padding-left: 3%;
+    padding-right: 3%;
+    width: 100%;
+    font-size: 28px;
+    color: #000000;
+    text-align: justify;
+    line-height: 1.4;
+    font-weight: 400;
+    margin: 0 auto;
+}
+
+/* Estilos para dispositivos móveis */
+@media (max-width: 768px) {
+    .work_text2 {
+        padding-top: 10px; /* Reduz o espaçamento superior */
+        padding-left: 5%; /* Aumenta o espaçamento lateral para evitar que o texto fique muito colado */
+        padding-right: 5%; 
+        font-size: 24px; /* Diminui o tamanho da fonte para telas menores */
+        line-height: 1.5; /* Ajusta a altura da linha para manter o texto legível */
+    }
+}
+
+@media (max-width: 480px) {
+    .work_text2 {
+        font-size: 22px; /* Ainda menor em telas bem pequenas */
+        line-height: 1.4;
+    }
+}
+
 
 .dummy_text {
     width: 100%;
@@ -1251,29 +1284,28 @@ i.fa.fa-link {
 
 
 .whatsapp-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-  }
-  
-  .whatsapp-button a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 60px;
-    height: 60px;
-    background-color: #25d366;
-    color: white;
-    border-radius: 50%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    font-size: 30px;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s;
-  }
-  
-  .whatsapp-button a:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  }
-  
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.whatsapp-button a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background-color: #25d366;
+  color: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: 30px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s;
+}
+
+.whatsapp-button a:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
