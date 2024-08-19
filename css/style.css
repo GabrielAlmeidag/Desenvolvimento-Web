@@ -803,23 +803,30 @@ i.fa.fa-link {
     line-height: 1.4;
     font-weight: 400;
     margin: 0 auto;
+    letter-spacing: normal; /* Garante que o espaçamento entre letras seja normal */
 }
 
 /* Estilos para dispositivos móveis */
 @media (max-width: 768px) {
     .work_text2 {
         padding-top: 10px; /* Reduz o espaçamento superior */
-        padding-left: 5%; /* Aumenta o espaçamento lateral para evitar que o texto fique muito colado */
-        padding-right: 5%; 
+        padding-left: 4%; /* Ajusta o espaçamento lateral */
+        padding-right: 4%; 
         font-size: 24px; /* Diminui o tamanho da fonte para telas menores */
-        line-height: 1.5; /* Ajusta a altura da linha para manter o texto legível */
+        line-height: 1.5; /* Aumenta a altura da linha para melhor legibilidade */
+        letter-spacing: normal; /* Garante que o espaçamento entre letras seja normal */
+        text-align: left; /* Alinha o texto à esquerda para evitar separação exagerada das palavras */
     }
 }
 
 @media (max-width: 480px) {
     .work_text2 {
-        font-size: 22px; /* Ainda menor em telas bem pequenas */
-        line-height: 1.4;
+        padding-left: 5%; /* Aumenta o espaçamento lateral em telas menores */
+        padding-right: 5%;
+        font-size: 20px; /* Reduz ainda mais o tamanho da fonte */
+        line-height: 1.6; /* Aumenta a altura da linha para melhorar a leitura */
+        letter-spacing: normal; /* Garante que o espaçamento entre letras seja normal */
+        text-align: left; /* Alinha o texto à esquerda para melhor legibilidade em telas pequenas */
     }
 }
 
