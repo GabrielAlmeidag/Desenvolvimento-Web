@@ -202,11 +202,14 @@ h1, h2, h3, h4, h5, h6 {
 .hero-video-container {
     position: relative;
     width: 100%;
+    max-width: 950px; /* Expande bastante no desktop */
+    margin: 0 auto;
     aspect-ratio: 16/9;
     border-radius: 15px;
     overflow: hidden;
     border: 1px solid rgba(212, 175, 55, 0.2);
     background: #000;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.4) !important;
 }
 
 .hero-video-poster {
@@ -297,9 +300,9 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 50px;
 }
 .hero-title {
-    font-size: 4rem;
+    font-size: 3.5rem; /* Levemente menor para acomodar o vídeo colosso */
     color: var(--white);
-    line-height: 1.1;
+    line-height: 1.15;
     font-weight: 700;
 }
 .hero-title span {

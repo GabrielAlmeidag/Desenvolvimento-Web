@@ -66,9 +66,10 @@
         <!-- Fundo Escuro Sólido -->
         <div class="hero-background-layer"></div>
 
-        <div class="container h-100 position-relative z-index-2">
-            <div class="row h-100 align-items-center pt-5 pt-lg-0">
-                <div class="col-lg-6 hero-content text-left order-2 order-lg-1 mt-5 mt-lg-0">
+        <div class="container-fluid px-4 px-xl-5 h-100 position-relative z-index-2">
+            <div class="row h-100 align-items-center pt-5 pt-lg-0 justify-content-evenly">
+                <!-- Texto - Mais estreito para dar espaço ao vídeo -->
+                <div class="col-lg-5 col-xl-4 offset-xl-1 hero-content text-left order-2 order-lg-1 mt-5 mt-lg-0">
                     <div class="hero-badge mb-3">Escritório de Advocacia Especializada</div>
                     <h1 class="hero-title mb-4">A excelência na defesa dos <span>seus direitos</span> em toda a jornada trabalhista.</h1>
                     
@@ -87,7 +88,8 @@
                     </div>
                 </div>
 
-                <div class="col-lg-6 order-1 order-lg-2 hero-video-col">
+                <!-- Vídeo - Maior, ocupando 50% ou mais -->
+                <div class="col-lg-6 col-xl-6 order-1 order-lg-2 hero-video-col mt-4 mt-lg-0 pe-xl-5">
                     <div class="hero-video-container shadow-lg">
                         
                         <!-- Capa do Vídeo -->
@@ -98,8 +100,8 @@
                             </button>
                         </div>
                         
-                        <!-- O Vídeo Real -->
-                        <video id="heroVideo" class="custom-video w-100" playsinline preload="metadata">
+                        <!-- O Vídeo Real (com controles nativos de áudio/volume) -->
+                        <video id="heroVideo" class="custom-video w-100" playsinline preload="metadata" controls>
                             <source src="images/VIDEO1.mp4" type="video/mp4">
                         </video>
                         
