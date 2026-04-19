@@ -728,3 +728,53 @@ h1, h2, h3, h4, h5, h6 {
         min-height: 350px;
     }
 }
+/* ========================================================= 
+   Nova Galeria Nossa Atuação / Refinada
+========================================================= */
+.gallery-item-refined {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    background: var(--primary);
+    cursor: pointer;
+}
+.gallery-item-refined img {
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.gallery-item-refined:hover img {
+    transform: scale(1.03);
+}
+.gallery-item-refined:not(.small) img {
+    height: 550px;
+    object-position: center 20%;
+}
+.gallery-item-refined.small img {
+    height: 260px;
+    object-position: center 25%;
+}
+.gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg, transparent, rgba(10,17,40,0.95) 80%);
+    color: var(--white);
+    padding: 40px 25px 25px;
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    border-bottom: 3px solid var(--gold);
+    transition: color 0.3s;
+    letter-spacing: 0.5px;
+}
+.gallery-item-refined:hover .gallery-caption {
+    color: var(--gold);
+}
+@media (max-width: 991px) {
+    .gallery-item-refined:not(.small) img,
+    .gallery-item-refined.small img {
+        height: 300px;
+    }
+}
