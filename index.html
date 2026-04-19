@@ -22,8 +22,10 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Natanael Castro</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <a class="navbar-brand" href="#inicio">
+                <img src="images/logo.png" alt="Natanael Castro Advocacia" height="60">
+            </a>
+            <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -35,27 +37,57 @@
                         <a class="nav-link" href="#especialidades">Especialidades</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#sobre">Sobre</a>
+                        <a class="nav-link" href="#sobre">Sobre o Advogado</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#galeria">Atuação e Galeria</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#duvidas">Dúvidas Frequentes</a>
                     </li>
                 </ul>
+                <div class="social-nav d-none d-lg-flex">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Banner / Hero Section -->
     <section id="inicio" class="hero-section">
-        <video class="hero-video" autoplay loop muted playsinline>
-            <source src="images/VIDEO1.mp4" type="video/mp4">
-            Seu navegador não suporta vídeos.
-        </video>
-        <div class="hero-overlay"></div>
-        <div class="container position-relative z-1 text-center">
-            <h1>Advocacia Trabalhista</h1>
-            <p>Defendendo os seus direitos com excelência, transparência e dedicação.</p>
-            <a href="#sobre" class="btn-gold mt-3 d-inline-block">Conheça o Advogado</a>
+        <div class="hero-background"></div>
+        <div class="container position-relative z-1">
+            <div class="row align-items-center">
+                
+                <!-- Coluna de Texto e Frase -->
+                <div class="col-lg-6 text-center text-lg-start mb-5 mb-lg-0">
+                    <h1 class="display-4 fw-bold mb-3 text-white" style="letter-spacing: 1px;">Advocacia Trabalhista Especializada</h1>
+                    
+                    <blockquote class="blockquote quote-box">
+                        <p class="mb-0">"A injustiça num lugar qualquer é uma ameaça à justiça em todo o lugar."</p>
+                        <footer class="blockquote-footer mt-2 text-white-50">Martin Luther King</footer>
+                    </blockquote>
+
+                    <p class="lead text-white-50 mt-4 mb-4">Defendendo seus direitos com excelência, transparência e dedicação em todo o território nacional.</p>
+                    
+                    <a href="https://wa.me/5511999999999" target="_blank" class="btn-gold">
+                        <i class="fa-brands fa-whatsapp me-2"></i>Fale com um Especialista
+                    </a>
+                </div>
+
+                <!-- Coluna do Vídeo -->
+                <div class="col-lg-6">
+                    <div class="video-container shadow-lg">
+                        <video controls playsinline poster="images/justica.jpg">
+                            <source src="images/VIDEO1.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos.
+                        </video>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
@@ -63,33 +95,33 @@
     <section id="especialidades" class="section-padding bg-light">
         <div class="container">
             <h2 class="section-title">Especialidades</h2>
-            <div class="row g-4">
+            <div class="row g-4 mt-2">
                 <div class="col-md-6 col-lg-3">
                     <div class="service-card">
                         <i class="fa-solid fa-file-signature service-icon"></i>
                         <h4 class="service-title">Rescisão de Contrato</h4>
-                        <p>Assessoria completa na rescisão de contrato, garantindo direitos: aviso prévio, férias, 13º, FGTS e multa.</p>
+                        <p class="text-muted">Assessoria completa na rescisão de contrato, garantindo aviso prévio, férias, 13º, FGTS e multas.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <div class="service-card">
                         <i class="fa-solid fa-notes-medical service-icon"></i>
                         <h4 class="service-title">Doenças Ocupacionais</h4>
-                        <p>Suporte jurídico para acidentes de trabalho e doenças ocupacionais, buscando indenizações e benefícios.</p>
+                        <p class="text-muted">Suporte jurídico em acidentes de trabalho e doenças ocupacionais, visando benefícios e indenização.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <div class="service-card">
                         <i class="fa-solid fa-business-time service-icon"></i>
                         <h4 class="service-title">Horas Extras</h4>
-                        <p>Consultoria sobre jornada de trabalho, garantindo o correto pagamento e cumprimento das leis trabalhistas.</p>
+                        <p class="text-muted">Consultoria sobre a jornada de trabalho, garantindo o pagamento devido e regulamentações legais.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <div class="service-card">
-                        <i class="fa-solid fa-users service-icon"></i>
+                        <i class="fa-solid fa-handshake-angle service-icon"></i>
                         <h4 class="service-title">Ações Coletivas</h4>
-                        <p>Representação sindical e de categorias profissionais em negociações e convenções coletivas de trabalho.</p>
+                        <p class="text-muted">Representação de grupos ou categorias profissionais em convenções e acordos coletivos de trabalho.</p>
                     </div>
                 </div>
             </div>
@@ -99,101 +131,190 @@
     <!-- Sobre Section -->
     <section id="sobre" class="section-padding">
         <div class="container">
-            <h2 class="section-title">Sobre Mim</h2>
-            <div class="row align-items-center">
-                <div class="col-md-6 mb-4 mb-md-0">
-                    <div class="pe-md-4">
+            <h2 class="section-title">Sobre o Advogado</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-6 mb-4 mb-lg-0 text-center">
+                    <img src="images/Natan5.png" alt="Natanael Castro" class="img-fluid about-img shadow">
+                </div>
+                <div class="col-lg-6">
+                    <div class="ps-lg-4">
                         <p class="about-text">
-                            <strong>Natanael Castro</strong> é advogado trabalhista com ampla experiência na defesa de empregados contra pequenas, médias e grandes empresas.
+                            <strong>Natanael Castro</strong> é um advogado trabalhista com ampla experiência na defesa de empregados contra pequenas, médias e grandes empresas.
                         </p>
                         <p class="about-text">
-                            Com uma sólida formação acadêmica, ele se destaca por sua dedicação, excelência e comprometimento na prestação de serviço jurídico em todo o território nacional. Seu principal foco é garantir que os trabalhadores recebam seus direitos de forma justa e ética.
+                            Com uma sólida formação acadêmica, ele se destaca por sua dedicação, excelência e comprometimento na prestação de serviço jurídico em todo o território nacional. 
+                        </p>
+                        <p class="about-text">
+                            Seu principal foco, como profissional, é interceder pelos que mais necessitam, garantindo que os trabalhadores possam receber seus direitos de uma forma justa, ética e transparente, lutando contra arbitrariedades laborais.
                         </p>
                     </div>
                 </div>
-                <div class="col-md-6 text-center">
-                    <img src="images/Natan5.png" alt="Natanael Castro" class="img-fluid about-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria de Fotos Section -->
+    <section id="galeria" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title">Nossa Estrutura e Atuação</h2>
+            <p class="text-center text-muted mb-5">Conheça um pouco do nosso trabalho, nossa equipe e estrutura oferecida para o melhor atendimento.</p>
+            
+            <div class="row g-4">
+                <div class="col-md-4 col-sm-6">
+                    <div class="gallery-img">
+                        <img src="images/FOTO 1.jpeg" alt="Estrutura 1">
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="gallery-img">
+                        <img src="images/FOTO2.jpeg" alt="Estrutura 2">
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="gallery-img">
+                        <img src="images/foto3.jpg" alt="Estrutura 3">
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="gallery-img">
+                        <img src="images/foto4.jpg" alt="Estrutura 4">
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="gallery-img">
+                        <img src="images/foto5.jpg" alt="Estrutura 5">
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="gallery-img">
+                        <img src="images/foto6.jpg" alt="Estrutura 6">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FAQ Section -->
-    <section id="duvidas" class="section-padding bg-light">
+    <section id="duvidas" class="section-padding">
         <div class="container">
             <h2 class="section-title">Dúvidas Frequentes</h2>
-            
-            <div class="accordion" id="faqAccordion">
-                
-                <!-- FAQ 1 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                            É cobrado algum valor inicial para ingressar com ação trabalhista?
-                        </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            Em nosso compromisso com a excelência e a transparência, esclarecemos que não efetuamos qualquer cobrança antecipada aos nossos clientes. Somente quando alcançamos o êxito no processo e você recebe o valor devido é que nossa taxa de honorários é aplicada. Nossa dedicação está voltada para o sucesso da sua causa.
+            <div class="row justify-content-center mt-4">
+                <div class="col-lg-10">
+                    <div class="accordion shadow-sm" id="faqAccordion">
+                        
+                        <!-- FAQ 1 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                    <i class="fa-solid fa-scale-balanced me-2 text-warning"></i> É cobrado algum valor inicial para ingressar com ação trabalhista?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">
+                                    Em nosso compromisso com a excelência e a transparência, esclarecemos que <strong>não efetuamos qualquer cobrança antecipada</strong> aos nossos clientes. Somente quando alcançamos o êxito no processo e você recebe o valor que lhe é devido, é que nossa taxa de honorários é aplicada. Qualquer tentativa de cobrança prévia deve ser ignorada.
+                                </div>
+                            </div>
                         </div>
+
+                        <!-- FAQ 2 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                    <i class="fa-solid fa-umbrella-beach me-2 text-warning"></i> Como funciona o pagamento e gozo das férias?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">
+                                    O período de férias é um direito essencial. A CLT estabelece regras, tais como: o pagamento deve ocorrer até dois dias antes do início; o empregado pode fracionar as férias em até 3 períodos; e também é possível converter 1/3 (um terço) desse período em abono pecuniário, ou seja, "vender" as férias.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 3 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                    <i class="fa-solid fa-laptop-house me-2 text-warning"></i> Trabalho Remoto e Flexível: O que diz a lei?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">
+                                    É importantíssimo que empregadores e empregados formalizem todas as condições do trabalho remoto ou flexível em contrato. A Reforma Trabalhista de 2017 trouxe avanços que regulamentam isso, evitando conflitos e assegurando deveres (como jornadas e estrutura).
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 4 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                                    <i class="fa-solid fa-moon me-2 text-warning"></i> O que é considerado Trabalho Noturno?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">
+                                    Considera-se noturno o trabalho realizado entre as 22:00 horas de um dia e as 5:00 horas do dia seguinte. A hora noturna nas atividades urbanas deve ser paga com um <strong>acréscimo de no mínimo 20%</strong> sobre o valor da hora diurna.
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-
-                <!-- FAQ 2 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-                            Quais as regras para o pagamento e gozo das férias?
-                        </button>
-                    </h2>
-                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            O período de férias é um direito essencial. A CLT estabelece que o pagamento deve ocorrer até dois dias antes do início; é possível fracionar em até 3 períodos; e o empregado pode converter 1/3 das férias em abono pecuniário ("vender" parte das férias).
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 3 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
-                            Como funciona o Trabalho Remoto e Flexível?
-                        </button>
-                    </h2>
-                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            É importante que todas as condições sejam formalizadas em contrato. A legislação trabalhista, especialmente após a Reforma de 2017, regulamenta essas modalidades para assegurar direitos (como jornada, fornecimento de equipamentos) e evitar conflitos.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 4 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingFour">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
-                            O que é considerado Trabalho Noturno?
-                        </button>
-                    </h2>
-                    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            Considera-se noturno o trabalho realizado entre as 22:00 horas e as 5:00 do dia seguinte. A hora noturna em atividades urbanas deve ser paga com um adicional mínimo de 20% sobre o valor da diurna.
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer-area text-center">
+    <!-- Footer Completo e Profissional -->
+    <footer class="footer-area">
         <div class="container">
-            <p class="footer-text mb-0">&copy; 2024 Advocacia Trabalhista - Natanael Castro. Todos os direitos reservados.</p>
+            <div class="row">
+                
+                <!-- Coluna Logo e Texto -->
+                <div class="col-lg-4 mb-4">
+                    <img src="images/logo.png" alt="Logo Natanael Castro" height="70" class="mb-4 bg-white p-2 rounded">
+                    <p class="footer-text">
+                        A Advocacia Natanael Castro se destaca pelo compromisso em entregar soluções jurídicas trabalhistas justas e transparentes. Confiança e competência são os nossos pilares.
+                    </p>
+                </div>
+
+                <!-- Coluna Links Rápidos -->
+                <div class="col-lg-4 mb-4 ps-lg-5">
+                    <h5 class="text-white mb-4 fw-bold">Navegação</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#inicio"><i class="fa-solid fa-angle-right me-2 text-warning"></i>Início</a></li>
+                        <li><a href="#especialidades"><i class="fa-solid fa-angle-right me-2 text-warning"></i>Especialidades</a></li>
+                        <li><a href="#sobre"><i class="fa-solid fa-angle-right me-2 text-warning"></i>Sobre Nós</a></li>
+                        <li><a href="#galeria"><i class="fa-solid fa-angle-right me-2 text-warning"></i>Galeria</a></li>
+                        <li><a href="#duvidas"><i class="fa-solid fa-angle-right me-2 text-warning"></i>Dúvidas Frequentes</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna Contato e Redes Socias -->
+                <div class="col-lg-4 mb-4">
+                    <h5 class="text-white mb-4 fw-bold">Contato e Redes Sociais</h5>
+                    <p class="footer-text mb-2"><i class="fa-solid fa-envelope me-2 text-warning"></i> contato@seusite.com.br</p>
+                    <p class="footer-text mb-4"><i class="fa-brands fa-whatsapp me-2 text-warning"></i> (11) 99999-9999</p>
+                    
+                    <div class="social-footer">
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Direitos Autorais -->
+            <div class="row border-top border-secondary pt-4 mt-2">
+                <div class="col-12 text-center">
+                    <p class="footer-text mb-0">&copy; 2024 Advocacia Trabalhista - Natanael Castro. Todos os direitos reservados.</p>
+                </div>
+            </div>
         </div>
     </footer>
 
     <!-- WhatsApp Float Button (Basta você inserir o Link do Zap nesse href!)-->
-    <a href="#" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+    <a href="https://wa.me/5511999999999" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
