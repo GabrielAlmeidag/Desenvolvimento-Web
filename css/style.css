@@ -1,306 +1,619 @@
-/* Fonte Textos e Títulos */
+/* ========================================================= 
+   Variaveis Premium 
+========================================================= */
+:root {
+    --primary: #0a1128; /* Azul Escuro / Marinho Sóbrio */
+    --secondary: #172a5a;
+    --gold: #d4af37; /* Ouro mais requintado */
+    --gold-hover: #b5952f;
+    --light: #fcfcfc;
+    --text-color: #333333;
+    --text-muted: #666666;
+    --soft-bg: #f5f7fa; /* Fundo suave para contraste de seções */
+    --white: #ffffff;
+    
+    /* Tipografia */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Lato', sans-serif;
+}
+
+/* ========================================================= 
+   Básicos e Tipografia
+========================================================= */
 body {
-    font-family: 'Raleway', sans-serif;
-    color: #333;
-    background-color: #fafbfd;
-}
-h1, h2, h3, h4, h5, .navbar-brand {
-    font-family: 'Sen', sans-serif;
-}
-
-/* ================== Navbar ================== */
-.navbar {
-    background-color: #0c1844; /* Azul Escuro */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    padding: 15px 0;
-}
-.navbar-brand img {
-    max-height: 50px;
-    background-color: white; /* Dá destaque pro logo caso o logo tenha cor escura vazada */
-    padding: 5px;
-    border-radius: 5px;
-}
-.nav-link {
-    font-weight: 600;
-    color: #fff !important;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    padding: 10px 15px !important;
-    transition: 0.3s;
-}
-.nav-link:hover {
-    color: #c9933b !important; /* Dourado */
-}
-.social-nav {
-    margin-left: 20px;
-}
-.social-nav a {
-    color: #fff;
-    margin-left: 15px;
-    font-size: 1.3rem;
-    transition: 0.3s;
-}
-.social-nav a:hover {
-    color: #c9933b;
-}
-
-/* ================== Banner / Hero Section ================== */
-.hero-section {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-color);
+    background-color: var(--light);
+    overflow-x: hidden;
     position: relative;
-    padding: 160px 0 100px;
-    background: url('../images/justica.jpg') center center/cover no-repeat;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-}
-.hero-background {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(135deg, rgba(12, 24, 68, 0.98) 0%, rgba(12, 24, 68, 0.8) 100%);
-    z-index: 0;
-}
-.quote-box {
-    border-left: 4px solid #c9933b;
-    padding-left: 20px;
-    font-size: 1.3rem;
-    font-style: italic;
-    color: #f1f1f1;
 }
 
-/* Container do Vídeo Player */
-.video-container {
-    width: 100%;
-    margin: 0 auto;
-    border: 4px solid #c9933b;
-    border-radius: 12px;
-    overflow: hidden;
-    background: #000;
-}
-.video-container video {
-    width: 100%;
-    display: block;
-}
-
-/* Botões */
-.btn-gold {
-    background-color: #c9933b;
-    color: white;
-    padding: 15px 35px;
-    font-size: 1.1rem;
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--primary);
     font-weight: 700;
-    border-radius: 8px;
-    border: none;
-    transition: all 0.3s;
-    text-decoration: none;
-    display: inline-block;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-.btn-gold:hover {
-    background-color: #a6772c;
-    color: white;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
-/* ================== General Sections ================== */
-.section-padding {
+/* Respiro / Utilities */
+.py-100 {
     padding: 100px 0;
 }
-.section-title {
-    text-align: center;
-    margin-bottom: 50px;
-    font-weight: 800;
-    color: #0c1844;
-    text-transform: uppercase;
-    font-size: 2.2rem;
+.bg-soft {
+    background-color: var(--soft-bg);
 }
-.section-title::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 4px;
-    background: #c9933b;
-    margin: 20px auto 0;
+.z-index-2 {
+    z-index: 2;
 }
 
-/* ================== Especialidades ================== */
-.service-card {
-    background: #fff;
-    padding: 40px 25px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    text-align: center;
-    height: 100%;
+/* ========================================================= 
+   Marca d'água Fundo / Logo
+========================================================= */
+.site-watermark {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 100vh;
+    background: url('../images/logo.png') center center/contain no-repeat;
+    opacity: 0.03; /* Oculto o suficiente para ser apenas uma marca de autoridade */
+    z-index: -1;
+    pointer-events: none; /* Não atrapalha cliques */
+}
+
+/* ========================================================= 
+   Header e Navegação (Clean, Responsivo, Transparente)
+========================================================= */
+.navbar {
+    padding: 20px 0;
+    transition: all 0.4s ease-in-out;
+    background-color: transparent; /* Transparente no Hero */
+}
+/* Classe adicionada via JS após Scroll */
+.navbar.scrolled {
+    background-color: var(--primary);
+    padding: 12px 0;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.nav-logo {
+    height: 50px;
+    background: rgba(255,255,255,0.9);
+    padding: 5px;
+    border-radius: 4px;
     transition: 0.3s;
-    border-bottom: 4px solid transparent;
 }
-.service-card:hover {
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-    transform: translateY(-12px);
-    border-bottom-color: #c9933b;
+.navbar.scrolled .nav-logo {
+    height: 45px;
 }
-.service-icon {
-    font-size: 3rem;
-    color: #0c1844;
-    margin-bottom: 25px;
+.brand-text {
+    font-family: var(--font-heading);
+    color: var(--white);
+    font-size: 1.1rem;
+    line-height: 1.2;
 }
-.service-title {
-    font-size: 1.3rem;
-    font-weight: 800;
-    margin-bottom: 15px;
-    color: #0c1844;
-}
-
-/* ================== Sobre Mim ================== */
-.about-text {
-    font-size: 1.15rem;
-    line-height: 1.9;
-    color: #666;
-    text-align: justify;
-}
-.about-img {
-    border-radius: 15px;
-    border: 8px solid #fff;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-    max-width: 100%;
+.brand-text small {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-/* ================== Nossa Estrutura / Galeria ================== */
-.gallery-img {
-    border-radius: 12px;
-    overflow: hidden;
+.nav-link {
+    font-family: var(--font-body);
+    font-weight: 700;
+    color: var(--white) !important;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    padding: 10px 20px !important;
+    transition: color 0.3s;
     position: relative;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    cursor: pointer;
-    transition: 0.4s;
-    height: 250px; /* Padronizando a altura pra fotos de tamanhos diferentes */
 }
-.gallery-img img {
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--gold);
+    transition: 0.3s ease-out;
+}
+.nav-link:hover {
+    color: var(--gold) !important;
+}
+.nav-link:hover::after, .nav-link.active::after {
+    width: 80%;
+}
+
+.custom-toggler.navbar-toggler {
+    border-color: rgba(255,255,255,0.5);
+}
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* ========================================================= 
+   Botões
+========================================================= */
+.btn-gold {
+    background-color: var(--gold);
+    color: var(--primary);
+    border: 2px solid var(--gold);
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 12px 30px;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+}
+.btn-gold:hover {
+    background-color: transparent;
+    color: var(--gold);
+    transform: translateY(-2px);
+}
+.btn-outline-gold {
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.btn-outline-gold:hover {
+    background: var(--gold);
+    color: var(--primary);
+}
+
+.btn-outline-light {
+    border-width: 2px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 12px 30px;
+}
+
+/* ========================================================= 
+   Vídeo & Hero Section 
+========================================================= */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    overflow: hidden;
+    background: var(--primary);
+}
+
+/* Wrapper do vídeo no fundo inteiro */
+.hero-video-wrapper {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+}
+.background-video {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: 0.5s;
+    object-fit: cover; /* Garante aspecto não esticado, cropando ao redor se necessário sem perder qualidade */
+    opacity: 0; /* Oculto p/ o delay */
+    transition: opacity 2s ease-in-out; /* Transição Suave */
 }
-.gallery-img:hover {
-    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
-}
-.gallery-img:hover img {
-    transform: scale(1.08); /* Efeito de Zoom maneiro */
+/* Classe ativada via JS após X segundos */
+.video-visible {
+    opacity: 0.6; /* Fica mais claro, dando o ar de background */
 }
 
+/* Overlay para dar o aspecto "Premium Dark" acima do vídeo */
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(90deg, rgba(10, 17, 40, 0.95) 0%, rgba(10, 17, 40, 0.8) 40%, rgba(10, 17, 40, 0.4) 100%);
+    pointer-events: none;
+}
 
-/* ================== FAQ (Accordion) ================== */
-.accordion-button:not(.collapsed) {
-    color: #fff;
-    background-color: #0c1844;
+.hero-content {
+    margin-top: 100px;
+}
+.hero-badge {
+    display: inline-block;
+    background: rgba(212, 175, 55, 0.15);
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 6px 15px;
+    font-size: 0.85rem;
     font-weight: 700;
-    box-shadow: none;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 50px;
 }
-.accordion-button:focus {
-    box-shadow: none;
-    border-color: rgba(0,0,0,.125);
-}
-.accordion-button {
+.hero-title {
+    font-size: 4rem;
+    color: var(--white);
+    line-height: 1.1;
     font-weight: 700;
-    padding: 20px;
-    font-size: 1.1rem;
 }
-.accordion-body {
-    font-size: 1.1rem;
+.hero-title span {
+    font-style: italic;
+    color: var(--gold);
+}
+
+.premium-quote {
+    border-left: 2px solid var(--gold);
+    padding-left: 25px;
+    color: rgba(255,255,255,0.8);
+    font-size: 1.25rem;
     line-height: 1.8;
 }
+.premium-quote cite {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--gold);
+    font-style: normal;
+}
 
-/* ================== Footer Completo ================== */
-.footer-area {
-    background: #0c1844; /* Azul Marinho Forte */
-    color: #fff;
-    padding: 80px 0 30px;
+/* ========================================================= 
+   Títulos Padrões
+========================================================= */
+.sub-title {
+    display: block;
+    color: var(--gold);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
 }
-.footer-text {
-    font-size: 1rem;
-    opacity: 0.8;
-    line-height: 1.7;
+.section-title {
+    font-size: 2.8rem;
+    margin-bottom: 0;
 }
-.footer-links li {
-    margin-bottom: 12px;
+.title-separator {
+    width: 60px;
+    height: 3px;
+    background-color: var(--gold);
+    margin-top: 20px;
 }
-.footer-links a {
-    color: #fff;
-    opacity: 0.8;
-    text-decoration: none;
-    transition: 0.3s;
+.section-description {
+    color: var(--text-muted);
+    font-size: 1.15rem;
 }
-.footer-links a:hover {
-    opacity: 1;
-    color: #c9933b;
-    padding-left: 8px; /* Efeito hover na lista de menu */
+
+/* ========================================================= 
+   Cards e Features (Especialidades)
+========================================================= */
+.feature-card {
+    background: #fff;
+    padding: 40px 30px;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
 }
-.social-footer a {
-    display: inline-block;
-    width: 45px;
-    height: 45px;
-    background: rgba(255,255,255,0.1);
-    color: #fff;
-    text-align: center;
-    line-height: 45px;
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 3px;
+    background-color: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.4s ease-in-out;
+    transform-origin: left;
+}
+.feature-card:hover {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    transform: translateY(-10px);
+}
+.feature-card:hover::before {
+    transform: scaleX(1);
+}
+.icon-wrapper {
+    width: 70px;
+    height: 70px;
+    background: var(--soft-bg);
     border-radius: 50%;
-    margin-right: 15px;
-    font-size: 1.3rem;
-    transition: 0.4s;
-}
-.social-footer a:hover {
-    background: #c9933b; /* Fica dourado ao passar o mouse */
-    color: #fff;
-    transform: translateY(-5px);
-}
-
-/* ================== WhatsApp Float ================== */
-.whatsapp-float {
-    position: fixed;
-    width: 65px;
-    height: 65px;
-    bottom: 30px;
-    right: 30px;
-    background-color: #25d366;
-    color: #fff;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 35px;
-    box-shadow: 0px 5px 20px rgba(37, 211, 102, 0.5);
-    z-index: 100;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
-    transition: 0.3s;
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 25px;
+    transition: 0.4s;
 }
-.whatsapp-float:hover {
-    background-color: #1ebe57;
-    color: white;
-    transform: scale(1.1);
+.feature-card:hover .icon-wrapper {
+    background: var(--primary);
+    color: var(--gold);
+}
+.feature-title {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+.feature-text {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
 }
 
-/* ================== Responsivo (Mobile) ================== */
+/* ========================================================= 
+   Perfil: Imagem e Textos Fortes
+========================================================= */
+.about-image-wrapper {
+    position: relative;
+    padding: 20px;
+}
+.about-image-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; bottom: 40px; right: 40px;
+    border: 3px solid var(--gold);
+    z-index: -1;
+}
+.image-box img {
+    width: 100%;
+    /* Truque p/ garantir altura perfeita */
+    aspect-ratio: 4 / 5;
+    object-position: top;
+}
+.experience-badge {
+    position: absolute;
+    bottom: -15px;
+    right: -15px;
+    background-color: var(--primary);
+    color: white;
+    padding: 25px 35px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    text-align: center;
+}
+.experience-badge h3 {
+    color: var(--gold);
+    font-size: 1.4rem;
+    margin: 0;
+}
+.experience-badge p {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.premium-text {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+.text-gold {
+    color: var(--gold);
+}
+
+/* ========================================================= 
+   Galeria Custom Grid (Object-Fit + Proporções)
+========================================================= */
+.gallery-grid {
+    --bs-gutter-y: 1.5rem;
+    --bs-gutter-x: 1.5rem;
+}
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    /* Aspect Ratio moderno do CSS p/ garantir uniformidade sem cortes bruscos. Fica como uma janela fixa */
+    aspect-ratio: 4 / 3; 
+    cursor: pointer;
+    background: #000;
+}
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    /* Ajusta a imagem dentro da janela mantendo proporção de foto de câmera sem esticar */
+    object-fit: cover; 
+    transition: transform 0.6s ease, filter 0.6s ease;
+    filter: contrast(0.9) brightness(0.9);
+}
+.gallery-item:hover img {
+    transform: scale(1.05); /* Zoom sutil premium */
+    filter: contrast(1.1) brightness(1.1);
+}
+
+/* Camada Sobreposta p/ Texto / Efeito Hover Escuro */
+.gallery-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(0deg, rgba(10,17,40,0.85) 0%, rgba(10,17,40,0) 70%);
+    display: flex;
+    align-items: flex-end;
+    padding: 25px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+.gallery-overlay span {
+    color: var(--white);
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    border-left: 2px solid var(--gold);
+    padding-left: 15px;
+    transform: translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.gallery-item:hover .gallery-overlay span {
+    transform: translateY(0);
+}
+
+/* ========================================================= 
+   FAQ - Accordion Soft
+========================================================= */
+.premium-accordion .accordion-item {
+    border: none;
+    margin-bottom: 20px;
+    background: transparent;
+}
+.premium-accordion .accordion-header .accordion-button {
+    background-color: var(--white);
+    color: var(--primary);
+    font-weight: 700;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    border-radius: 4px;
+}
+.premium-accordion .accordion-button:not(.collapsed) {
+    color: var(--gold);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+.premium-accordion .accordion-button:focus {
+    box-shadow: none;
+    border: none;
+}
+.premium-accordion .accordion-button::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23172a5a'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+.premium-accordion .accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23d4af37'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+.premium-accordion .accordion-body {
+    padding: 20px 30px 40px;
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+/* ========================================================= 
+   Footer Elegante / Organizadíssimo 
+========================================================= */
+.premium-footer {
+    background-color: var(--primary);
+    color: var(--white);
+}
+.footer-top {
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.footer-about {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--white);
+    border-radius: 50%;
+    margin-right: 10px;
+    transition: 0.3s;
+}
+.social-links a:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--primary);
+    transform: translateY(-3px);
+}
+.footer-title {
+    font-size: 1.3rem;
+    color: var(--white);
+    margin-bottom: 0;
+}
+.footer-separator {
+    width: 30px;
+    height: 2px;
+    background: var(--gold);
+    margin-top: 15px;
+}
+.footer-nav li {
+    margin-bottom: 15px;
+}
+.footer-nav a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 0.95rem;
+}
+.footer-nav a:hover {
+    color: var(--gold);
+    padding-left: 5px;
+}
+.footer-contact li {
+    display: flex;
+    margin-bottom: 20px;
+    color: rgba(255,255,255,0.6);
+    font-size: 0.95rem;
+}
+.footer-contact li i {
+    color: var(--gold);
+    font-size: 1.2rem;
+    margin-right: 15px;
+    margin-top: 4px;
+}
+.footer-contact a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+}
+.footer-contact a:hover {
+    color: var(--gold);
+}
+.fs-7 {
+    font-size: 0.85rem;
+}
+
+/* ========================================================= 
+   WhatsApp Float Clean
+========================================================= */
+.float-whatsapp {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    z-index: 100;
+    transition: 0.4s;
+}
+.float-whatsapp:hover {
+    background-color: #1ebe57;
+    color: white;
+    transform: scale(1.08);
+}
+
+/* ========================================================= 
+   Responsivo
+========================================================= */
 @media (max-width: 991px) {
     .navbar {
-        background-color: #0c1844;
+        background-color: var(--primary); /* Sólido sempre no Mobile */
+        padding: 15px 0;
     }
-    .hero-section {
-        padding-top: 130px;
-        text-align: center;
+    .hero-title {
+        font-size: 2.8rem;
     }
-    .quote-box {
-        border-left: none;
-        border-top: 4px solid #c9933b;
-        padding-left: 0;
-        padding-top: 20px;
-        margin: 30px auto;
-        text-align: center;
+    .hero-content {
+        margin-top: 50px;
     }
-    .social-nav {
-        margin-left: 0;
-        margin-top: 15px;
+    .hero-overlay {
+        background: linear-gradient(180deg, rgba(10, 17, 40, 0.95) 0%, rgba(10, 17, 40, 0.7) 100%);
+    }
+    .gallery-item {
+        aspect-ratio: 16 / 9; /* No mobile, exibe com proporção um pouquinho mais retangular */
+    }
+}
+@media (max-width: 768px) {
+    .about-image-wrapper {
+        padding: 0;
+    }
+    .about-image-wrapper::before {
+        display: none;
     }
 }
