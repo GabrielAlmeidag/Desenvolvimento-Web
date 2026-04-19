@@ -181,39 +181,108 @@ h1, h2, h3, h4, h5, h6 {
 ========================================================= */
 .hero-section {
     position: relative;
-    height: 100vh;
-    min-height: 700px;
-    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
     background: var(--primary);
+    overflow: hidden;
 }
 
-/* Wrapper do vídeo no fundo inteiro */
-.hero-video-wrapper {
+.hero-background-layer {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-}
-.background-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Garante aspecto não esticado, cropando ao redor se necessário sem perder qualidade */
-    opacity: 0; /* Oculto p/ o delay */
-    transition: opacity 2s ease-in-out; /* Transição Suave */
-}
-/* Classe ativada via JS após X segundos */
-.video-visible {
-    opacity: 0.6; /* Fica mais claro, dando o ar de background */
+    background: radial-gradient(circle at right, rgba(23, 42, 90, 0.4) 0%, var(--primary) 70%);
 }
 
-/* Overlay para dar o aspecto "Premium Dark" acima do vídeo */
-.hero-overlay {
+.hero-video-col {
+    position: relative;
+    z-index: 10;
+}
+
+.hero-video-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    background: #000;
+}
+
+.hero-video-poster {
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(90deg, rgba(10, 17, 40, 0.95) 0%, rgba(10, 17, 40, 0.8) 40%, rgba(10, 17, 40, 0.4) 100%);
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 3;
+    background: #000;
+    transition: opacity 0.5s ease-in-out;
+}
+.hero-video-poster.hidden {
+    opacity: 0;
     pointer-events: none;
+}
+.hero-video-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+}
+.play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--gold);
+    color: var(--primary);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.play-btn:hover {
+    background: var(--white);
+    color: var(--primary);
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+.custom-video {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 2;
+}
+
+.video-overlay-end {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(10, 17, 40, 0.9);
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-in-out;
+    backdrop-filter: blur(5px);
+}
+.video-overlay-end.visible {
+    opacity: 1;
+    pointer-events: all;
 }
 
 .hero-content {
-    margin-top: 100px;
+    z-index: 10;
 }
 .hero-badge {
     display: inline-block;
@@ -391,44 +460,45 @@ h1, h2, h3, h4, h5, h6 {
    Galeria Custom Grid (Object-Fit + Proporções)
 ========================================================= */
 .gallery-grid {
-    --bs-gutter-y: 1.5rem;
-    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 2.5rem;
+    --bs-gutter-x: 2.5rem;
 }
 .gallery-item {
     position: relative;
     overflow: hidden;
     width: 100%;
     /* Aspect Ratio moderno do CSS p/ garantir uniformidade sem cortes bruscos. Fica como uma janela fixa */
-    aspect-ratio: 4 / 3; 
+    aspect-ratio: 16 / 9; 
     cursor: pointer;
     background: #000;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.05);
 }
 .gallery-item img {
     width: 100%;
     height: 100%;
     /* Ajusta a imagem dentro da janela mantendo proporção de foto de câmera sem esticar */
     object-fit: cover; 
+    object-position: center 20%; /* Foca na área central-superior para não cortar rostos */
     transition: transform 0.6s ease, filter 0.6s ease;
-    filter: contrast(0.9) brightness(0.9);
+    filter: contrast(0.95);
 }
 .gallery-item:hover img {
-    transform: scale(1.05); /* Zoom sutil premium */
-    filter: contrast(1.1) brightness(1.1);
+    transform: scale(1.02); /* Zoom levíssimo */
 }
 
 /* Camada Sobreposta p/ Texto / Efeito Hover Escuro */
 .gallery-overlay {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(0deg, rgba(10,17,40,0.85) 0%, rgba(10,17,40,0) 70%);
+    transition: background 0.4s ease;
     display: flex;
     align-items: flex-end;
     padding: 25px;
-    opacity: 0;
-    transition: opacity 0.4s ease;
+    background: linear-gradient(180deg, rgba(10,17,40,0) 50%, rgba(10,17,40,0.85) 100%);
 }
 .gallery-item:hover .gallery-overlay {
-    opacity: 1;
+    background: linear-gradient(180deg, rgba(10,17,40,0.1) 0%, rgba(10,17,40,0.95) 100%);
 }
 .gallery-overlay span {
     color: var(--white);
@@ -436,20 +506,28 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.3rem;
     border-left: 2px solid var(--gold);
     padding-left: 15px;
-    transform: translateY(20px);
-    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform: translateY(0);
+    transition: color 0.4s ease;
 }
 .gallery-item:hover .gallery-overlay span {
-    transform: translateY(0);
+    color: var(--gold);
 }
 
 /* ========================================================= 
    FAQ - Accordion Soft
 ========================================================= */
-.premium-accordion .accordion-item {
-    border: none;
+.premium-accordion .elegant-card {
+    background-color: var(--white);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 8px !important;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    transition: all 0.3s ease;
     margin-bottom: 20px;
-    background: transparent;
+}
+.premium-accordion .elegant-card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.1);
 }
 .premium-accordion .accordion-header .accordion-button {
     background-color: var(--white);
@@ -458,7 +536,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
     font-size: 1.2rem;
     padding: 25px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    box-shadow: none !important;
     border-radius: 4px;
 }
 .premium-accordion .accordion-button:not(.collapsed) {
@@ -487,9 +565,16 @@ h1, h2, h3, h4, h5, h6 {
 .premium-footer {
     background-color: var(--primary);
     color: var(--white);
+    border-top: none;
+    margin-top: -2px; /* Remove qualquer linha branca do section anterior */
 }
 .footer-top {
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    background: linear-gradient(180deg, var(--soft-bg) 0%, var(--primary) 7%);
+    padding-top: 80px;
+}
+.footer-logo-fixed {
+    max-height: 75px;
+    object-fit: contain;
 }
 .footer-about {
     color: rgba(255,255,255,0.6);

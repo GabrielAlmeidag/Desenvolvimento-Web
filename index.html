@@ -63,17 +63,12 @@
 
     <!-- Seção Hero: Premium & Clean -->
     <header id="inicio" class="hero-section">
-        <!-- Vídeo posicionado perfeitamente. Inicia via JS c/ delay e fade suave -->
-        <div class="hero-video-wrapper">
-            <video id="heroVideo" class="background-video" muted playsinline poster="images/justica.jpg">
-                <source src="images/VIDEO1.mp4" type="video/mp4">
-            </video>
-            <div class="hero-overlay"></div>
-        </div>
+        <!-- Fundo Escuro Sólido -->
+        <div class="hero-background-layer"></div>
 
         <div class="container h-100 position-relative z-index-2">
-            <div class="row h-100 align-items-center">
-                <div class="col-lg-8 col-xl-7 hero-content text-left">
+            <div class="row h-100 align-items-center pt-5 pt-lg-0">
+                <div class="col-lg-6 hero-content text-left order-2 order-lg-1 mt-5 mt-lg-0">
                     <div class="hero-badge mb-3">Escritório de Advocacia Especializada</div>
                     <h1 class="hero-title mb-4">A excelência na defesa dos <span>seus direitos</span> em toda a jornada trabalhista.</h1>
                     
@@ -89,6 +84,38 @@
                         <a href="#especialidades" class="btn btn-outline-light btn-lg">
                             Nossas Áreas
                         </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 order-1 order-lg-2 hero-video-col">
+                    <div class="hero-video-container shadow-lg">
+                        
+                        <!-- Capa do Vídeo -->
+                        <div class="hero-video-poster" id="videoPoster">
+                            <img src="images/justica.jpg" alt="Apresentação" class="img-fluid">
+                            <button id="playBtn" class="play-btn" aria-label="Assistir vídeo">
+                                <i class="fa-solid fa-play"></i> <span>Assistir Vídeo</span>
+                            </button>
+                        </div>
+                        
+                        <!-- O Vídeo Real -->
+                        <video id="heroVideo" class="custom-video w-100" playsinline preload="metadata">
+                            <source src="images/VIDEO1.mp4" type="video/mp4">
+                        </video>
+                        
+                        <!-- Overlay de Fim de Vídeo -->
+                        <div class="video-overlay-end" id="videoEndOverlay">
+                            <h4 class="mb-3 text-white text-center fw-bold">Pronto para defender seus direitos?</h4>
+                            <div class="d-flex flex-column gap-3 mt-4 align-items-center">
+                                <a href="https://wa.me/5511999999999" target="_blank" class="btn btn-gold px-4 py-2 text-center">
+                                    <i class="fa-brands fa-whatsapp me-2"></i>Fale com um advogado
+                                </a>
+                                <button id="replayBtn" class="btn btn-outline-light px-4 py-2">
+                                    <i class="fa-solid fa-arrow-rotate-left me-2"></i>Assistir Novamente
+                                </button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -223,41 +250,41 @@
             </div>
 
             <!-- Grid que previne cortes indesejados nas fotos (aspect-ratio fixo e object-fit) -->
-            <div class="row g-4 gallery-grid">
-                <div class="col-md-6 col-lg-4">
-                    <div class="gallery-item">
-                        <img src="images/FOTO 1.jpeg" alt="Nossa Estrutura 1">
-                        <div class="gallery-overlay"><span>Recepção</span></div>
+            <div class="row g-5 gallery-grid">
+                <div class="col-12 col-lg-6">
+                    <div class="gallery-item h-100">
+                        <img src="images/FOTO 1.jpeg" alt="Atendimento Personalizado">
+                        <div class="gallery-overlay"><span>Atendimento Personalizado</span></div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="gallery-item">
-                        <img src="images/FOTO2.jpeg" alt="Nossa Estrutura 2">
-                        <div class="gallery-overlay"><span>Sala de Reunião</span></div>
+                <div class="col-12 col-lg-6">
+                    <div class="gallery-item h-100">
+                        <img src="images/FOTO2.jpeg" alt="Atuação em Audiências">
+                        <div class="gallery-overlay"><span>Atuação em Audiências</span></div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="gallery-item">
-                        <img src="images/foto3.jpg" alt="Nossa Estrutura 3">
-                        <div class="gallery-overlay"><span>Escritório</span></div>
+                <div class="col-12 col-lg-6">
+                    <div class="gallery-item h-100">
+                        <img src="images/foto3.jpg" alt="Defesa Estratégica">
+                        <div class="gallery-overlay"><span>Defesa Estratégica</span></div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="gallery-item">
-                        <img src="images/foto4.jpg" alt="Nossa Estrutura 4">
-                        <div class="gallery-overlay"><span>Consultoria</span></div>
+                <div class="col-12 col-lg-6">
+                    <div class="gallery-item h-100">
+                        <img src="images/foto4.jpg" alt="Confiança e Proximidade">
+                        <div class="gallery-overlay"><span>Confiança e Proximidade</span></div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="gallery-item">
-                        <img src="images/foto5.jpg" alt="Nossa Estrutura 5">
-                        <div class="gallery-overlay"><span>Análise de Processo</span></div>
+                <div class="col-12 col-lg-6">
+                    <div class="gallery-item h-100">
+                        <img src="images/foto5.jpg" alt="Identidade do Escritório">
+                        <div class="gallery-overlay"><span>Identidade do Escritório</span></div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="gallery-item">
-                        <img src="images/foto6.jpg" alt="Nossa Estrutura 6">
-                        <div class="gallery-overlay"><span>Atendimento</span></div>
+                <div class="col-12 col-lg-6">
+                    <div class="gallery-item h-100">
+                        <img src="images/foto6.jpg" alt="Presença e Autoridade">
+                        <div class="gallery-overlay"><span>Presença e Autoridade</span></div>
                     </div>
                 </div>
             </div>
@@ -272,24 +299,25 @@
                     <div class="text-center mb-5">
                         <span class="sub-title">Perguntas Frequentes</span>
                         <h2 class="section-title">Esclarecimentos Jurídicos</h2>
-                        <div class="title-separator mx-auto"></div>
+                        <div class="title-separator mx-auto mb-3"></div>
+                        <p class="section-description">Tire suas dúvidas sobre direitos trabalhistas e atendimento.</p>
                     </div>
                     
                     <div class="accordion premium-accordion" id="faqAccordion">
-                        <div class="accordion-item">
+                        <div class="accordion-item elegant-card mb-4">
                             <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false">
                                     É cobrado algum valor inicial para ingressar com ação trabalhista?
                                 </button>
                             </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
                                     Não. Em nosso compromisso com a excelência e a transparência, esclarecemos que não efetuamos qualquer cobrança antecipada. Nossos honorários são pagos apenas no êxito processual. Ignoramos qualquer prática que exija desembolso prévio aos nossos clientes.
                                 </div>
                             </div>
                         </div>
 
-                        <div class="accordion-item">
+                        <div class="accordion-item elegant-card mb-4">
                             <h2 class="accordion-header" id="headingTwo">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
                                     Quais são as regras para as Férias Trabalhistas?
@@ -302,7 +330,7 @@
                             </div>
                         </div>
 
-                        <div class="accordion-item">
+                        <div class="accordion-item elegant-card mb-4">
                             <h2 class="accordion-header" id="headingThree">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
                                     Sobre o Trabalho Remoto e Flexível
@@ -323,16 +351,16 @@
     <!-- Footer Premium -->
     <footer id="contato" class="premium-footer position-relative z-index-2">
         <div class="footer-top py-5">
-            <div class="container">
-                <div class="row gy-5">
+            <div class="container mt-4">
+                <div class="row gy-5 align-items-center align-items-lg-start text-center text-lg-start">
                     
                     <!-- Sobre / Marca -->
-                    <div class="col-lg-4 text-center text-lg-start">
-                        <img src="images/logo.png" alt="Logo Advocacia" height="75" class="mb-4 bg-white rounded p-2">
-                        <p class="footer-about pe-lg-4">
+                    <div class="col-lg-4">
+                        <img src="images/logo.png" alt="Logo Advocacia" height="65" class="mb-4 bg-white rounded p-2 d-inline-block d-lg-block mx-auto mx-lg-0 footer-logo-fixed">
+                        <p class="footer-about pe-lg-4 mb-4">
                             Nossa missão é aplicar o Direito com máxima técnica e humanidade, restabelecendo a justiça para o trabalhador em todo o Brasil. Tradição, resultados e zelo por cada detalhe.
                         </p>
-                        <div class="social-links mt-4">
+                        <div class="social-links justify-content-center justify-content-lg-start">
                             <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                             <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                             <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -341,8 +369,8 @@
 
                     <!-- Navegação Rápida -->
                     <div class="col-lg-3 offset-lg-1">
-                        <h4 class="footer-title">Institucional</h4>
-                        <div class="footer-separator"></div>
+                        <h4 class="footer-title justify-content-center justify-content-lg-start">Institucional</h4>
+                        <div class="footer-separator mx-auto mx-lg-0"></div>
                         <ul class="footer-nav list-unstyled mt-4">
                             <li><a href="#inicio">Apresentação</a></li>
                             <li><a href="#especialidades">Áreas de Atuação</a></li>
@@ -354,9 +382,9 @@
 
                     <!-- Contatos -->
                     <div class="col-lg-4">
-                        <h4 class="footer-title">Canais de Atendimento</h4>
-                        <div class="footer-separator"></div>
-                        <ul class="footer-contact list-unstyled mt-4">
+                        <h4 class="footer-title justify-content-center justify-content-lg-start">Canais de Atendimento</h4>
+                        <div class="footer-separator mx-auto mx-lg-0"></div>
+                        <ul class="footer-contact list-unstyled mt-4 mx-auto mx-lg-0">
                             <li>
                                 <i class="fa-solid fa-map-location-dot"></i>
                                 <span>Atendimento presencial em São Paulo e remoto em todo território nacional.</span>
@@ -383,7 +411,7 @@
         
         <div class="footer-bottom py-3">
             <div class="container text-center">
-                <p class="mb-0 fs-7 text-white-50">
+                <p class="mb-0 fs-7 text-white-50 copyright-text">
                     &copy; <span id="currentYear"></span> Natanel Castro - Sociedade de Advogados. Todos os direitos reservados. OAB/SP XXX.XXX
                 </p>
             </div>
@@ -420,27 +448,62 @@
                 }
             });
 
-            // Lógica do Vídeo (Fade in após 2seg e Auto Loop)
-            // Respondendo à sua dúvida: quando o vídeo acaba, com o atributo "loop", "muted" e "playsinline",
-            // Ele reinicia automaticamente sem o usuário perceber. O fade-in cria uma cena dramática inicial.
+            // Lógica do Vídeo: Delay, Play Elegante e Overlay no Final
             const heroVideo = document.getElementById("heroVideo");
+            const videoPoster = document.getElementById("videoPoster");
+            const playBtn = document.getElementById("playBtn");
+            const videoEndOverlay = document.getElementById("videoEndOverlay");
+            const replayBtn = document.getElementById("replayBtn");
+
             if(heroVideo) {
-                // Aguarda 1.0 segundos para a página "respirar" e então mostra o vídeo com fade-in
-                setTimeout(function() {
-                    heroVideo.classList.add("video-visible");
-                    heroVideo.play().catch(function(error) {
-                        console.log("Auto-play preveito. Exibindo poster fallback.");
+                // Remove propriedades que forçam background
+                heroVideo.removeAttribute('loop');
+                heroVideo.muted = false; // Com áudio importante!
+                
+                // Variável para evitar auto-play indesejado repetido
+                let hasPlayed = false;
+
+                // Tentar reproduzir com delay de 2 a 3 segundos automaticamente
+                setTimeout(() => {
+                    if(!hasPlayed) {
+                        playVideo();
+                    }
+                }, 2500);
+
+                // Clicar manualmente no Play
+                playBtn.addEventListener('click', () => {
+                    playVideo();
+                });
+
+                function playVideo() {
+                    hasPlayed = true;
+                    // Garantir que volume não seja surpresa brusca se possível (opcional fade in áudio),
+                    // mas como browser de mobile bloqueia áudio autoplay sem interação, tentamos capturar o erro:
+                    heroVideo.play().then(() => {
+                        videoPoster.classList.add("hidden");
+                        videoEndOverlay.classList.remove("visible");
+                    }).catch(err => {
+                        // Se o bloqueio do browser impedir autoplay com áudio, mantemos a capa e exigimos o clique do user
+                        console.log("Autoplay bloqueado pelo Navegador. Aguardando clique na capa.");
+                        videoPoster.classList.remove("hidden");
+                        heroVideo.muted = true; // Tenta muted
+                        heroVideo.play().then(() => {
+                            videoPoster.classList.add("hidden");
+                            videoEndOverlay.classList.remove("visible");
+                        }).catch(e => console.log("Obrigatório interação mútua"));
                     });
-                    
-                    // Adicionar atributo "loop" ao vídeo via JS
-                    heroVideo.loop = true;
-                    
-                    /* Caso decida fazer um final sem loop, use isso e remova o heroVideo.loop = true:
-                    heroVideo.addEventListener('ended', function() {
-                        heroVideo.classList.remove("video-visible");
-                    });
-                    */
-                }, 1000); // 1,0s de delay no load
+                }
+
+                // Quando terminar as imagens: O que acontece?
+                heroVideo.addEventListener('ended', function() {
+                    videoEndOverlay.classList.add("visible");
+                });
+
+                // Assistir novamente
+                replayBtn.addEventListener('click', () => {
+                    heroVideo.currentTime = 0;
+                    playVideo();
+                });
             }
         });
     </script>
