@@ -584,7 +584,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: -2px; /* Remove qualquer linha branca do section anterior */
 }
 .footer-top {
-    background: linear-gradient(180deg, var(--soft-bg) 0%, var(--primary) 7%);
+    background: var(--primary);
     padding-top: 80px;
 }
 .footer-logo-fixed {

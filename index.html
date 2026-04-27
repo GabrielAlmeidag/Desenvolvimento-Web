@@ -28,8 +28,8 @@
     <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#inicio">
-                <img src="images/logo.png" alt="Logo Natanael Castro" class="nav-logo">
-                <span class="ms-3 d-none d-sm-block brand-text">Natanael Castro<br><small>Advocacia Trabalhista</small></span>
+                <img src="images/logo.jpg" alt="Logo Natanael Castro" class="nav-logo" style="mix-blend-mode: multiply; border-radius: 5px;">
+                <span class="ms-3 d-none d-sm-block brand-text">Natanael Castro<br><small>Advocacia</small></span>
             </a>
             
             <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Alternar navegação">
@@ -55,7 +55,7 @@
                     </li>
                 </ul>
                 <div class="nav-actions d-lg-flex align-items-center ms-lg-3 mt-3 mt-lg-0">
-                    <a href="https://wa.me/5511999999999" target="_blank" class="btn btn-outline-gold px-4 py-2">Consultoria</a>
+                    <a href="https://wa.me/5511944725587" target="_blank" class="btn btn-outline-gold px-4 py-2">Consultoria</a>
                 </div>
             </div>
         </div>
@@ -71,7 +71,7 @@
                 <!-- Texto - Mais estreito para dar espaço ao vídeo -->
                 <div class="col-lg-5 col-xl-4 offset-xl-1 hero-content text-left order-2 order-lg-1 mt-5 mt-lg-0">
                     <div class="hero-badge mb-3">Escritório de Advocacia Especializada</div>
-                    <h1 class="hero-title mb-4">A excelência na defesa dos <span>seus direitos</span> em toda a jornada trabalhista.</h1>
+                    <h1 class="hero-title mb-4">A EXCELÊNCIA NA DEFESA DOS <span>SEUS DIREITOS.</span></h1>
                     
                     <blockquote class="premium-quote mb-5">
                         "A injustiça num lugar qualquer é uma ameaça à justiça em todo o lugar."
@@ -79,7 +79,7 @@
                     </blockquote>
                     
                     <div class="hero-buttons d-flex flex-wrap gap-3">
-                        <a href="https://wa.me/5511999999999" target="_blank" class="btn btn-gold btn-lg shadow-sm">
+                        <a href="https://wa.me/5511944725587" target="_blank" class="btn btn-gold btn-lg shadow-sm">
                             Falar com Advogado
                         </a>
                         <a href="#especialidades" class="btn btn-outline-light btn-lg">
@@ -93,31 +93,10 @@
                     <div class="hero-video-container shadow-lg">
                         
                         <!-- Capa do Vídeo -->
-                        <div class="hero-video-poster" id="videoPoster">
-                            <img src="images/justica.jpg" alt="Apresentação" class="img-fluid">
-                            <button id="playBtn" class="play-btn" aria-label="Assistir vídeo">
-                                <i class="fa-solid fa-play"></i> <span>Assistir Vídeo</span>
-                            </button>
+                        <div class="hero-video-poster" id="videoPoster" style="cursor: default;">
+                            <img src="images/justica.jpg" alt="Apresentação da Advocacia" class="img-fluid w-100" style="border-radius: 8px;">
                         </div>
                         
-                        <!-- O Vídeo Real (com controles nativos de áudio/volume) -->
-                        <video id="heroVideo" class="custom-video w-100" playsinline preload="metadata" controls>
-                            <source src="images/VIDEO1.mp4" type="video/mp4">
-                        </video>
-                        
-                        <!-- Overlay de Fim de Vídeo -->
-                        <div class="video-overlay-end" id="videoEndOverlay">
-                            <h4 class="mb-3 text-white text-center fw-bold">Pronto para defender seus direitos?</h4>
-                            <div class="d-flex flex-column gap-3 mt-4 align-items-center">
-                                <a href="https://wa.me/5511999999999" target="_blank" class="btn btn-gold px-4 py-2 text-center">
-                                    <i class="fa-brands fa-whatsapp me-2"></i>Fale com um advogado
-                                </a>
-                                <button id="replayBtn" class="btn btn-outline-light px-4 py-2">
-                                    <i class="fa-solid fa-arrow-rotate-left me-2"></i>Assistir Novamente
-                                </button>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
@@ -132,49 +111,39 @@
                     <span class="sub-title">Expertise</span>
                     <h2 class="section-title">Áreas de Atuação</h2>
                     <div class="title-separator mx-auto"></div>
-                    <p class="section-description mt-3">Atendimento jurídico focado, estratégico e orientado a resultados de alta performance nas demandas trabalhistas.</p>
+                    <p class="section-description mt-3">Atendimento jurídico focado, estratégico e orientado a resultados de alta performance nas demandas dos nossos clientes.</p>
                 </div>
             </div>
 
-            <div class="row g-4">
+            <div class="row g-4 justify-content-center">
                 <!-- Card 1 -->
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card h-100">
+                        <div class="icon-wrapper">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+                        <h4 class="feature-title">Trabalhista</h4>
+                        <p class="feature-text">Defesa especializada dos direitos trabalhistas, assegurando a correta rescisão, horas extras e outras verbas.</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card h-100">
+                        <div class="icon-wrapper">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </div>
+                        <h4 class="feature-title">Consumidor</h4>
+                        <p class="feature-text">Proteção nas relações de consumo contra práticas abusivas, indenizações e revisão de cobranças indevidas.</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col-lg-4 col-md-6">
                     <div class="feature-card h-100">
                         <div class="icon-wrapper">
                             <i class="fa-solid fa-file-contract"></i>
                         </div>
-                        <h4 class="feature-title">Rescisões Contratuais</h4>
-                        <p class="feature-text">Análise minuciosa e auditoria em rescisões, protegendo integralmente seus direitos e verbas rescisórias.</p>
-                    </div>
-                </div>
-                <!-- Card 2 -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="feature-card h-100">
-                        <div class="icon-wrapper">
-                            <i class="fa-solid fa-briefcase-medical"></i>
-                        </div>
-                        <h4 class="feature-title">Acidentes e Doenças Ocupacionais</h4>
-                        <p class="feature-text">Responsabilização assertiva e pleito indenizatório para trabalhadores lesionados ou adoecidos no trabalho.</p>
-                    </div>
-                </div>
-                <!-- Card 3 -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="feature-card h-100">
-                        <div class="icon-wrapper">
-                            <i class="fa-solid fa-business-time"></i>
-                        </div>
-                        <h4 class="feature-title">Jornadas e Horas Extras</h4>
-                        <p class="feature-text">Reivindicação de pagamentos não efetuados, desvio de função e violações dos limites de jornada de trabalho.</p>
-                    </div>
-                </div>
-                <!-- Card 4 -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="feature-card h-100">
-                        <div class="icon-wrapper">
-                            <i class="fa-solid fa-scale-balanced"></i>
-                        </div>
-                        <h4 class="feature-title">Demandas Coletivas</h4>
-                        <p class="feature-text">Liderança em negociações sindicais e defesa estruturada dos direitos de categorias profissionais inteiras.</p>
+                        <h4 class="feature-title">Contratos</h4>
+                        <p class="feature-text">Análise minuciosa e elaboração de contratos para garantir segurança jurídica e prevenir conflitos futuros.</p>
                     </div>
                 </div>
             </div>
@@ -381,13 +350,11 @@
                     
                     <!-- Sobre / Marca -->
                     <div class="col-lg-4">
-                        <img src="images/logo.png" alt="Logo Advocacia" height="65" class="mb-4 bg-white rounded p-2 d-inline-block d-lg-block mx-auto mx-lg-0 footer-logo-fixed">
+                        <img src="images/logo.jpg" alt="Logo Advocacia" height="65" class="mb-4 d-inline-block d-lg-block mx-auto mx-lg-0 footer-logo-fixed" style="border-radius: 6px;">
                         <p class="footer-about pe-lg-4 mb-4">
                             Nossa missão é aplicar o Direito com máxima técnica e humanidade, restabelecendo a justiça para o trabalhador em todo o Brasil. Tradição, resultados e zelo por cada detalhe.
                         </p>
                         <div class="social-links justify-content-center justify-content-lg-start">
-                            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                             <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
                         </div>
                     </div>
@@ -418,14 +385,14 @@
                                 <i class="fa-brands fa-whatsapp"></i>
                                 <span>
                                     <strong>WhatsApp e Plantão</strong><br>
-                                    <a href="https://wa.me/5511999999999">(11) 99999-9999</a>
+                                    <a href="https://wa.me/5511944725587">(11) 94472-5587</a>
                                 </span>
                             </li>
                             <li>
                                 <i class="fa-solid fa-envelope"></i>
                                 <span>
                                     <strong>E-mail Institucional</strong><br>
-                                    <a href="mailto:contato@natanaelcastro.adv.br">contato@natanaelcastro.adv.br</a>
+                                    <a href="mailto:natanaelcastroadv@hotmail.com">natanaelcastroadv@hotmail.com</a>
                                 </span>
                             </li>
                         </ul>
@@ -437,14 +404,14 @@
         <div class="footer-bottom py-3">
             <div class="container text-center">
                 <p class="mb-0 fs-7 text-white-50 copyright-text">
-                    &copy; <span id="currentYear"></span> Natanel Castro - Sociedade de Advogados. Todos os direitos reservados. OAB/SP XXX.XXX
+                    &copy; <span id="currentYear"></span> Natanel Castro - Sociedade de Advogados. Todos os direitos reservados. OAB/SP 520.075
                 </p>
             </div>
         </div>
     </footer>
 
     <!-- WhatsApp Fixado Elegante -->
-    <a href="https://wa.me/5511999999999" target="_blank" class="float-whatsapp" aria-label="Fale pelo WhatsApp" data-bs-toggle="tooltip" data-bs-placement="left" title="Plantão de Dúvidas">
+    <a href="https://wa.me/5511944725587" target="_blank" class="float-whatsapp" aria-label="Fale pelo WhatsApp" data-bs-toggle="tooltip" data-bs-placement="left" title="Plantão de Dúvidas">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
