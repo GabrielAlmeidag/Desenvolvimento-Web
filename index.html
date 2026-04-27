@@ -28,8 +28,8 @@
     <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#inicio">
-                <img src="images/logo.jpg" alt="Logo Natanael Castro" class="nav-logo" style="border-radius: 5px;">
-                <span class="ms-3 d-none d-sm-block brand-text">Natanael Castro<br><small>Advocacia</small></span>
+                <img src="images/logo.png" alt="Logo Natanael Castro" class="nav-logo">
+                <span class="ms-3 d-none d-sm-block brand-text">Natanael Castro<br><small>Advocacia Trabalhista</small></span>
             </a>
             
             <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Alternar navegação">
@@ -55,7 +55,7 @@
                     </li>
                 </ul>
                 <div class="nav-actions d-lg-flex align-items-center ms-lg-3 mt-3 mt-lg-0">
-                    <a href="https://wa.me/5511944725587" target="_blank" class="btn btn-outline-gold px-4 py-2">Consultoria</a>
+                    <a href="https://wa.me/5511944725587?text=Ol%C3%A1%20Dr.%20Natanael%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20do%20meu%20caso." target="_blank" class="btn btn-outline-gold px-4 py-2">Consultoria</a>
                 </div>
             </div>
         </div>
@@ -79,7 +79,7 @@
                     </blockquote>
                     
                     <div class="hero-buttons d-flex flex-wrap gap-3">
-                        <a href="https://wa.me/5511944725587" target="_blank" class="btn btn-gold btn-lg shadow-sm">
+                        <a href="https://wa.me/5511944725587?text=Ol%C3%A1%20Dr.%20Natanael%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20do%20meu%20caso." target="_blank" class="btn btn-gold btn-lg shadow-sm">
                             Falar com Advogado
                         </a>
                         <a href="#especialidades" class="btn btn-outline-light btn-lg">
@@ -90,13 +90,33 @@
 
                 <!-- Vídeo - Maior, ocupando 50% ou mais -->
                 <div class="col-lg-6 col-xl-6 order-1 order-lg-2 hero-video-col mt-4 mt-lg-0 pe-xl-5">
-                    <div class="hero-video-container shadow-lg">
+                    <div class="hero-video-container shadow-lg" style="border-radius: 8px; overflow: hidden; position: relative;">
                         
                         <!-- Capa do Vídeo -->
-                        <div class="hero-video-poster" id="videoPoster" style="cursor: default;">
-                            <img src="images/justica.jpg" alt="Apresentação da Advocacia" class="img-fluid w-100" style="border-radius: 8px;">
+                        <div class="hero-video-poster" id="videoPoster">
+                            <img src="images/justica.jpg" alt="Apresentação da Advocacia" class="img-fluid w-100">
+                            <button id="playBtn" class="play-btn" aria-label="Assistir vídeo">
+                                <i class="fa-solid fa-play"></i> <span>Assistir Vídeo</span>
+                            </button>
                         </div>
                         
+                        <!-- O Vídeo Real (com controles nativos de áudio/volume) -->
+                        <video id="heroVideo" class="custom-video w-100" playsinline preload="metadata" controls poster="images/justica.jpg">
+                            <source src="images/VIDEO1.mp4" type="video/mp4">
+                        </video>
+                        
+                        <!-- Overlay de Fim de Vídeo -->
+                        <div class="video-overlay-end" id="videoEndOverlay">
+                            <h4 class="mb-3 text-white text-center fw-bold">Pronto para defender seus direitos?</h4>
+                            <div class="d-flex flex-column gap-3 mt-4 align-items-center">
+                                <a href="https://wa.me/5511944725587?text=Ol%C3%A1%20Dr.%20Natanael%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20do%20meu%20caso." target="_blank" class="btn btn-gold px-4 py-2 text-center">
+                                    <i class="fa-brands fa-whatsapp me-2"></i>Fale com um advogado
+                                </a>
+                                <button id="replayBtn" class="btn btn-outline-light px-4 py-2">
+                                    <i class="fa-solid fa-arrow-rotate-left me-2"></i>Assistir Novamente
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -203,7 +223,7 @@
                         </div>
                     </div>
 
-                    <a href="https://wa.me/5511944725587" target="_blank" class="btn btn-outline-dark mt-4">Agendar Avaliação do Caso</a>
+                    <a href="https://wa.me/5511944725587?text=Ol%C3%A1%20Dr.%20Natanael%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20do%20meu%20caso." target="_blank" class="btn btn-outline-dark mt-4">Agendar Avaliação do Caso</a>
                 </div>
             </div>
         </div>
@@ -222,64 +242,61 @@
             </div>
 
             <!-- Bloco 1: Atuação em Audiências -->
-            <div class="row align-items-center mb-5">
-                <div class="col-lg-5 mb-5 mb-lg-0 position-relative order-1 order-lg-1">
+            <div class="row align-items-center mb-5 pb-lg-4">
+                <div class="col-lg-5 mb-5 mb-lg-0 position-relative">
                     <div class="about-image-wrapper">
                         <div class="image-box">
-                            <img src="images/FOTO2.jpeg" alt="Atuação em Audiências" class="img-fluid rounded shadow-lg object-fit-cover w-100" style="height: 380px;">
+                            <img src="images/FOTO2.jpg" alt="Atuação em Audiências" class="img-fluid rounded shadow-lg object-fit-cover w-100" style="height: 400px;">
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 offset-lg-1 order-2 order-lg-2">
+                <div class="col-lg-6 offset-lg-1">
                     <div class="d-flex align-items-center mb-3">
                         <i class="fa-solid fa-gavel text-gold fs-3 me-3"></i>
-                        <h3 class="fw-bold mb-0 text-dark">Atuação em Audiências</h3>
+                        <h3 class="section-title text-start mb-0">Atuação em Audiências</h3>
                     </div>
-                    <p class="premium-text text-muted">
+                    <p class="premium-text text-muted mt-4">
                         Presença marcante e incisiva nos tribunais. Cada audiência é tratada como um momento decisivo, onde a técnica processual, a argumentação irrefutável e a vivência prática se alinham para salvaguardar os interesses mais complexos de nossos clientes diante dos juízos.
                     </p>
                 </div>
             </div>
 
             <!-- Bloco 2: Atendimento Personalizado (Invertido) -->
-            <div class="row align-items-center mb-5">
-                <div class="col-lg-6 order-2 order-lg-1 text-lg-end">
-                    <div class="d-flex align-items-center justify-content-lg-end mb-3">
-                        <h3 class="fw-bold mb-0 text-dark me-3">Atendimento Personalizado</h3>
-                        <i class="fa-solid fa-user-tie text-gold fs-3"></i>
-                    </div>
-                    <p class="premium-text text-muted">
-                        Entendemos que nenhum caso é igual ao outro. Nosso modelo de advocacia boutique prioriza o relacionamento próximo e a escuta ativa. Realizamos um diagnóstico profundo da sua demanda, construindo soluções jurídicas desenhadas sob medida para o seu cenário específico e objetivos.
-                    </p>
-                </div>
-                <div class="col-lg-5 offset-lg-1 mb-5 mb-lg-0 position-relative order-1 order-lg-2">
+            <div class="row align-items-center mb-5 pb-lg-4 flex-lg-row-reverse">
+                <div class="col-lg-5 mb-5 mb-lg-0 position-relative offset-lg-1">
                     <div class="about-image-wrapper">
                         <div class="image-box">
-                            <img src="images/FOTO 1.jpeg" alt="Atendimento Personalizado" class="img-fluid rounded shadow-lg object-fit-cover w-100" style="height: 380px;">
-                        </div>
-                        <div class="experience-badge" style="left: -20px; top: -20px; bottom: auto; right: auto;">
-                            <h3 class="mb-0">Exclusivo</h3>
+                            <img src="images/FOTO%201.jpeg" alt="Atendimento Personalizado" class="img-fluid rounded shadow-lg object-fit-cover w-100" style="height: 400px;">
                         </div>
                     </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="d-flex align-items-center justify-content-lg-start mb-3">
+                        <i class="fa-solid fa-user-tie text-gold fs-3 me-3"></i>
+                        <h3 class="section-title text-start mb-0">Atendimento Personalizado</h3>
+                    </div>
+                    <p class="premium-text text-muted mt-4">
+                        Entendemos que nenhum caso é igual ao outro. Nosso modelo de advocacia boutique prioriza o relacionamento próximo e a escuta ativa. Realizamos um diagnóstico profundo da sua demanda, construindo soluções jurídicas desenhadas sob medida para o seu cenário e objetivos.
+                    </p>
                 </div>
             </div>
 
             <!-- Bloco 3: Defesa Estratégica -->
             <div class="row align-items-center">
-                <div class="col-lg-5 mb-5 mb-lg-0 position-relative order-1 order-lg-1">
+                <div class="col-lg-5 mb-5 mb-lg-0 position-relative">
                     <div class="about-image-wrapper">
                         <div class="image-box">
-                            <img src="images/foto4.jpg" alt="Defesa Estratégica" class="img-fluid rounded shadow-lg object-fit-cover w-100" style="height: 380px;">
+                            <img src="images/foto4.jpg" alt="Defesa Estratégica" class="img-fluid rounded shadow-lg object-fit-cover w-100" style="height: 400px;">
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 offset-lg-1 order-2 order-lg-2">
+                <div class="col-lg-6 offset-lg-1">
                     <div class="d-flex align-items-center mb-3">
                         <i class="fa-solid fa-chess-knight text-gold fs-3 me-3"></i>
-                        <h3 class="fw-bold mb-0 text-dark">Defesa Estratégica</h3>
+                        <h3 class="section-title text-start mb-0">Defesa Estratégica</h3>
                     </div>
-                    <p class="premium-text text-muted">
-                        Nossa atuação vai além do contencioso padrão. Desenvolvemos estratégias robustas, integrando análise aprofundada da jurisprudência, mapeamento de riscos e planejamento tático. O objetivo é sempre atuar em posições de vantagem, maximizando taxas de êxito em negociações e ações de alta complexidade.
+                    <p class="premium-text text-muted mt-4">
+                        Nossa atuação vai além do contencioso padrão. Desenvolvemos estratégias robustas, integrando análise aprofundada da jurisprudência, mapeamento de riscos e planejamento tático. O objetivo é sempre atuar em posições de vantagem, maximizando taxas de êxito em ações de alta complexidade.
                     </p>
                 </div>
             </div>
@@ -442,7 +459,7 @@
     </footer>
 
     <!-- WhatsApp Fixado Elegante -->
-    <a href="https://wa.me/5511944725587" target="_blank" class="float-whatsapp" aria-label="Fale pelo WhatsApp" data-bs-toggle="tooltip" data-bs-placement="left" title="Plantão de Dúvidas">
+    <a href="https://wa.me/5511944725587?text=Ol%C3%A1%20Dr.%20Natanael%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20do%20meu%20caso." target="_blank" class="float-whatsapp" aria-label="Fale pelo WhatsApp" data-bs-toggle="tooltip" data-bs-placement="left" title="Plantão de Dúvidas">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
@@ -500,20 +517,14 @@
 
                 function playVideo() {
                     hasPlayed = true;
-                    // Garantir que volume não seja surpresa brusca se possível (opcional fade in áudio),
-                    // mas como browser de mobile bloqueia áudio autoplay sem interação, tentamos capturar o erro:
+                    heroVideo.muted = false; // Garante áudio ao clicar
                     heroVideo.play().then(() => {
                         videoPoster.classList.add("hidden");
                         videoEndOverlay.classList.remove("visible");
                     }).catch(err => {
-                        // Se o bloqueio do browser impedir autoplay com áudio, mantemos a capa e exigimos o clique do user
-                        console.log("Autoplay bloqueado pelo Navegador. Aguardando clique na capa.");
+                        console.log("Aguardando clique na capa para reproduzir com áudio.");
                         videoPoster.classList.remove("hidden");
-                        heroVideo.muted = true; // Tenta muted
-                        heroVideo.play().then(() => {
-                            videoPoster.classList.add("hidden");
-                            videoEndOverlay.classList.remove("visible");
-                        }).catch(e => console.log("Obrigatório interação mútua"));
+                        // Não mutar, esperar o usuário clicar no playBtn
                     });
                 }
 
