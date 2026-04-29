@@ -24,19 +24,52 @@
     
     <style>
         /* Melhorias UI/UX & Efeitos Premium */
-        .nav-link { position: relative; }
-        .nav-link::after { content: ''; position: absolute; width: 0; height: 1px; bottom: 0; left: 0; background-color: var(--gold); transition: width 0.3s ease; }
-        .nav-link:hover::after { width: 100%; }
-        
+        .navbar { padding: 25px 0; transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
         .navbar.scrolled {
-            background: rgba(8, 12, 22, 0.85) !important;
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            padding: 12px 0;
+            background: rgba(8, 12, 22, 0.92) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(212, 175, 55, 0.15);
-            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
-            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
+        .brand-text-main { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--gold); letter-spacing: 0; transition: color 0.3s ease; }
+        .brand-text-sub { font-family: 'Lato', sans-serif; font-size: 0.7rem; font-weight: 400; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 4px; margin-top: 2px; }
+        .navbar-brand:hover .brand-text-main { color: #fff; }
+        
+        @media (max-width: 991.98px) {
+            .navbar { background: rgba(8, 12, 22, 0.98) !important; padding: 15px 0 !important; }
+            .navbar-collapse { padding: 20px 0; border-top: 1px solid rgba(212,175,55,0.1); margin-top: 15px; }
+        }
+        
+        /* Menu Items Premium */
+        .nav-link { 
+            position: relative; 
+            font-family: 'Lato', sans-serif; 
+            font-size: 0.85rem; 
+            font-weight: 400; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+            color: rgba(255,255,255,0.8) !important;
+            margin: 0 8px;
+            padding: 8px 0 !important;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover, .nav-link.active { color: var(--gold) !important; }
+        .nav-link::after { 
+            content: ''; 
+            position: absolute; 
+            width: 0; 
+            height: 1px; 
+            bottom: 0; 
+            left: 50%; 
+            transform: translateX(-50%);
+            background-color: var(--gold); 
+            transition: width 0.3s cubic-bezier(0.165, 0.84, 0.44, 1); 
+        }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        
         .btn-gold { position: relative; overflow: hidden; transition: all 0.3s ease; z-index: 1; }
         .btn-gold::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transition: all 0.5s ease; z-index: -1; }
         .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4) !important; }
@@ -81,21 +114,24 @@
     <!-- Marca d'água no fundo de toda a página -->
     <div class="site-watermark"></div>
 
-    <!-- Header / Navbar Automática (Transparente -> Sólida) -->
-    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <!-- Header / Navbar Automática (Tipográfica e Premium) -->
+    <nav class="navbar navbar-expand-lg fixed-top shadow-none" id="mainNav" style="background: transparent;">
         <div class="container">
-            <a class="navbar-brand" href="#inicio">
-                <img src="images/logo.jpg" alt="Logo Natanael Castro" class="nav-logo" style="mix-blend-mode: screen; filter: invert(1) brightness(2) contrast(1.2); height: 55px; width: auto; object-fit: contain;">
+            
+            <!-- Branding Textual Elegante -->
+            <a class="navbar-brand d-flex flex-column align-items-start text-decoration-none m-0 py-0" href="#inicio" style="line-height: 1;">
+                <span class="brand-text-main">Natanael Castro</span>
+                <span class="brand-text-sub">Advocacia</span>
             </a>
             
-            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Alternar navegação">
-                <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler custom-toggler shadow-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Alternar navegação">
+                <span class="navbar-toggler-icon" style="filter: invert(1) brightness(2) contrast(1.2);"></span>
             </button>
             
-            <div class="collapse navbar-collapse" id="navbarContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center text-lg-start">
+            <div class="collapse navbar-collapse" id="navbarContent" style="transition: all 0.3s ease;">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center text-lg-start align-items-lg-center mt-4 mt-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#inicio">Início</a>
+                        <a class="nav-link active" href="#inicio">Início</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#especialidades">Atuação</a>
@@ -111,7 +147,7 @@
                     </li>
                 </ul>
                 <div class="nav-actions d-flex justify-content-center align-items-center ms-lg-4 mt-3 mt-lg-0">
-                    <a href="https://wa.me/5511944725587?text=Ol%C3%A1%20Dr.%20Natanael%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20do%20meu%20caso." target="_blank" class="btn btn-outline-gold px-4 py-2" style="border-radius: 4px; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; font-weight: 600;">Consultoria</a>
+                    <a href="https://wa.me/5511944725587?text=Ol%C3%A1%20Dr.%20Natanael%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20do%20meu%20caso." target="_blank" class="btn btn-outline-gold px-4 py-2" style="border-radius: 3px; border-width: 1px; font-family: 'Lato', sans-serif; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.75rem; font-weight: 700; transition: all 0.35s ease;">Consultoria</a>
                 </div>
             </div>
         </div>
