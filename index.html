@@ -125,21 +125,37 @@
 /* ------------- VERSÃO A (LUXURY MINIMAL DARK) ------------- */
 .hero-a {
     position: relative;
-    background: var(--dark-bg);
+    background: #050814; /* Deep Navy Base */
     min-height: 100vh;
     display: flex;
     align-items: center;
     overflow: hidden;
     color: #ffffff;
 }
-/* Subtle Texture / Gradient */
+/* Subtle Texture / Gradient / Lighting */
 .hero-a::before {
     content: "";
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(circle at 70% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 30% 80%, rgba(255, 255, 255, 0.02) 0%, transparent 40%);
+    background: radial-gradient(circle at 60% 40%, rgba(212, 175, 55, 0.08) 0%, transparent 60%),
+                radial-gradient(circle at 20% 90%, rgba(255, 255, 255, 0.03) 0%, transparent 40%),
+                url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z" fill="%23cca43b" fill-opacity="0.03" fill-rule="nonzero"/%3E%3C/g%3E%3C/svg%3E');
     z-index: 1;
+}
+/* Optional subtle watermark */
+.hero-a::after {
+    content: "JUSTITIA";
+    position: absolute;
+    top: 50%; left: 0%;
+    transform: translateY(-50%) rotate(0deg);
+    font-size: 20rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.015);
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 2rem;
+    white-space: nowrap;
+    z-index: 0;
+    pointer-events: none;
 }
 .hero-a-content {
     position: relative;
@@ -188,77 +204,32 @@
 /* ------------- VERSÃO B (EDITORIAL LUXURY) ------------- */
 .hero-b {
     position: relative;
-    background: var(--light-bg);
+    background: #2a2522; /* Editorial Warm Charcoal / Bronze Dark */
     min-height: 100vh;
     display: flex;
     align-items: center;
     overflow: hidden;
-    color: #1a1a1a;
-    padding-top: 100px; /* offset for navbar */
-    border-top: 2px solid var(--gold);
+    color: #ffffff;
+    /* Removed padding-top and top-border to keep structure identical to A */
 }
-.hero-b-bg-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: 'Playfair Display', serif;
-    font-size: 25vw;
-    font-weight: 700;
-    color: rgba(0,0,0,0.02);
-    z-index: 0;
-    white-space: nowrap;
-    pointer-events: none;
-}
-.hero-b-content {
-    position: relative;
-    z-index: 2;
-}
-.hero-b-suptitle {
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--gold);
-    display: block;
-    margin-bottom: 15px;
-}
-.hero-b-title {
-    font-size: clamp(3.5rem, 6vw, 5.5rem);
-    font-weight: 600;
-    line-height: 1;
-    letter-spacing: -2px;
-    margin-bottom: 30px;
-    position: relative;
-}
-.hero-b-text {
-    font-family: 'Lato', sans-serif;
-    font-size: 1.15rem;
-    font-weight: 300;
-    color: #4a4a4a;
-    line-height: 1.8;
-    max-width: 90%;
-}
-.hero-b-video-wrapper {
-    position: relative;
-    z-index: 2;
-    margin-top: -50px;
-    box-shadow: 20px 20px 0px rgba(212, 175, 55, 0.1);
-}
-.hero-b-video-wrapper::before {
+/* Lighting and Texture */
+.hero-b::before {
     content: "";
     position: absolute;
-    top: -20px;
-    right: -20px;
-    width: 100px;
-    height: 100px;
-    border-top: 2px solid var(--gold);
-    border-right: 2px solid var(--gold);
-    z-index: -1;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 30% 20%, rgba(212, 175, 55, 0.15) 0%, transparent 55%),
+                linear-gradient(135deg, rgba(20,20,20,0.8) 0%, transparent 100%),
+                url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.05"/%3E%3C/svg%3E');
+    z-index: 1;
 }
-.hero-b-video-wrapper video {
-    width: 100%;
-    display: block;
+/* Classic editorial motif */
+.hero-b::after {
+    content: "";
+    position: absolute;
+    top: 5%; bottom: 5%; left: 3%; right: 3%;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    z-index: 0;
+    pointer-events: none;
 }
 
 /* Fix modal/buttons inside A/B */
@@ -382,23 +353,28 @@
     
     <!-- VERSÃO B: EDITORIAL LUXURY / MAGAZINE -->
     <header class="hero-b" id="inicio-b">
-        <div class="hero-b-bg-text">DEFESA</div>
         <div class="container hero-b-content">
             <div class="row align-items-center gx-lg-5">
-                <div class="col-lg-5 mb-5 mb-lg-0 z-index-2">
-                    <span class="hero-b-suptitle">Natanael Castro Advocacia</span>
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <span class="gold-line mb-3"></span>
                     <h1 class="hero-b-title font-serif">
-                        A Nova<br>Referência em<br>Direito.
+                        Defesa Estratégica &<br> <span class="gold-text">Soluções Premium</span>
                     </h1>
-                    <div class="gold-line mb-4"></div>
-                    <p class="hero-b-text mb-5">
-                        Estratégia jurídica desenhada sob medida. Aliamos profundo conhecimento técnico a uma visão arquitetônica de cada caso, garantindo precisão formidável.
+                    <p class="hero-b-subtitle mb-5">
+                        Assessoria jurídica boutique focada na excelência, discrição e resultados excepcionais para clientes exigentes em todo o Brasil.
                     </p>
-                    <a class="btn btn-dark-outline" href="#contact">Descubra Nossa Atuação</a>
+                    <div class="d-flex gap-3">
+                        <a class="btn btn-gold" href="#contact">Consultoria Exclusiva</a>
+                    </div>
+                    
+                    <div class="trust-indicators">
+                        <div class="trust-item"><i class="fa fa-balance-scale gold-text me-2"></i> Alta Complexidade</div>
+                        <div class="trust-item"><i class="fa fa-shield gold-text me-2"></i> Atuação Nacional</div>
+                    </div>
                 </div>
                 
-                <div class="col-lg-7">
-                    <div class="hero-b-video-wrapper">
+                <div class="col-lg-6">
+                    <div class="hero-b-video-wrapper shadow-lg">
                         <video id="videoB" loop muted playsinline poster="images/justica.jpg">
                             <source src="videos/video_bg.mp4" type="video/mp4">
                         </video>
