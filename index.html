@@ -24,7 +24,9 @@
 
         .navbar { padding:18px 0; background:rgba(5,6,9,.86)!important; border-bottom:1px solid rgba(212,175,55,.10); transition:all .35s ease; backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); z-index:9999; }
         .navbar.scrolled { padding:10px 0; background:rgba(5,6,9,.96)!important; border-bottom:1px solid rgba(212,175,55,.22); box-shadow:0 10px 35px rgba(0,0,0,.35); }
-        .navbar-brand { text-decoration:none; line-height:1; padding:0; }
+        .navbar-brand { text-decoration:none; line-height:1; padding:0; display:flex; align-items:center; gap:12px; }
+        .brand-icon { width:42px; height:42px; border:1px solid rgba(212,175,55,.62); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:1.05rem; background:rgba(212,175,55,.04); box-shadow:0 0 0 1px rgba(255,255,255,.025) inset; flex:0 0 auto; }
+        .brand-copy { display:block; }
         .brand-text-main { font-family:'Playfair Display',serif; font-size:1.55rem; font-weight:700; color:var(--gold); letter-spacing:.2px; line-height:.95; }
         .brand-text-sub { margin-top:4px; font-size:.68rem; color:rgba(255,255,255,.78); letter-spacing:4px; text-transform:uppercase; }
         .navbar-toggler { border:1px solid rgba(212,175,55,.45); border-radius:6px; box-shadow:none!important; padding:8px 10px; }
@@ -38,9 +40,9 @@
         .btn-nav-outline:hover { background:var(--gold); color:#070707!important; }
         @media(max-width:991.98px) { .navbar-collapse { background:rgba(5,6,9,.98); border:1px solid rgba(212,175,55,.18); margin-top:14px; padding:18px; border-radius:14px; box-shadow:0 25px 60px rgba(0,0,0,.45); } .btn-nav-outline { margin-left:0; margin-top:10px; text-align:center; } .nav-link { text-align:center; margin:5px 0; } }
 
-        .hero-a { position:relative; min-height:100vh; display:flex; align-items:center; padding:130px 0 80px; overflow:hidden; color:#fff; background:radial-gradient(circle at 72% 33%,rgba(212,175,55,.12),transparent 28%),radial-gradient(circle at 18% 72%,rgba(255,255,255,.045),transparent 30%),linear-gradient(135deg,#030406 0%,#060912 48%,#020305 100%); }
-        .hero-a::before { content:''; position:absolute; inset:0; background:linear-gradient(90deg,rgba(212,175,55,.05) 1px,transparent 1px),linear-gradient(0deg,rgba(212,175,55,.035) 1px,transparent 1px); background-size:80px 80px; opacity:.25; mask-image:radial-gradient(circle at center,black,transparent 72%); pointer-events:none; }
-        .hero-a::after { content:'NC'; position:absolute; right:-2vw; top:50%; transform:translateY(-50%); font-family:'Playfair Display',serif; font-size:clamp(16rem,33vw,38rem); font-weight:700; color:rgba(255,255,255,.025); line-height:.8; pointer-events:none; }
+        .hero-a { position:relative; min-height:100vh; display:flex; align-items:center; padding:130px 0 80px; overflow:hidden; color:#fff; background:#030303; }
+        .hero-a::before { content:''; position:absolute; inset:0; background:linear-gradient(90deg,rgba(3,3,3,.96) 0%,rgba(3,3,3,.88) 42%,rgba(3,3,3,.58) 72%,rgba(3,3,3,.92) 100%), radial-gradient(circle at 78% 18%,rgba(212,175,55,.12),transparent 30%), url('images/justica.jpg'); background-size:cover; background-position:center right; filter:saturate(.82) contrast(1.08); opacity:.82; pointer-events:none; }
+        .hero-a::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.72)), radial-gradient(circle at 18% 50%,rgba(212,175,55,.08),transparent 33%); pointer-events:none; }
         .hero-a-content { position:relative; z-index:3; }
         .hero-kicker { display:inline-flex; align-items:center; border:1px solid rgba(212,175,55,.55); color:var(--gold); padding:8px 18px; border-radius:999px; text-transform:uppercase; letter-spacing:2px; font-size:.72rem; font-weight:900; margin-bottom:22px; background:rgba(212,175,55,.035); }
         .hero-a-title { font-family:'Playfair Display',serif; font-size:clamp(2.8rem,5.8vw,5.4rem); font-weight:700; line-height:1.02; letter-spacing:-.04em; margin-bottom:26px; color:#fff; }
@@ -55,8 +57,8 @@
         .trust-indicators { margin-top:34px; padding-top:22px; border-top:1px solid rgba(255,255,255,.09); display:flex; flex-wrap:wrap; gap:22px; }
         .trust-item { color:rgba(255,255,255,.66); text-transform:uppercase; letter-spacing:1px; font-size:.78rem; font-weight:700; }
 
-        .hero-video-card { position:relative; border:1px solid rgba(212,175,55,.48); border-radius:16px; overflow:hidden; background:#000; box-shadow:0 35px 90px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.04) inset; aspect-ratio:16/10; cursor:pointer; }
-        .hero-video-card video { width:100%; height:100%; display:block; object-fit:cover; object-position:center; background:#000; }
+        .hero-video-card { position:relative; border:1px solid rgba(212,175,55,.48); border-radius:18px; overflow:hidden; background:#000; box-shadow:0 35px 90px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.04) inset; aspect-ratio:16/11.3; cursor:pointer; max-width:820px; margin-left:auto; }
+        .hero-video-card video { width:100%; height:100%; display:block; object-fit:cover; object-position:center 18%; background:#000; }
         .hero-video-card::before { content:''; position:absolute; inset:0; background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.5)); z-index:2; pointer-events:none; }
         .video-center-play { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); z-index:6; width:76px; height:76px; border-radius:50%; border:none; background:var(--gold); color:#070707; display:flex; align-items:center; justify-content:center; font-size:1.35rem; box-shadow:0 18px 45px rgba(0,0,0,.45); transition:.25s ease; }
         .video-center-play:hover { transform:translate(-50%,-50%) scale(1.06); }
@@ -78,7 +80,16 @@
         .revealed { opacity:1; transform:none; }
         .float-whatsapp { position:fixed; right:26px; bottom:26px; width:60px; height:60px; border-radius:50%; background:#25D366; color:#fff!important; display:flex; align-items:center; justify-content:center; font-size:2rem; z-index:9998; box-shadow:0 14px 32px rgba(37,211,102,.35); text-decoration:none; animation:whatsPulse 2.4s infinite; }
         @keyframes whatsPulse { 0% { box-shadow:0 0 0 0 rgba(37,211,102,.35); } 70% { box-shadow:0 0 0 14px rgba(37,211,102,0); } 100% { box-shadow:0 0 0 0 rgba(37,211,102,0); } }
-        @media(max-width:991.98px) { .hero-a { padding:120px 0 55px; min-height:auto; } .hero-a-title { font-size:clamp(2.5rem,11vw,4rem); } .hero-video-card { margin-top:35px; aspect-ratio:16/12; } }
+
+        .premium-footer { background:#050609!important; color:rgba(255,255,255,.78); border-top:1px solid rgba(212,175,55,.22); }
+        .premium-footer .footer-top { background:linear-gradient(135deg,#050609 0%,#0b0d12 55%,#050609 100%)!important; }
+        .premium-footer .footer-bottom { background:#020203!important; border-top:1px solid rgba(212,175,55,.16); }
+        .premium-footer a { color:rgba(255,255,255,.78); text-decoration:none; transition:.25s; }
+        .premium-footer a:hover { color:var(--gold); }
+        .premium-footer .footer-title { color:#fff; font-family:'Playfair Display',serif; }
+        .premium-footer i, .premium-footer .footer-separator { color:var(--gold); border-color:var(--gold); }
+
+        @media(max-width:991.98px) { .hero-a { padding:120px 0 55px; min-height:auto; } .hero-a-title { font-size:clamp(2.5rem,11vw,4rem); } .hero-video-card { margin-top:35px; aspect-ratio:16/12.5; max-width:100%; } }
         @media(max-width:575.98px) { .hero-actions a { width:100%; text-align:center; } .video-time { display:none; } .brand-text-main { font-size:1.25rem; } }
 </style>
 </head>
@@ -86,8 +97,11 @@
     <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand" href="#inicio" aria-label="Natanael Castro Advocacia">
-                <div class="brand-text-main">Natanael Castro</div>
-                <div class="brand-text-sub">Advocacia</div>
+                <span class="brand-icon" aria-hidden="true"><i class="fa-solid fa-scale-balanced"></i></span>
+                <span class="brand-copy">
+                    <span class="brand-text-main">Natanael Castro</span>
+                    <span class="brand-text-sub">Advocacia</span>
+                </span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Abrir menu"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
