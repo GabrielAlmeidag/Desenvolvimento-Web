@@ -324,7 +324,7 @@
    AJUSTE FINAL — HERO COM FUNDO DIREITO PREMIUM + VIDEO RESPONSIVO
    Mantém o site igual e corrige apenas a ambientação do hero e o corte do vídeo.
    ========================================================= */
-..hero-a {
+.hero-a {
     background-image:
         linear-gradient(90deg,
             rgba(2,2,2,.97) 0%,
@@ -443,7 +443,7 @@
                     <li class="nav-item"><a class="nav-link" href="#sobre">Perfil Profissional</a></li>
                     <li class="nav-item"><a class="nav-link" href="#galeria">Estrutura</a></li>
                     <li class="nav-item"><a class="nav-link" href="#duvidas">Dúvidas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contato" data-scroll-contact>Contato</a></li>
                     <li class="nav-item"><a class="nav-link btn btn-nav-outline" target="_blank" href="https://wa.me/5511944725587?text=Ol%C3%A1%20Dr.%20Natanael%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20do%20meu%20caso.">Consultoria</a></li>
                 </ul>
             </div>
@@ -839,11 +839,37 @@
             const navLinks = Array.from(document.querySelectorAll('#mainNav .nav-link[href^="#"]')).filter(link => !link.classList.contains('btn-nav-outline'));
             const sectionsSpy = navLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
             const activateNav = () => {
-                let currentId = '#inicio';
-                const checkPoint = window.scrollY + Math.max(120, window.innerHeight * 0.28);
-                sectionsSpy.forEach(section => { if (checkPoint >= section.offsetTop) currentId = '#' + section.id; });
-                navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === currentId));
-            };
+    let currentId = '#inicio';
+
+    const scrollPosition = window.scrollY;
+    const checkPoint = scrollPosition + window.innerHeight * 0.35;
+    const bottomReached = window.innerHeight + scrollPosition >= document.body.offsetHeight - 80;
+
+    if (bottomReached) {
+        currentId = '#contato';
+    } else {
+        sectionsSpy.forEach(section => {
+            if (checkPoint >= section.offsetTop) {
+                currentId = '#' + section.id;
+            }
+        });
+    }
+
+    navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === currentId);
+    });
+};
+document.querySelector('[data-scroll-contact]')?.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    document.querySelector('#contato').scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    });
+
+    navLinks.forEach(link => link.classList.remove('active'));
+    this.classList.add('active');
+});
             activateNav(); window.addEventListener('scroll', activateNav, { passive:true });
 
             const navbarCollapse = document.getElementById('navbarResponsive');
