@@ -65,15 +65,15 @@
     </nav>
 
     <!-- Seção Hero: Premium & Clean -->
-    <header id="inicio" class="hero-section" style="background: var(--primary); position: relative; overflow: hidden; min-height: 100vh;">
+    <header id="inicio" class="hero-section" style="background: var(--primary); position: relative; overflow: hidden; min-height: 100vh; display: flex; align-items: center;">
         <!-- Fundo Logo Transparente -->
-        <div class="hero-background-layer" style="position: absolute; inset: 0; width: 100%; height: 100%; background: url('images/logo.jpg') center/contain no-repeat; opacity: 0.05; mix-blend-mode: screen;"></div>
-        <div class="hero-background-layer" style="background: radial-gradient(circle at right, rgba(23, 42, 90, 0.4) 0%, var(--primary) 70%); position: absolute; inset: 0; width: 100%; height: 100%;"></div>
+        <div class="hero-background-layer" style="position: absolute; inset: 0; width: 100%; height: 100%; background: url('images/logo.jpg') center/contain no-repeat; opacity: 0.05; mix-blend-mode: screen; pointer-events: none;"></div>
+        <div class="hero-background-layer" style="background: radial-gradient(circle at right, rgba(23, 42, 90, 0.4) 0%, var(--primary) 70%); position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;"></div>
 
-        <div class="container-fluid px-4 px-xl-5 h-100 position-relative z-index-2 d-flex flex-column justify-content-center">
-            <div class="row align-items-center justify-content-start">
+        <div class="container-fluid px-4 px-xl-5 position-relative z-index-2 w-100 mt-5 mt-lg-0">
+            <div class="row align-items-center justify-content-evenly">
                 <!-- Texto -->
-                <div class="col-lg-6 col-xl-5 offset-xl-1 hero-content text-left" data-aos="fade-up">
+                <div class="col-lg-5 col-xl-4 offset-xl-1 hero-content text-left order-2 order-lg-1 mt-5 mt-lg-0" data-aos="fade-up">
                     <div class="hero-badge mb-3">Escritório de Advocacia Especializada</div>
                     <h1 class="hero-title mb-4">A EXCELÊNCIA NA DEFESA DOS <span>SEUS DIREITOS.</span></h1>
                     
@@ -91,26 +91,20 @@
                         </a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </header>
 
-    <!-- Seção de Vídeo -->
-    <section id="video-apresentacao" class="py-100 position-relative z-index-2 bg-soft">
-        <div class="container">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-lg-10" data-aos="fade-up" data-aos-delay="200">
-                    <div class="hero-video-container shadow-lg" style="border-radius: 12px; overflow: hidden; position: relative;">
+                <!-- Vídeo/Card Premium -->
+                <div class="col-lg-6 col-xl-5 order-1 order-lg-2 mt-4 mt-lg-0 pe-xl-5" data-aos="fade-up" data-aos-delay="200">
+                    <div class="hero-video-container shadow-lg" style="border: 2px solid var(--gold); border-radius: 12px; overflow: hidden; position: relative;">
                         <!-- Capa do Vídeo -->
                         <div class="hero-video-poster" id="videoPoster">
-                            <img src="images/justica.jpg" alt="Apresentação da Advocacia" class="img-fluid w-100">
+                            <img src="images/justica.jpg" alt="Apresentação da Advocacia" class="img-fluid w-100" style="object-fit: cover; aspect-ratio: 16/9;">
                             <button id="playBtn" class="play-btn" aria-label="Assistir vídeo">
                                 <i class="fa-solid fa-play"></i> <span class="d-none d-sm-inline">Assistir Vídeo</span>
                             </button>
                         </div>
                         
-                        <!-- O Vídeo Real (com controles nativos de áudio/volume) -->
-                        <video id="heroVideo" class="custom-video w-100" playsinline preload="metadata" controls poster="images/justica.jpg" style="max-height: 70vh; object-fit: cover; background: #000;">
+                        <!-- O Vídeo Real -->
+                        <video id="heroVideo" class="custom-video w-100" playsinline preload="metadata" controls poster="images/justica.jpg" style="background: #000; object-fit: contain; aspect-ratio: 16/9; max-height: 70vh;">
                             <source src="images/VIDEO1.mp4" type="video/mp4">
                         </video>
                         
@@ -130,7 +124,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </header>
 
     <!-- Áreas de Especialidades -->
     <section id="especialidades" class="py-100 position-relative z-index-2">
@@ -481,18 +475,19 @@
     <!-- Script Personalizado para Menu, Vídeo e Funcionalidades Extras -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Iniciar Animações (AOS)
+            // Iniciar Animações (AOS) - Configuração Suave e Única
             AOS.init({
                 duration: 800,
+                easing: 'ease-out-cubic',
                 once: true,
-                offset: 100
+                offset: 50
             });
 
             // Update Ano Automático
             document.getElementById("currentYear").textContent = new Date().getFullYear();
 
             // Ativar Tooltips
-            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
             var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
                 return new bootstrap.Tooltip(tooltipTriggerEl)
             });
@@ -507,7 +502,7 @@
                 }
             });
 
-            // Lógica do Vídeo: Delay, Play Elegante e Overlay no Final
+            // Lógica do Vídeo com Thumbnail e Reprodução Suave
             const heroVideo = document.getElementById("heroVideo");
             const videoPoster = document.getElementById("videoPoster");
             const playBtn = document.getElementById("playBtn");
@@ -515,44 +510,25 @@
             const replayBtn = document.getElementById("replayBtn");
 
             if(heroVideo) {
-                // Remove propriedades que forçam background
-                heroVideo.removeAttribute('loop');
-                heroVideo.muted = false; // Com áudio importante!
-                
-                // Variável para evitar auto-play indesejado repetido
-                let hasPlayed = false;
-
-                // Tentar reproduzir com delay de 2 a 3 segundos automaticamente
-                setTimeout(() => {
-                    if(!hasPlayed) {
-                        playVideo();
-                    }
-                }, 2500);
-
-                // Clicar manualmente no Play
+                // Clicar manualmente no Play (Garante reprodução com áudio)
                 playBtn.addEventListener('click', () => {
                     heroVideo.muted = false; // Garante áudio ao clicar manualmente
                     playVideo();
                 });
 
                 function playVideo() {
-                    hasPlayed = true;
-                    // Tenta o autoplay do vídeo mudo primeiro (padrão dos browsers)
-                    if(heroVideo.paused) {
-                        heroVideo.muted = true;
-                    }
                     heroVideo.play().then(() => {
-                        videoPoster.classList.add("hidden");
-                        videoEndOverlay.classList.remove("visible");
+                        videoPoster.style.display = 'none';
+                        if(videoEndOverlay) videoEndOverlay.classList.remove("visible");
                     }).catch(err => {
-                        console.log("Aguardando clique na capa para reproduzir.");
-                        videoPoster.classList.remove("hidden");
+                        console.log("Erro ao reproduzir. Aguardando interação do usuário.");
+                        videoPoster.style.display = 'flex';
                     });
                 }
 
-                // Quando terminar as imagens: O que acontece?
+                // Quando terminar o vídeo: O que acontece?
                 heroVideo.addEventListener('ended', function() {
-                    videoEndOverlay.classList.add("visible");
+                    if(videoEndOverlay) videoEndOverlay.classList.add("visible");
                 });
 
                 // Assistir novamente
