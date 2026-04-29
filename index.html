@@ -21,6 +21,60 @@
 
     <!-- Estilo Personalizado -->
     <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* Melhorias UI/UX & Efeitos Premium */
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 1px; bottom: 0; left: 0; background-color: var(--gold); transition: width 0.3s ease; }
+        .nav-link:hover::after { width: 100%; }
+        
+        .navbar.scrolled {
+            background: rgba(8, 12, 22, 0.85) !important;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+        }
+
+        .btn-gold { position: relative; overflow: hidden; transition: all 0.3s ease; z-index: 1; }
+        .btn-gold::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transition: all 0.5s ease; z-index: -1; }
+        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4) !important; }
+        .btn-gold:hover::before { left: 100%; }
+        
+        .btn-outline-gold:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2); }
+
+        .feature-card, .practice-card { transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
+        .feature-card:hover, .practice-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.1) !important; border-color: rgba(212, 175, 55, 0.5); }
+
+        .float-whatsapp { animation: pulse-whatsapp 2s infinite; }
+        @keyframes pulse-whatsapp {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Video Controls Custom UI */
+        .video-control-btn {
+            width: 45px; height: 45px; 
+            background: rgba(8, 12, 22, 0.6); 
+            backdrop-filter: blur(8px); 
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+        .video-control-btn:hover { background: rgba(212, 175, 55, 0.8); border-color: var(--gold); transform: scale(1.05); }
+        
+        .video-progress-bar-container { height: 4px; background: rgba(255,255,255,0.2); border-radius: 2px; overflow: hidden; cursor: pointer; }
+        .video-progress-fill { height: 100%; background: var(--gold); width: 0%; transition: width 0.1s linear; }
+        
+        /* End Screen Overlay */
+        .video-end-screen {
+            background: rgba(8, 12, 22, 0.85); 
+            backdrop-filter: blur(10px);
+            opacity: 0; visibility: hidden; transition: all 0.4s ease;
+        }
+        .video-end-screen.active { opacity: 1; visibility: visible; }
+    </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="80">
 
@@ -102,16 +156,55 @@
                     <div class="hero-visual-composition position-relative mx-auto mx-lg-0 shadow-lg" style="max-width: 580px; border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 12px; background: #000; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.5) !important;">
                         
                         <!-- Wrapper do Vídeo -->
-                        <div class="ratio border-0 m-0 p-0" style="--bs-aspect-ratio: 125%;" id="videoWrapper">
-                            <video id="heroVideo" playsinline preload="metadata" muted loop style="width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: opacity 0.5s ease;">
+                        <div class="ratio border-0 m-0 p-0" style="--bs-aspect-ratio: 125%; cursor: pointer;" id="videoWrapper">
+                            
+                            <video id="heroVideo" playsinline preload="metadata" muted style="width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: opacity 0.5s ease;">
                                 <source src="images/VIDEO1.mp4" type="video/mp4">
                             </video>
                             
-                            <!-- Controles Personalizados em Hover -->
-                            <div class="video-custom-controls position-absolute w-100 h-100 top-0 start-0 d-flex align-items-end justify-content-end p-3" style="background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 30%); opacity: 0; transition: opacity 0.3s ease;">
-                                <button id="toggleAudioBtn" class="btn rounded-circle text-white d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.2);">
-                                    <i class="fa-solid fa-volume-xmark" id="audioIcon"></i>
-                                </button>
+                            <!-- Tela Final (Overlay) Invisível no meio da execução -->
+                            <div id="videoEndOverlay" class="position-absolute w-100 h-100 top-0 start-0 z-index-3 d-flex flex-column align-items-center justify-content-center video-end-screen" style="border-radius: 12px;">
+                                <img id="videoEndThumbnail" src="images/justica.jpg" class="position-absolute w-100 h-100 object-fit-cover opacity-25" style="z-index:-1;" alt="Capa Final">
+                                <h4 class="text-white text-center fw-bold mb-4 font-playfair px-4" style="text-shadow: 0 4px 10px rgba(0,0,0,0.8);">Pronto para avançar com a sua defesa?</h4>
+                                
+                                <div class="d-flex flex-column gap-3 w-100 px-5 align-items-center z-10">
+                                    <a href="https://wa.me/5511944725587?text=Ol%C3%A1%20Dr.%20Natanael%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20do%20meu%20caso." target="_blank" class="btn btn-gold w-100 d-flex justify-content-center align-items-center gap-2" style="font-weight:700; text-transform: uppercase;">
+                                        <i class="fa-brands fa-whatsapp fs-5"></i> Agendar Avaliação
+                                    </a>
+                                    <button id="btnReplay" class="btn btn-outline-light w-100 d-flex justify-content-center align-items-center gap-2" style="background: rgba(255,255,255,0.05); text-transform: uppercase;">
+                                        <i class="fa-solid fa-arrow-rotate-left"></i> Assistir Novamente
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Controles Personalizados em Botões Flutuantes -->
+                            <div id="customControls" class="video-custom-controls position-absolute w-100 h-100 top-0 start-0 pointer-events-none d-flex flex-column justify-content-end p-0" style="background: linear-gradient(to top, rgba(8,12,22,0.85) 0%, transparent 35%); opacity: 0; transition: opacity 0.3s ease; z-index: 2;">
+                                
+                                <!-- Central Play/Pause Icon Flutuante (Somente Animação) -->
+                                <div id="centerPlayIcon" class="position-absolute top-50 start-50 translate-middle text-white" style="font-size: 4rem; text-shadow: 0 4px 15px rgba(0,0,0,0.8); opacity: 0; transform: scale(0.5); pointer-events: none; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
+                                    <i class="fa-solid fa-play"></i>
+                                </div>
+
+                                <div class="w-100 px-3 pb-3 pointer-events-auto" style="pointer-events: auto;">
+                                    <div class="d-flex w-100 justify-content-between align-items-center mb-2 gap-2">
+                                        <!-- Play / Pause -->
+                                        <button id="togglePlayBtn" class="btn rounded-circle text-white d-flex align-items-center justify-content-center video-control-btn shadow" title="Reproduzir/Pausar">
+                                            <i class="fa-solid fa-pause" id="playIcon"></i>
+                                        </button>
+                                        
+                                        <!-- Tempo de Progresso (Visual Elegante) -->
+                                        <span id="currentTime" class="text-white" style="font-size:0.75rem; font-weight:600; opacity:0.8; font-family: 'Lato', sans-serif;">0:00</span>
+                                        <div class="video-progress-bar-container flex-grow-1 mx-2" id="progressBarContainer">
+                                            <div class="video-progress-fill shadow" id="progressBarFill"></div>
+                                        </div>
+                                        <span id="durationTime" class="text-white" style="font-size:0.75rem; font-weight:600; opacity:0.8; font-family: 'Lato', sans-serif;">0:00</span>
+
+                                        <!-- Volume -->
+                                        <button id="toggleAudioBtn" class="btn rounded-circle text-white d-flex align-items-center justify-content-center video-control-btn shadow" title="Mudo/Desmutar">
+                                            <i class="fa-solid fa-volume-xmark" id="audioIcon"></i>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -501,58 +594,134 @@
             // Lógica do Vídeo Integrado no Hero
             const heroVideo = document.getElementById("heroVideo");
             const toggleAudioBtn = document.getElementById("toggleAudioBtn");
+            const togglePlayBtn = document.getElementById("togglePlayBtn");
+            const playIcon = document.getElementById("playIcon");
             const audioIcon = document.getElementById("audioIcon");
             const videoWrapper = document.getElementById("videoWrapper");
-            const customControls = document.querySelector(".video-custom-controls");
+            const customControls = document.getElementById("customControls");
+            const progressBarContainer = document.getElementById("progressBarContainer");
+            const progressBarFill = document.getElementById("progressBarFill");
+            const currentTimeEl = document.getElementById("currentTime");
+            const durationTimeEl = document.getElementById("durationTime");
+            const videoEndOverlay = document.getElementById("videoEndOverlay");
+            const btnReplay = document.getElementById("btnReplay");
+            const centerPlayIcon = document.getElementById("centerPlayIcon");
 
             if(heroVideo) {
-                // Autoplay 3 segundos após carregar (mutado por padrão do navegador)
+                let isUserInteracted = false;
+
+                // Formatar Tempo (0:00)
+                const formatTime = (time) => {
+                    const minutes = Math.floor(time / 60);
+                    const seconds = Math.floor(time % 60);
+                    return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+                };
+
+                // Carregamento Inicial do Vídeo
+                heroVideo.addEventListener('loadedmetadata', () => {
+                    durationTimeEl.textContent = formatTime(heroVideo.duration);
+                });
+
+                // Autoplay sutil de início (mudo)
                 setTimeout(() => {
-                    heroVideo.muted = true;
-                    heroVideo.play().catch(error => {
-                        console.log("Autoplay bloqueado pelo navegador.", error);
-                    });
+                    if (!isUserInteracted) {
+                        heroVideo.muted = true;
+                        heroVideo.play().then(() => {
+                            playIcon.classList.remove('fa-play');
+                            playIcon.classList.add('fa-pause');
+                        }).catch(error => console.log("Autoplay bloqueado", error));
+                    }
                 }, 3000);
 
-                // Exibir controles customizados sutilmente com Hover (Desktop)
-                if(videoWrapper && customControls) {
-                    videoWrapper.addEventListener('mouseenter', () => {
-                        customControls.style.opacity = '1';
-                    });
-                    videoWrapper.addEventListener('mouseleave', () => {
-                        customControls.style.opacity = '0';
-                    });
-                    
-                    // Suporte mobile (toque p/ aparecer controles)
-                    videoWrapper.addEventListener('click', (e) => {
-                        if(e.target !== toggleAudioBtn && e.target !== audioIcon) {
-                            customControls.style.opacity = customControls.style.opacity === '1' ? '0' : '1';
+                // Alternar Play/Pause Global (Botão e Clique no Vídeo)
+                const togglePlay = () => {
+                    isUserInteracted = true;
+                    if(heroVideo.paused || heroVideo.ended) {
+                        if (heroVideo.ended) {
+                            videoEndOverlay.classList.remove("active");
+                            heroVideo.currentTime = 0;
                         }
-                    });
-                }
+                        heroVideo.play();
+                        playIcon.classList.remove('fa-play');
+                        playIcon.classList.add('fa-pause');
+                        
+                        // Efeito ícone central Play sumindo
+                        centerPlayIcon.style.opacity = '1';
+                        centerPlayIcon.style.transform = 'scale(1.2) translate(-50%, -50%)';
+                        setTimeout(() => centerPlayIcon.style.opacity = '0', 300);
+                        
+                    } else {
+                        heroVideo.pause();
+                        playIcon.classList.remove('fa-pause');
+                        playIcon.classList.add('fa-play');
+                        
+                        // Efeito ícone central Play aparecendo firme
+                        centerPlayIcon.innerHTML = '<i class="fa-solid fa-play"></i>';
+                        centerPlayIcon.style.opacity = '0.8';
+                        centerPlayIcon.style.transform = 'scale(1) translate(-50%, -50%)';
+                    }
+                };
+
+                // Clicões
+                togglePlayBtn.addEventListener('click', (e) => { e.stopPropagation(); togglePlay(); });
+                videoWrapper.addEventListener('click', (e) => { 
+                    if(e.target !== toggleAudioBtn && e.target !== audioIcon && e.target !== progressBarContainer && e.target !== progressBarFill && e.target !== togglePlayBtn && e.target !== playIcon && !e.target.closest('#videoEndOverlay')) {
+                        togglePlay(); 
+                    }
+                });
+
+                // Hover Efeitos Controle
+                videoWrapper.addEventListener('mouseenter', () => customControls.style.opacity = '1');
+                videoWrapper.addEventListener('mouseleave', () => {
+                    if(!heroVideo.paused) customControls.style.opacity = '0';
+                });
+
+                // Atualizar Tempo e Progresso (Barra)
+                heroVideo.addEventListener('timeupdate', () => {
+                    const percent = (heroVideo.currentTime / heroVideo.duration) * 100;
+                    progressBarFill.style.width = percent + '%';
+                    currentTimeEl.textContent = formatTime(heroVideo.currentTime);
+                });
+
+                // Clicar na barra de progresso
+                progressBarContainer.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const rect = progressBarContainer.getBoundingClientRect();
+                    const clickX = e.clientX - rect.left;
+                    const newTime = (clickX / rect.width) * heroVideo.duration;
+                    heroVideo.currentTime = newTime;
+                });
+
+                // Final do Vídeo (End Screen)
+                heroVideo.addEventListener('ended', () => {
+                    videoEndOverlay.classList.add("active");
+                    customControls.style.opacity = '0';
+                    playIcon.classList.remove('fa-pause');
+                    playIcon.classList.add('fa-play');
+                });
+
+                // Replay Button (Overlay)
+                btnReplay.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    videoEndOverlay.classList.remove("active");
+                    heroVideo.currentTime = 0;
+                    togglePlay();
+                });
 
                 // Alternar Volume
-                if(toggleAudioBtn) {
-                    toggleAudioBtn.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        
-                        if(heroVideo.muted) {
-                            heroVideo.muted = false;
-                            audioIcon.classList.remove('fa-volume-xmark');
-                            audioIcon.classList.add('fa-volume-high');
-                            
-                            // Se pausado, roda!
-                            if (heroVideo.paused) {
-                                heroVideo.play();
-                            }
-                        } else {
-                            heroVideo.muted = true;
-                            audioIcon.classList.remove('fa-volume-high');
-                            audioIcon.classList.add('fa-volume-xmark');
-                        }
-                    });
-                }
+                toggleAudioBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    isUserInteracted = true;
+                    if(heroVideo.muted) {
+                        heroVideo.muted = false;
+                        audioIcon.classList.remove('fa-volume-xmark');
+                        audioIcon.classList.add('fa-volume-high');
+                    } else {
+                        heroVideo.muted = true;
+                        audioIcon.classList.remove('fa-volume-high');
+                        audioIcon.classList.add('fa-volume-xmark');
+                    }
+                });
             }
         });
     </script>
