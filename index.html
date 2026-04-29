@@ -31,7 +31,7 @@
     <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#inicio">
-                <img src="images/logo.jpg" alt="Logo Natanael Castro" class="nav-logo" style="border-radius: 5px;">
+                <img src="images/logo.jpg" alt="Logo Natanael Castro" class="nav-logo" style="mix-blend-mode: multiply; border-radius: 0; padding: 0; background: transparent;">
                 <span class="ms-3 d-none d-sm-block brand-text">Natanael Castro<br><small>Advocacia</small></span>
             </a>
             
@@ -65,14 +65,15 @@
     </nav>
 
     <!-- Seção Hero: Premium & Clean -->
-    <header id="inicio" class="hero-section" style="background: url('images/justica.jpg') center/cover no-repeat; position: relative;">
-        <!-- Fundo Escuro Sólido / Overlay -->
-        <div class="hero-background-layer" style="background: rgba(10, 17, 40, 0.85); position: absolute; inset: 0; width: 100%; height: 100%;"></div>
+    <header id="inicio" class="hero-section" style="background: var(--primary); position: relative; overflow: hidden; min-height: 100vh;">
+        <!-- Fundo Logo Transparente -->
+        <div class="hero-background-layer" style="position: absolute; inset: 0; width: 100%; height: 100%; background: url('images/logo.jpg') center/contain no-repeat; opacity: 0.05; mix-blend-mode: screen;"></div>
+        <div class="hero-background-layer" style="background: radial-gradient(circle at right, rgba(23, 42, 90, 0.4) 0%, var(--primary) 70%); position: absolute; inset: 0; width: 100%; height: 100%;"></div>
 
-        <div class="container-fluid px-4 px-xl-5 h-100 position-relative z-index-2">
-            <div class="row h-100 align-items-center pt-5 pt-lg-0 justify-content-evenly">
+        <div class="container-fluid px-4 px-xl-5 h-100 position-relative z-index-2 d-flex flex-column justify-content-center">
+            <div class="row align-items-center justify-content-start">
                 <!-- Texto -->
-                <div class="col-lg-5 col-xl-4 offset-xl-1 hero-content text-left order-2 order-lg-1 mt-5 mt-lg-0" data-aos="fade-up">
+                <div class="col-lg-6 col-xl-5 offset-xl-1 hero-content text-left" data-aos="fade-up">
                     <div class="hero-badge mb-3">Escritório de Advocacia Especializada</div>
                     <h1 class="hero-title mb-4">A EXCELÊNCIA NA DEFESA DOS <span>SEUS DIREITOS.</span></h1>
                     
@@ -90,20 +91,26 @@
                         </a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </header>
 
-                <div class="col-lg-6 col-xl-6 order-1 order-lg-2 hero-video-col mt-4 mt-lg-0 pe-xl-5" data-aos="fade-left" data-aos-delay="200">
-                    <div class="hero-video-container shadow-lg" style="border-radius: 8px; overflow: hidden; position: relative;">
-                        
+    <!-- Seção de Vídeo -->
+    <section id="video-apresentacao" class="py-100 position-relative z-index-2 bg-soft">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-10" data-aos="fade-up" data-aos-delay="200">
+                    <div class="hero-video-container shadow-lg" style="border-radius: 12px; overflow: hidden; position: relative;">
                         <!-- Capa do Vídeo -->
                         <div class="hero-video-poster" id="videoPoster">
                             <img src="images/justica.jpg" alt="Apresentação da Advocacia" class="img-fluid w-100">
                             <button id="playBtn" class="play-btn" aria-label="Assistir vídeo">
-                                <i class="fa-solid fa-play"></i> <span>Assistir Vídeo</span>
+                                <i class="fa-solid fa-play"></i> <span class="d-none d-sm-inline">Assistir Vídeo</span>
                             </button>
                         </div>
                         
                         <!-- O Vídeo Real (com controles nativos de áudio/volume) -->
-                        <video id="heroVideo" class="custom-video w-100" playsinline preload="metadata" controls poster="images/justica.jpg">
+                        <video id="heroVideo" class="custom-video w-100" playsinline preload="metadata" controls poster="images/justica.jpg" style="max-height: 70vh; object-fit: cover; background: #000;">
                             <source src="images/VIDEO1.mp4" type="video/mp4">
                         </video>
                         
@@ -123,7 +130,7 @@
                 </div>
             </div>
         </div>
-    </header>
+    </section>
 
     <!-- Áreas de Especialidades -->
     <section id="especialidades" class="py-100 position-relative z-index-2">
@@ -435,7 +442,7 @@
                                 <i class="fa-brands fa-whatsapp"></i>
                                 <span>
                                     <strong>WhatsApp e Plantão</strong><br>
-                                    <a href="https://wa.me/5511944725587">(11) 94472-5587</a>
+                                    <a href="https://wa.me/5511944725587?text=Ol%C3%A1%20Dr.%20Natanael%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20do%20meu%20caso.">(11) 94472-5587</a>
                                 </span>
                             </li>
                             <li>
