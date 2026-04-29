@@ -23,94 +23,284 @@
     <link rel="stylesheet" href="css/style.css">
     
     <style>
-        /* Smooth Scrolling Configuration para Bootstrap 5.3+ ScrollSpy fix */
-        html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+/* =========================================================================
+   STYLE A/B TEST - Navbar + Heros (Versões A e B)
+   ========================================================================= */
 
-        /* Melhorias UI/UX & Efeitos Premium */
-        .navbar { padding: 25px 0; transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
-        .navbar.scrolled {
-            padding: 12px 0;
-            background: rgba(8, 12, 22, 0.92) !important;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
+/* ------------- NAVBAR PREMIUM ------------- */
+.navbar {
+    padding: 20px 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: transparent;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.navbar.scrolled {
+    padding: 12px 0;
+    background: rgba(8, 12, 22, 0.9) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+.brand-text-main {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: #fff;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+    line-height: 1;
+}
+.brand-text-sub {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    color: var(--gold);
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+.nav-link {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.7) !important;
+    position: relative;
+    padding: 8px 12px !important;
+    margin: 0 5px;
+    transition: color 0.3s ease;
+}
+.nav-link:hover, .nav-link.active {
+    color: #cca43b !important;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #cca43b;
+    transition: width 0.3s ease;
+}
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
+.btn-nav-outline {
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    color: #cca43b !important;
+    border-radius: 0;
+    padding: 10px 24px !important;
+    transition: all 0.3s ease;
+}
+.btn-nav-outline:hover {
+    background: rgba(212, 175, 55, 0.1);
+    color: #cca43b !important;
+}
 
-        .brand-text-main { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--gold); letter-spacing: 0; transition: color 0.3s ease; }
-        .brand-text-sub { font-family: 'Lato', sans-serif; font-size: 0.7rem; font-weight: 400; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 4px; margin-top: 2px; }
-        .navbar-brand:hover .brand-text-main { color: #fff; }
-        
-        @media (max-width: 991.98px) {
-            .navbar { background: rgba(8, 12, 22, 0.98) !important; padding: 15px 0 !important; }
-            .navbar-collapse { padding: 20px 0; border-top: 1px solid rgba(212,175,55,0.1); margin-top: 15px; }
-        }
-        
-        /* Menu Items Premium */
-        .nav-link { 
-            position: relative; 
-            font-family: 'Lato', sans-serif; 
-            font-size: 0.85rem; 
-            font-weight: 400; 
-            text-transform: uppercase; 
-            letter-spacing: 1.5px; 
-            color: rgba(255,255,255,0.8) !important;
-            margin: 0 8px;
-            padding: 8px 0 !important;
-            transition: color 0.3s ease;
-        }
-        .nav-link:hover, .nav-link.active { color: var(--gold) !important; }
-        .nav-link::after { 
-            content: ''; 
-            position: absolute; 
-            width: 0; 
-            height: 1px; 
-            bottom: 0; 
-            left: 50%; 
-            transform: translateX(-50%);
-            background-color: var(--gold); 
-            transition: width 0.3s cubic-bezier(0.165, 0.84, 0.44, 1); 
-        }
-        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
-        
-        .btn-gold { position: relative; overflow: hidden; transition: all 0.3s ease; z-index: 1; }
-        .btn-gold::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transition: all 0.5s ease; z-index: -1; }
-        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4) !important; }
-        .btn-gold:hover::before { left: 100%; }
-        
-        .btn-outline-gold:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2); }
+/* ------------- GLOBAL CLASSES ------------- */
+:root {
+    --gold: #cca43b;
+    --gold-light: #e8c678;
+    --dark-bg: #080a0f;
+    --light-bg: #F9F8F5; /* off-white/champagne */
+}
+.gold-text { color: var(--gold); }
+.gold-line {
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    display: inline-block;
+}
+.gold-line-vert {
+    width: 1px;
+    height: 60px;
+    background: var(--gold);
+    margin: 0 auto;
+}
+.font-serif { font-family: 'Playfair Display', serif; }
 
-        .feature-card, .practice-card { transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
-        .feature-card:hover, .practice-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.1) !important; border-color: rgba(212, 175, 55, 0.5); }
+/* ------------- VERSÃO A (LUXURY MINIMAL DARK) ------------- */
+.hero-a {
+    position: relative;
+    background: var(--dark-bg);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    color: #ffffff;
+}
+/* Subtle Texture / Gradient */
+.hero-a::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 70% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 30% 80%, rgba(255, 255, 255, 0.02) 0%, transparent 40%);
+    z-index: 1;
+}
+.hero-a-content {
+    position: relative;
+    z-index: 3;
+}
+.hero-a-title {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+.hero-a-subtitle {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: #cfd4da;
+    line-height: 1.8;
+}
+.trust-indicators {
+    margin-top: 40px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 20px;
+}
+.trust-item {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.hero-a-video-wrapper {
+    position: relative;
+    z-index: 3;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 10px;
+    background: rgba(255,255,255,0.02);
+}
+.hero-a-video-wrapper video {
+    width: 100%;
+    filter: brightness(0.9) contrast(1.1);
+    display: block;
+}
 
-        .float-whatsapp { animation: pulse-whatsapp 2s infinite; }
-        @keyframes pulse-whatsapp {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
+/* ------------- VERSÃO B (EDITORIAL LUXURY) ------------- */
+.hero-b {
+    position: relative;
+    background: var(--light-bg);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    color: #1a1a1a;
+    padding-top: 100px; /* offset for navbar */
+    border-top: 2px solid var(--gold);
+}
+.hero-b-bg-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 25vw;
+    font-weight: 700;
+    color: rgba(0,0,0,0.02);
+    z-index: 0;
+    white-space: nowrap;
+    pointer-events: none;
+}
+.hero-b-content {
+    position: relative;
+    z-index: 2;
+}
+.hero-b-suptitle {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 15px;
+}
+.hero-b-title {
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -2px;
+    margin-bottom: 30px;
+    position: relative;
+}
+.hero-b-text {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 300;
+    color: #4a4a4a;
+    line-height: 1.8;
+    max-width: 90%;
+}
+.hero-b-video-wrapper {
+    position: relative;
+    z-index: 2;
+    margin-top: -50px;
+    box-shadow: 20px 20px 0px rgba(212, 175, 55, 0.1);
+}
+.hero-b-video-wrapper::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 100px;
+    height: 100px;
+    border-top: 2px solid var(--gold);
+    border-right: 2px solid var(--gold);
+    z-index: -1;
+}
+.hero-b-video-wrapper video {
+    width: 100%;
+    display: block;
+}
 
-        /* Video Controls Custom UI */
-        .video-control-btn {
-            width: 45px; height: 45px; 
-            background: rgba(8, 12, 22, 0.6); 
-            backdrop-filter: blur(8px); 
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            transition: all 0.3s ease;
-        }
-        .video-control-btn:hover { background: rgba(212, 175, 55, 0.8); border-color: var(--gold); transform: scale(1.05); }
-        
-        .video-progress-bar-container { height: 4px; background: rgba(255,255,255,0.2); border-radius: 2px; overflow: hidden; cursor: pointer; }
-        .video-progress-fill { height: 100%; background: var(--gold); width: 0%; transition: width 0.1s linear; }
-        
-        /* End Screen Overlay */
-        .video-end-screen {
-            background: rgba(8, 12, 22, 0.85); 
-            backdrop-filter: blur(10px);
-            opacity: 0; visibility: hidden; transition: all 0.4s ease;
-        }
-        .video-end-screen.active { opacity: 1; visibility: visible; }
-    </style>
+/* Fix modal/buttons inside A/B */
+.btn-gold {
+    background: var(--gold);
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    padding: 15px 35px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+.btn-gold:hover { background: #b58d28; color: #fff; }
+.btn-dark-outline {
+    border: 1px solid #1a1a1a;
+    color: #1a1a1a;
+    border-radius: 0;
+    padding: 15px 35px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+.btn-dark-outline:hover { background: #1a1a1a; color: #fff; }
+.controls-overlay {
+    position: absolute;
+    bottom: 20px; right: 20px;
+    z-index: 10;
+    display: flex; gap: 10px;
+}
+.controls-overlay button {
+    background: rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: 0.3s;
+}
+.controls-overlay button:hover { background: var(--gold); border-color: var(--gold); }
+</style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true">
 
@@ -118,232 +308,110 @@
     <div class="site-watermark"></div>
 
     <!-- Header / Navbar Automática (Tipográfica e Premium) -->
-    <nav class="navbar navbar-expand-lg fixed-top shadow-none" id="mainNav" style="background: transparent;">
-        <div class="container">
-            
-            <!-- Branding Textual Elegante -->
-            <a class="navbar-brand d-flex flex-column align-items-start text-decoration-none m-0 py-0" href="#inicio" style="line-height: 1;">
-                <span class="brand-text-main">Natanael Castro</span>
-                <span class="brand-text-sub">Advocacia</span>
-            </a>
-            
-            <button class="navbar-toggler custom-toggler shadow-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Alternar navegação">
-                <span class="navbar-toggler-icon" style="filter: invert(1) brightness(2) contrast(1.2);"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarContent" style="transition: all 0.3s ease;">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center text-lg-start align-items-lg-center mt-4 mt-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#inicio">Início</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#especialidades">Atuação</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#sobre">Perfil Profissional</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#galeria">Estrutura</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contato">Contato</a>
-                    </li>
-                </ul>
-                <div class="nav-actions d-flex justify-content-center align-items-center ms-lg-4 mt-3 mt-lg-0">
-                    <a href="https://wa.me/5511944725587?text=Ol%C3%A1%20Dr.%20Natanael%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20do%20meu%20caso." target="_blank" class="btn btn-outline-gold px-4 py-2" style="border-radius: 3px; border-width: 1px; font-family: 'Lato', sans-serif; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.75rem; font-weight: 700; transition: all 0.35s ease;">Consultoria</a>
-                </div>
-            </div>
+    <!-- NAVBAR -->
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand text-center" href="#inicio">
+            <div class="brand-text-main">Natanael Castro</div>
+            <div class="brand-text-sub">Advocacia</div>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa fa-bars" style="color: var(--gold); font-size: 1.5rem;"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto py-4 py-lg-0 align-items-center">
+                <li class="nav-item"><a class="nav-link" href="#inicio">Início (A)</a></li>
+                <li class="nav-item"><a class="nav-link" href="#inicio-b">Início (B)</a></li>
+                <li class="nav-item"><a class="nav-link" href="#especialidades">Especialidades</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">Sobre</a></li>
+                <li class="nav-item"><a class="nav-link" href="#galeria">Galeria</a></li>
+                <li class="nav-item"><a class="nav-link" href="#duvidas">Dúvidas</a></li>
+                <li class="nav-item ms-lg-3"><a class="nav-link btn btn-nav-outline" href="#contact">Fale Conosco</a></li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <!-- Seção Hero: Premium Boutique -->
     <!-- ============================= -->
     <!-- VERSÃO A - HERO ESCURO -->
     <!-- ============================= -->
-    <header id="inicio" class="hero-section position-relative overflow-hidden d-flex align-items-center" style="min-height: 100vh; background: url('images/justica.jpg') no-repeat center center; background-size: cover; background-attachment: fixed; padding-top: 100px;">
-        <!-- Overlay Azul Marinho Escuro -->
-        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(8, 12, 28, 0.85); z-index: 1;"></div>
-
-        <!-- Fundo Escuro com Detalhes Ouro Sutis -->
-        <div class="hero-background-layer position-absolute w-100 h-100" style="inset: 0; background: radial-gradient(circle at 80% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 50%); pointer-events: none;"></div>
-        <div class="hero-background-layer position-absolute w-100 h-100" style="inset: 0; background: radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.03) 0%, transparent 40%); pointer-events: none;"></div>
-
-        <div class="container-fluid px-4 px-xl-5 position-relative z-index-2 w-100 pb-5 pb-lg-0">
-            <div class="row align-items-center justify-content-center justify-content-lg-evenly h-100">
-                
-                <!-- Texto (Esquerda) -->
-                <div class="col-lg-5 col-xl-4 offset-xl-1 text-left mt-4 mt-lg-0 mb-5 mb-lg-0" data-aos="fade-up" data-aos-duration="1000">
-                    <div class="hero-badge d-inline-block px-3 py-1 mb-4" style="border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 50px; background: rgba(255,255,255,0.02); font-family: 'Lato', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--gold);">
-                        Escritório de Advocacia Especializada
-                    </div>
-                    
-                    <h1 class="hero-title mb-4 text-white" style="font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.5px;">
-                        A EXCELÊNCIA NA DEFESA DOS <span style="color: var(--gold); display: block; margin-top: 5px;">SEUS DIREITOS.</span>
+    
+    <!-- VERSÃO A: LUXURY MINIMAL DARK -->
+    <header class="hero-a" id="inicio">
+        <div class="container hero-a-content">
+            <div class="row align-items-center gx-lg-5">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <span class="gold-line mb-3"></span>
+                    <h1 class="hero-a-title font-serif">
+                        Defesa Estratégica &<br> <span class="gold-text">Soluções Premium</span>
                     </h1>
+                    <p class="hero-a-subtitle mb-5">
+                        Assessoria jurídica boutique focada na excelência, discrição e resultados excepcionais para clientes exigentes em todo o Brasil.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a class="btn btn-gold" href="#contact">Consultoria Exclusiva</a>
+                    </div>
                     
-                    <blockquote class="premium-quote mb-5" style="border-left: 2px solid var(--gold); padding-left: 20px; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: rgba(255,255,255,0.8);">
-                        "A injustiça num lugar qualquer é uma ameaça à justiça em todo o lugar."
-                        <cite style="display: block; font-family: 'Lato', sans-serif; font-size: 0.85rem; font-style: normal; margin-top: 10px; color: var(--gold); text-transform: uppercase; letter-spacing: 1px;">— Martin Luther King</cite>
-                    </blockquote>
-                    
-                    <div class="hero-buttons d-flex flex-wrap gap-3" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-                        <a href="https://wa.me/5511944725587?text=Ol%C3%A1%20Dr.%20Natanael%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20do%20meu%20caso." target="_blank" class="btn btn-gold btn-lg px-4 d-flex align-items-center justify-content-center gap-2 shadow" style="border-radius: 4px; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; padding-top: 15px; padding-bottom: 15px; border: none;">
-                            <i class="fa-brands fa-whatsapp fs-5"></i> Agendar Avaliação
-                        </a>
-                        <a href="#especialidades" class="btn btn-outline-light btn-lg px-4 d-flex align-items-center justify-content-center gap-2" style="border-radius: 4px; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; border-color: rgba(255,255,255,0.15);">
-                            Nossas Áreas
-                        </a>
+                    <div class="trust-indicators">
+                        <div class="trust-item"><i class="fa fa-balance-scale gold-text me-2"></i> Alta Complexidade</div>
+                        <div class="trust-item"><i class="fa fa-shield gold-text me-2"></i> Atuação Nacional</div>
                     </div>
                 </div>
-
-                <!-- Vídeo Integrado Premium (Direita) -->
-                <div class="col-lg-6 col-xl-5 position-relative pe-xl-5 mt-4 mt-lg-0" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="300">
-                    <div class="hero-visual-composition position-relative mx-auto mx-lg-0 shadow-lg" style="max-width: 580px; border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 12px; background: #000; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.5) !important;">
-                        
-                        <!-- Wrapper do Vídeo -->
-                        <div class="ratio border-0 m-0 p-0" style="--bs-aspect-ratio: 125%; cursor: pointer;" id="videoWrapper">
-                            
-                            <video id="heroVideo" playsinline preload="metadata" muted style="width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: opacity 0.5s ease;">
-                                <source src="images/VIDEO1.mp4" type="video/mp4">
-                            </video>
-                            
-                            <!-- Tela Final (Overlay) Invisível no meio da execução -->
-                            <div id="videoEndOverlay" class="position-absolute w-100 h-100 top-0 start-0 z-index-3 d-flex flex-column align-items-center justify-content-center video-end-screen" style="border-radius: 12px;">
-                                <img id="videoEndThumbnail" src="images/justica.jpg" class="position-absolute w-100 h-100 object-fit-cover opacity-25" style="z-index:-1;" alt="Capa Final">
-                                <h4 class="text-white text-center fw-bold mb-4 font-playfair px-4" style="text-shadow: 0 4px 10px rgba(0,0,0,0.8);">Pronto para avançar com a sua defesa?</h4>
-                                
-                                <div class="d-flex flex-column gap-3 w-100 px-5 align-items-center z-10">
-                                    <a href="https://wa.me/5511944725587?text=Ol%C3%A1%20Dr.%20Natanael%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20do%20meu%20caso." target="_blank" class="btn btn-gold w-100 d-flex justify-content-center align-items-center gap-2" style="font-weight:700; text-transform: uppercase;">
-                                        <i class="fa-brands fa-whatsapp fs-5"></i> Agendar Avaliação
-                                    </a>
-                                    <button id="btnReplay" class="btn btn-outline-light w-100 d-flex justify-content-center align-items-center gap-2" style="background: rgba(255,255,255,0.05); text-transform: uppercase;">
-                                        <i class="fa-solid fa-arrow-rotate-left"></i> Assistir Novamente
-                                    </button>
-                                </div>
-                            </div>
-                            
-                            <!-- Controles Personalizados em Botões Flutuantes -->
-                            <div id="customControls" class="video-custom-controls position-absolute w-100 h-100 top-0 start-0 pointer-events-none d-flex flex-column justify-content-end p-0" style="background: linear-gradient(to top, rgba(8,12,22,0.85) 0%, transparent 35%); opacity: 0; transition: opacity 0.3s ease; z-index: 2;">
-                                
-                                <!-- Central Play/Pause Icon Flutuante (Somente Animação) -->
-                                <div id="centerPlayIcon" class="position-absolute top-50 start-50 translate-middle text-white" style="font-size: 4rem; text-shadow: 0 4px 15px rgba(0,0,0,0.8); opacity: 0; transform: scale(0.5); pointer-events: none; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
-                                    <i class="fa-solid fa-play"></i>
-                                </div>
-
-                                <div class="w-100 px-3 pb-3 pointer-events-auto" style="pointer-events: auto;">
-                                    <div class="d-flex w-100 justify-content-between align-items-center mb-2 gap-2">
-                                        <!-- Play / Pause -->
-                                        <button id="togglePlayBtn" class="btn rounded-circle text-white d-flex align-items-center justify-content-center video-control-btn shadow" title="Reproduzir/Pausar">
-                                            <i class="fa-solid fa-pause" id="playIcon"></i>
-                                        </button>
-                                        
-                                        <!-- Tempo de Progresso (Visual Elegante) -->
-                                        <span id="currentTime" class="text-white" style="font-size:0.75rem; font-weight:600; opacity:0.8; font-family: 'Lato', sans-serif;">0:00</span>
-                                        <div class="video-progress-bar-container flex-grow-1 mx-2" id="progressBarContainer">
-                                            <div class="video-progress-fill shadow" id="progressBarFill"></div>
-                                        </div>
-                                        <span id="durationTime" class="text-white" style="font-size:0.75rem; font-weight:600; opacity:0.8; font-family: 'Lato', sans-serif;">0:00</span>
-
-                                        <!-- Volume -->
-                                        <button id="toggleAudioBtn" class="btn rounded-circle text-white d-flex align-items-center justify-content-center video-control-btn shadow" title="Mudo/Desmutar">
-                                            <i class="fa-solid fa-volume-xmark" id="audioIcon"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                
+                <div class="col-lg-6">
+                    <div class="hero-a-video-wrapper shadow-lg">
+                        <video id="videoA" loop muted playsinline poster="images/justica.jpg">
+                            <source src="videos/video_bg.mp4" type="video/mp4">
+                        </video>
+                        <div class="controls-overlay">
+                            <button onclick="var v=document.getElementById('videoA'); if(v.paused)v.play(); else v.pause();"><i class="fa fa-play"></i></button>
+                            <button onclick="var v=document.getElementById('videoA'); v.muted = !v.muted;"><i class="fa fa-volume-up"></i></button>
                         </div>
-
                     </div>
                 </div>
-
             </div>
         </div>
     </header>
+
 
     <!-- ============================= -->
     <!-- VERSÃO B - HERO CLARO -->
     <!-- ============================= -->
-    <header id="inicio-b" class="hero-section position-relative overflow-hidden d-flex align-items-center" style="min-height: 100vh; background: url('images/justica.jpg') no-repeat center center; background-size: cover; background-attachment: fixed; padding-top: 100px; padding-bottom: 80px;">
-        <!-- Overlay Claro Suave -->
-        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(255, 255, 255, 0.15); z-index: 1;"></div>
-
-        <!-- Fundo Escuro com Detalhes Ouro Sutis (removido para deixar mais limpo ou apenas reter o suave) -->
-        <div class="hero-background-layer position-absolute w-100 h-100" style="inset: 0; background: radial-gradient(circle at 80% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 50%); pointer-events: none; z-index: 1;"></div>
-        
-        <div class="container-fluid px-4 px-xl-5 position-relative z-index-2 w-100">
-            <div class="row align-items-center justify-content-center justify-content-xl-between gx-lg-5 h-100" style="max-width: 1400px; margin: 0 auto;">
+    
+    <!-- VERSÃO B: EDITORIAL LUXURY / MAGAZINE -->
+    <header class="hero-b" id="inicio-b">
+        <div class="hero-b-bg-text">DEFESA</div>
+        <div class="container hero-b-content">
+            <div class="row align-items-center gx-lg-5">
+                <div class="col-lg-5 mb-5 mb-lg-0 z-index-2">
+                    <span class="hero-b-suptitle">Natanael Castro Advocacia</span>
+                    <h1 class="hero-b-title font-serif">
+                        A Nova<br>Referência em<br>Direito.
+                    </h1>
+                    <div class="gold-line mb-4"></div>
+                    <p class="hero-b-text mb-5">
+                        Estratégia jurídica desenhada sob medida. Aliamos profundo conhecimento técnico a uma visão arquitetônica de cada caso, garantindo precisão formidável.
+                    </p>
+                    <a class="btn btn-dark-outline" href="#contact">Descubra Nossa Atuação</a>
+                </div>
                 
-                <!-- Texto (Esquerda) -->
-                <div class="col-lg-6 col-xl-5 text-left mt-5 mt-lg-0 mb-5 mb-lg-0" data-aos="fade-up" data-aos-duration="1000">
-                    <!-- Glassmorphism Card -->
-                    <div class="hero-glass-card" style="background: rgba(255, 255, 255, 0.82); backdrop-filter: blur(8px); padding: 2.5rem; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.6); box-shadow: 0 15px 35px rgba(0,0,0,0.08); width: 100%; margin: 0 auto;">
-                        
-                        <div class="hero-badge d-inline-block px-3 py-1 mb-4" style="border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 50px; background: rgba(255,255,255,0.7); font-family: 'Lato', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); font-weight: 700;">
-                            Escritório de Advocacia Especializada
-                        </div>
-                        
-                        <h1 class="hero-title mb-4 text-dark" style="font-size: clamp(2.2rem, 3.5vw, 3rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.5px;">
-                            A EXCELÊNCIA NA DEFESA DOS <span style="color: var(--gold); display: block; margin-top: 5px;">SEUS DIREITOS.</span>
-                        </h1>
-                        
-                        <blockquote class="premium-quote mb-5" style="border-left: 2px solid var(--gold); padding-left: 15px; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.05rem; color: rgba(0,0,0,0.8);">
-                            "A injustiça num lugar qualquer é uma ameaça à justiça em todo o lugar."
-                            <cite style="display: block; font-family: 'Lato', sans-serif; font-size: 0.85rem; font-style: normal; margin-top: 10px; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">— Martin Luther King</cite>
-                        </blockquote>
-                        
-                        <div class="hero-buttons d-flex flex-wrap gap-3">
-                            <a href="https://wa.me/5511944725587?text=Ol%C3%A1%20Dr.%20Natanael%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20do%20meu%20caso." target="_blank" class="btn btn-gold btn-lg px-4 d-flex align-items-center justify-content-center gap-2 shadow" style="border-radius: 6px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; padding-top: 12px; padding-bottom: 12px; border: none; flex-grow: 1;">
-                                <i class="fa-brands fa-whatsapp fs-5"></i> Agendar Avaliação
-                            </a>
-                            <a href="#especialidades" class="btn btn-outline-dark btn-lg px-4 d-flex align-items-center justify-content-center gap-2" style="border-radius: 6px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; border-color: rgba(0,0,0,0.15); flex-grow: 1; font-weight: 600;">
-                                Nossas Áreas
-                            </a>
+                <div class="col-lg-7">
+                    <div class="hero-b-video-wrapper">
+                        <video id="videoB" loop muted playsinline poster="images/justica.jpg">
+                            <source src="videos/video_bg.mp4" type="video/mp4">
+                        </video>
+                        <div class="controls-overlay">
+                            <button onclick="var v=document.getElementById('videoB'); if(v.paused)v.play(); else v.pause();"><i class="fa fa-play"></i></button>
+                            <button onclick="var v=document.getElementById('videoB'); v.muted = !v.muted;"><i class="fa fa-volume-up"></i></button>
                         </div>
                     </div>
                 </div>
-
-                <!-- Vídeo Integrado Premium (Direita) -->
-                <div class="col-lg-6 col-xl-5 position-relative mt-5 mt-lg-0" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="300">
-                    <div class="hero-visual-composition position-relative mx-auto shadow-lg" style="max-width: 580px; border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 16px; background: #000; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.4) !important;">
-                        
-                        <!-- Wrapper do Vídeo Visual Replica -->
-                        <div class="ratio border-0 m-0 p-0" style="--bs-aspect-ratio: 125%; cursor: pointer;" id="videoWrapperB">
-                            
-                            <video id="heroVideoB" playsinline preload="metadata" muted loop autoplay style="width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: opacity 0.5s ease;">
-                                <source src="images/VIDEO1.mp4" type="video/mp4">
-                            </video>
-
-                            <!-- Controles Personalizados em Botões Flutuantes (Visual Only para não conflitar IDs) -->
-                            <div class="video-custom-controls position-absolute w-100 h-100 top-0 start-0 pointer-events-none d-flex flex-column justify-content-end p-0" style="background: linear-gradient(to top, rgba(8,12,22,0.85) 0%, transparent 35%); opacity: 1; transition: opacity 0.3s ease; z-index: 2;">
-                                
-                                <div class="w-100 px-3 pb-3 pointer-events-auto" style="pointer-events: auto;">
-                                    <div class="d-flex w-100 justify-content-between align-items-center mb-2 gap-2">
-                                        <!-- Play / Pause -->
-                                        <button class="btn rounded-circle text-white d-flex align-items-center justify-content-center video-control-btn shadow" title="Reproduzir/Pausar" onclick="let v=document.getElementById('heroVideoB'); if(v.paused){v.play();}else{v.pause();}">
-                                            <i class="fa-solid fa-pause"></i>
-                                        </button>
-                                        
-                                        <!-- Tempo de Progresso -->
-                                        <span class="text-white" style="font-size:0.75rem; font-weight:600; opacity:0.8; font-family: 'Lato', sans-serif;">VISUALIZAÇÃO DE TESTE</span>
-                                        <div class="video-progress-bar-container flex-grow-1 mx-2">
-                                            <div class="video-progress-fill shadow" style="width: 50%;"></div>
-                                        </div>
-
-                                        <!-- Volume -->
-                                        <button class="btn rounded-circle text-white d-flex align-items-center justify-content-center video-control-btn shadow" title="Mudo/Desmutar" onclick="let v=document.getElementById('heroVideoB'); v.muted=!v.muted;">
-                                            <i class="fa-solid fa-volume-xmark"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
             </div>
         </div>
     </header>
+
 
     
 
@@ -857,6 +925,28 @@
             }
         });
     </script>
+
+<script>
+    // A/B Test Autoplay Logic
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            var vA = document.getElementById('videoA');
+            var vB = document.getElementById('videoB');
+            if(vA && vA.paused) { vA.play().catch(e => console.log('Autoplay blocked:', e)); }
+            if(vB && vB.paused) { vB.play().catch(e => console.log('Autoplay blocked:', e)); }
+        }, 3000);
+        
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            var nav = document.getElementById('mainNav');
+            if(window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    });
+</script>
 </body>
 </html>
 
