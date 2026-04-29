@@ -157,7 +157,13 @@
     </nav>
 
     <!-- Seção Hero: Premium Boutique -->
-    <header id="inicio" class="hero-section position-relative overflow-hidden d-flex align-items-center" style="min-height: 100vh; background: #080c16; padding-top: 100px;">
+    <!-- ============================= -->
+    <!-- VERSÃO A - HERO ESCURO -->
+    <!-- ============================= -->
+    <header id="inicio" class="hero-section position-relative overflow-hidden d-flex align-items-center" style="min-height: 100vh; background: url(\'images/justica.jpg\') no-repeat center center; background-size: cover; padding-top: 100px;">
+        <!-- Overlay Azul Marinho Escuro -->
+        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(8, 12, 28, 0.88); z-index: 1;"></div>
+
         <!-- Fundo Escuro com Detalhes Ouro Sutis -->
         <div class="hero-background-layer position-absolute w-100 h-100" style="inset: 0; background: radial-gradient(circle at 80% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 50%); pointer-events: none;"></div>
         <div class="hero-background-layer position-absolute w-100 h-100" style="inset: 0; background: radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.03) 0%, transparent 40%); pointer-events: none;"></div>
@@ -254,60 +260,112 @@
         </div>
     </header>
 
-    <!-- ============================================== -->
-    <!-- SEÇÃO TESTE A (LUXURY DARK - PARALLAX/OVERLAY) -->
-    <!-- ============================================== -->
-    <section id="teste-a-dark" class="position-relative py-100" style="background: url('images/justica.jpg') no-repeat center center; background-size: cover; background-attachment: fixed;">
-        <!-- Overlay Escuro Luxuoso -->
-        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(135deg, rgba(8, 12, 22, 0.95) 0%, rgba(20, 26, 40, 0.85) 100%);"></div>
-        
-        <div class="container position-relative z-index-2 text-white" style="padding-top: 60px; padding-bottom: 60px;">
-            <div class="row justify-content-center text-center">
-                <div class="col-lg-8" data-aos="fade-up">
-                    <span class="badge py-2 px-3 fw-light text-uppercase tracking-wide" style="border: 1px solid var(--gold); color: var(--gold); letter-spacing: 2px; margin-bottom: 25px;">Diferencial</span>
-                    <h2 class="display-5 font-serif" style="color: var(--white); text-shadow: 0 5px 15px rgba(0,0,0,0.5); margin-bottom: 30px;">Tradição e Inovação Jurídica</h2>
-                    <p class="lead fw-light" style="color: rgba(255,255,255,0.8); line-height: 1.8; margin-bottom: 50px;">
-                        Protegemos seu patrimônio e garantimos seus direitos com atuação estratégica, ágil e pautada no mais alto rigor ético e técnico.
-                    </p>
-                    <a href="#contato" class="btn btn-gold text-white px-5 py-3 rounded-0 text-uppercase tracking-wide" style="font-size: 0.9rem; letter-spacing: 2px;">Agendar Consulta VIP</a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- ============================= -->
+    <!-- VERSÃO B - HERO CLARO -->
+    <!-- ============================= -->
+    <header id="inicio-b" class="hero-section bg-light position-relative overflow-hidden d-flex align-items-center" style="min-height: 100vh; background: url(\'images/justica.jpg\') no-repeat center center; background-size: cover; padding-top: 100px;">
+        <!-- Overlay Claro Suave -->
+        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(255, 255, 255, 0.90); z-index: 1;"></div>
 
-    <!-- ============================================== -->
-    <!-- SEÇÃO TESTE B (LUXURY LIGHT - EDITORIAL CLEAN) -->
-    <!-- ============================================== -->
-    <section id="teste-b-light" class="position-relative py-100 border-bottom" style="background: url('images/justica.jpg') no-repeat center center; background-size: cover; background-attachment: scroll;">
-        <!-- Overlay Claro (Washed Out / Editorial) -->
-        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(255, 255, 255, 0.93); backdrop-filter: blur(4px);"></div>
-        
-        <div class="container position-relative z-index-2" style="padding-top: 60px; padding-bottom: 60px;">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
-                    <div style="width: 50px; height: 2px; background-color: var(--gold); margin-bottom: 30px;"></div>
-                    <h2 class="display-5 font-serif" style="color: var(--dark); margin-bottom: 30px;">Atendimento<br>Exclusivo</h2>
-                    <p class="lead" style="color: #555; line-height: 1.8; font-weight: 300; margin-bottom: 40px;">
-                        Entendemos que cada caso é único. Oferecemos um acompanhamento personalizado, traduzindo complexidade jurídica em soluções claras, objetivas e seguras para nossos clientes.
-                    </p>
-                    <a href="#sobre" class="text-decoration-none text-uppercase tracking-wide fw-bold d-inline-flex align-items-center" style="color: var(--dark); font-size: 0.85rem; letter-spacing: 1.5px; transition: color 0.3s ease;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--dark)'">
-                        Conheça o Escritório 
-                        <i class="fa fa-long-arrow-right ms-2" style="color: var(--gold);"></i>
-                    </a>
-                </div>
-                <!-- Box decorativo visual para a estética light -->
-                <div class="col-lg-5 offset-lg-1" data-aos="fade-left" data-aos-delay="100">
-                    <div class="p-5" style="background: rgba(255,255,255,0.9); border: 1px solid rgba(212, 175, 55, 0.2); box-shadow: 0 15px 40px rgba(0,0,0,0.06);">
-                        <i class="fa fa-balance-scale fs-1" style="color: var(--gold); margin-bottom: 25px;"></i>
-                        <h4 class="font-serif" style="color: var(--dark); margin-bottom: 25px;">Advocacia de Precisão</h4>
-                        <p class="mb-0 text-muted" style="font-weight: 300; line-height: 1.7;">Foco absoluto em resultados e mitigação de riscos, assegurando sua tranquilidade e respaldo integral no ambiente corporativo e pessoal.</p>
+        <!-- Fundo Escuro com Detalhes Ouro Sutis -->
+        <div class="hero-background-layer position-absolute w-100 h-100" style="inset: 0; background: radial-gradient(circle at 80% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 50%); pointer-events: none;"></div>
+        <div class="hero-background-layer position-absolute w-100 h-100" style="inset: 0; background: radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.03) 0%, transparent 40%); pointer-events: none;"></div>
+
+        <div class="container-fluid px-4 px-xl-5 position-relative z-index-2 w-100 pb-5 pb-lg-0">
+            <div class="row align-items-center justify-content-center justify-content-lg-evenly h-100">
+                
+                <!-- Texto (Esquerda) -->
+                <div class="col-lg-5 col-xl-4 offset-xl-1 text-left mt-4 mt-lg-0 mb-5 mb-lg-0" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="hero-badge d-inline-block px-3 py-1 mb-4" style="border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 50px; background: rgba(255,255,255,0.02); font-family: 'Lato', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--gold);">
+                        Escritório de Advocacia Especializada
+                    </div>
+                    
+                    <h1 class="hero-title mb-4 text-dark" style="font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.5px;">
+                        A EXCELÊNCIA NA DEFESA DOS <span style="color: var(--gold); display: block; margin-top: 5px;">SEUS DIREITOS.</span>
+                    </h1>
+                    
+                    <blockquote class="premium-quote mb-5" style="border-left: 2px solid var(--gold); padding-left: 20px; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: rgba(0,0,0,0.7);">
+                        "A injustiça num lugar qualquer é uma ameaça à justiça em todo o lugar."
+                        <cite style="display: block; font-family: 'Lato', sans-serif; font-size: 0.85rem; font-style: normal; margin-top: 10px; color: var(--gold); text-transform: uppercase; letter-spacing: 1px;">— Martin Luther King</cite>
+                    </blockquote>
+                    
+                    <div class="hero-buttons d-flex flex-wrap gap-3" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                        <a href="https://wa.me/5511944725587?text=Ol%C3%A1%20Dr.%20Natanael%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20do%20meu%20caso." target="_blank" class="btn btn-gold btn-lg px-4 d-flex align-items-center justify-content-center gap-2 shadow" style="border-radius: 4px; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; padding-top: 15px; padding-bottom: 15px; border: none;">
+                            <i class="fa-brands fa-whatsapp fs-5"></i> Agendar Avaliação
+                        </a>
+                        <a href="#especialidades" class="btn btn-outline-dark btn-lg px-4 d-flex align-items-center justify-content-center gap-2" style="border-radius: 4px; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; border-color: rgba(0,0,0,0.15);">
+                            Nossas Áreas
+                        </a>
                     </div>
                 </div>
+
+                <!-- Vídeo Integrado Premium (Direita) -->
+                <div class="col-lg-6 col-xl-5 position-relative pe-xl-5 mt-4 mt-lg-0" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="300">
+                    <div class="hero-visual-composition position-relative mx-auto mx-lg-0 shadow-lg" style="max-width: 580px; border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 12px; background: #000; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.5) !important;">
+                        
+                        <!-- Wrapper do Vídeo -->
+                        <div class="ratio border-0 m-0 p-0" style="--bs-aspect-ratio: 125%; cursor: pointer;" id="videoWrapper">
+                            
+                            <video id="heroVideo" playsinline preload="metadata" muted style="width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: opacity 0.5s ease;">
+                                <source src="images/VIDEO1.mp4" type="video/mp4">
+                            </video>
+                            
+                            <!-- Tela Final (Overlay) Invisível no meio da execução -->
+                            <div id="videoEndOverlay" class="position-absolute w-100 h-100 top-0 start-0 z-index-3 d-flex flex-column align-items-center justify-content-center video-end-screen" style="border-radius: 12px;">
+                                <img id="videoEndThumbnail" src="images/justica.jpg" class="position-absolute w-100 h-100 object-fit-cover opacity-25" style="z-index:-1;" alt="Capa Final">
+                                <h4 class="text-dark text-center fw-bold mb-4 font-playfair px-4" style="text-shadow: 0 4px 10px rgba(0,0,0,0.8);">Pronto para avançar com a sua defesa?</h4>
+                                
+                                <div class="d-flex flex-column gap-3 w-100 px-5 align-items-center z-10">
+                                    <a href="https://wa.me/5511944725587?text=Ol%C3%A1%20Dr.%20Natanael%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20do%20meu%20caso." target="_blank" class="btn btn-gold w-100 d-flex justify-content-center align-items-center gap-2" style="font-weight:700; text-transform: uppercase;">
+                                        <i class="fa-brands fa-whatsapp fs-5"></i> Agendar Avaliação
+                                    </a>
+                                    <button id="btnReplay" class="btn btn-outline-dark w-100 d-flex justify-content-center align-items-center gap-2" style="background: rgba(0,0,0,0.05); text-transform: uppercase;">
+                                        <i class="fa-solid fa-arrow-rotate-left"></i> Assistir Novamente
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Controles Personalizados em Botões Flutuantes -->
+                            <div id="customControls" class="video-custom-controls position-absolute w-100 h-100 top-0 start-0 pointer-events-none d-flex flex-column justify-content-end p-0" style="background: linear-gradient(to top, rgba(8,12,22,0.85) 0%, transparent 35%); opacity: 0; transition: opacity 0.3s ease; z-index: 2;">
+                                
+                                <!-- Central Play/Pause Icon Flutuante (Somente Animação) -->
+                                <div id="centerPlayIcon" class="position-absolute top-50 start-50 translate-middle text-dark" style="font-size: 4rem; text-shadow: 0 4px 15px rgba(0,0,0,0.3); opacity: 0; transform: scale(0.5); pointer-events: none; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
+                                    <i class="fa-solid fa-play"></i>
+                                </div>
+
+                                <div class="w-100 px-3 pb-3 pointer-events-auto" style="pointer-events: auto;">
+                                    <div class="d-flex w-100 justify-content-between align-items-center mb-2 gap-2">
+                                        <!-- Play / Pause -->
+                                        <button id="togglePlayBtn" class="btn rounded-circle text-dark d-flex align-items-center justify-content-center video-control-btn shadow" title="Reproduzir/Pausar">
+                                            <i class="fa-solid fa-pause" id="playIcon"></i>
+                                        </button>
+                                        
+                                        <!-- Tempo de Progresso (Visual Elegante) -->
+                                        <span id="currentTime" class="text-dark" style="font-size:0.75rem; font-weight:600; opacity:0.8; font-family: 'Lato', sans-serif;">0:00</span>
+                                        <div class="video-progress-bar-container flex-grow-1 mx-2" id="progressBarContainer">
+                                            <div class="video-progress-fill shadow" id="progressBarFill"></div>
+                                        </div>
+                                        <span id="durationTime" class="text-dark" style="font-size:0.75rem; font-weight:600; opacity:0.8; font-family: 'Lato', sans-serif;">0:00</span>
+
+                                        <!-- Volume -->
+                                        <button id="toggleAudioBtn" class="btn rounded-circle text-dark d-flex align-items-center justify-content-center video-control-btn shadow" title="Mudo/Desmutar">
+                                            <i class="fa-solid fa-volume-xmark" id="audioIcon"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
         </div>
-    </section>
+    </header>
 
-    <!-- Áreas de Especialidades (OCULTADO TEMPORARIAMENTE PARA TESTE A/B)
+    
+
+    <!-- Áreas de Especialidades -->
     <section id="especialidades" class="py-100 position-relative z-index-2">
         <div class="container">
             <div class="row mb-5 justify-content-center text-center" data-aos="fade-up">
@@ -353,7 +411,6 @@
             </div>
         </div>
     </section>
-    -->
 
     <!-- Perfil do Profissional -->
     <section id="sobre" class="py-100 bg-soft position-relative z-index-2">
