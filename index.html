@@ -4,392 +4,143 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Natanael Castro | Advocacia Especializada</title>
-    
-    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- FontAwesome (Ícones) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    
-    <!-- AOS Animation CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <!-- Google Fonts Premium: Playfair Display (Títulos) & Lato (Texto) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
-
-    <!-- Estilo Personalizado -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    
     <style>
-/* =========================================================================
-   STYLE A/B TEST - Navbar + Heros (Versões A e B)
-   ========================================================================= */
+        :root { --gold:#d4af37; --gold-dark:#b88a1f; --black-premium:#050609; }
+        html { scroll-behavior:smooth; }
+        body { margin:0; overflow-x:hidden; background:#fff; font-family:'Lato',sans-serif; }
+        .font-serif { font-family:'Playfair Display',serif; }
+        .gold-text { color:var(--gold); }
+        .text-gold { color:var(--gold)!important; }
+        .z-index-2 { position:relative; z-index:2; }
+        .py-100 { padding-top:100px; padding-bottom:100px; }
+        .bg-soft { background:#f5f7fa; }
 
-/* ------------- NAVBAR PREMIUM ------------- */
-.navbar {
-    padding: 20px 0;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    background: transparent;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-.navbar.scrolled {
-    padding: 12px 0;
-    background: rgba(8, 12, 22, 0.9) !important;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-}
-.brand-text-main {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    color: #fff;
-    font-size: 1.5rem;
-    letter-spacing: 1px;
-    margin-bottom: 0;
-    line-height: 1;
-}
-.brand-text-sub {
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    color: var(--gold);
-    font-size: 0.75rem;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-}
-.nav-link {
-    font-family: 'Lato', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: rgba(255,255,255,0.7) !important;
-    position: relative;
-    padding: 8px 12px !important;
-    margin: 0 5px;
-    transition: color 0.3s ease;
-}
-.nav-link:hover, .nav-link.active {
-    color: #cca43b !important;
-}
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 1px;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #cca43b;
-    transition: width 0.3s ease;
-}
-.nav-link:hover::after, .nav-link.active::after {
-    width: 100%;
-}
-.btn-nav-outline {
-    border: 1px solid rgba(212, 175, 55, 0.5);
-    color: #cca43b !important;
-    border-radius: 0;
-    padding: 10px 24px !important;
-    transition: all 0.3s ease;
-}
-.btn-nav-outline:hover {
-    background: rgba(212, 175, 55, 0.1);
-    color: #cca43b !important;
-}
+        .navbar { padding:18px 0; background:rgba(5,6,9,.86)!important; border-bottom:1px solid rgba(212,175,55,.10); transition:all .35s ease; backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); z-index:9999; }
+        .navbar.scrolled { padding:10px 0; background:rgba(5,6,9,.96)!important; border-bottom:1px solid rgba(212,175,55,.22); box-shadow:0 10px 35px rgba(0,0,0,.35); }
+        .navbar-brand { text-decoration:none; line-height:1; padding:0; }
+        .brand-text-main { font-family:'Playfair Display',serif; font-size:1.55rem; font-weight:700; color:var(--gold); letter-spacing:.2px; line-height:.95; }
+        .brand-text-sub { margin-top:4px; font-size:.68rem; color:rgba(255,255,255,.78); letter-spacing:4px; text-transform:uppercase; }
+        .navbar-toggler { border:1px solid rgba(212,175,55,.45); border-radius:6px; box-shadow:none!important; padding:8px 10px; }
+        .navbar-toggler i { color:var(--gold); font-size:1.35rem; }
+        .nav-link { color:rgba(255,255,255,.76)!important; text-transform:uppercase; letter-spacing:1.2px; font-size:.78rem; font-weight:700; margin:0 5px; padding:9px 10px!important; position:relative; transition:color .25s ease; }
+        .nav-link::after { content:''; position:absolute; left:50%; bottom:0; width:0; height:1px; background:var(--gold); transform:translateX(-50%); transition:width .25s ease; }
+        .nav-link:hover,.nav-link.active { color:var(--gold)!important; }
+        .nav-link:hover::after,.nav-link.active::after { width:80%; }
+        .btn-nav-outline { border:1px solid rgba(212,175,55,.8)!important; color:var(--gold)!important; padding:10px 24px!important; border-radius:4px; margin-left:14px; }
+        .btn-nav-outline::after { display:none; }
+        .btn-nav-outline:hover { background:var(--gold); color:#070707!important; }
+        @media(max-width:991.98px) { .navbar-collapse { background:rgba(5,6,9,.98); border:1px solid rgba(212,175,55,.18); margin-top:14px; padding:18px; border-radius:14px; box-shadow:0 25px 60px rgba(0,0,0,.45); } .btn-nav-outline { margin-left:0; margin-top:10px; text-align:center; } .nav-link { text-align:center; margin:5px 0; } }
 
-/* ------------- GLOBAL CLASSES ------------- */
-:root {
-    --gold: #cca43b;
-    --gold-light: #e8c678;
-    --dark-bg: #080a0f;
-    --light-bg: #F9F8F5; /* off-white/champagne */
-}
-.gold-text { color: var(--gold); }
-.gold-line {
-    width: 40px;
-    height: 1px;
-    background: var(--gold);
-    display: inline-block;
-}
-.gold-line-vert {
-    width: 1px;
-    height: 60px;
-    background: var(--gold);
-    margin: 0 auto;
-}
-.font-serif { font-family: 'Playfair Display', serif; }
+        .hero-a { position:relative; min-height:100vh; display:flex; align-items:center; padding:130px 0 80px; overflow:hidden; color:#fff; background:radial-gradient(circle at 72% 33%,rgba(212,175,55,.12),transparent 28%),radial-gradient(circle at 18% 72%,rgba(255,255,255,.045),transparent 30%),linear-gradient(135deg,#030406 0%,#060912 48%,#020305 100%); }
+        .hero-a::before { content:''; position:absolute; inset:0; background:linear-gradient(90deg,rgba(212,175,55,.05) 1px,transparent 1px),linear-gradient(0deg,rgba(212,175,55,.035) 1px,transparent 1px); background-size:80px 80px; opacity:.25; mask-image:radial-gradient(circle at center,black,transparent 72%); pointer-events:none; }
+        .hero-a::after { content:'NC'; position:absolute; right:-2vw; top:50%; transform:translateY(-50%); font-family:'Playfair Display',serif; font-size:clamp(16rem,33vw,38rem); font-weight:700; color:rgba(255,255,255,.025); line-height:.8; pointer-events:none; }
+        .hero-a-content { position:relative; z-index:3; }
+        .hero-kicker { display:inline-flex; align-items:center; border:1px solid rgba(212,175,55,.55); color:var(--gold); padding:8px 18px; border-radius:999px; text-transform:uppercase; letter-spacing:2px; font-size:.72rem; font-weight:900; margin-bottom:22px; background:rgba(212,175,55,.035); }
+        .hero-a-title { font-family:'Playfair Display',serif; font-size:clamp(2.8rem,5.8vw,5.4rem); font-weight:700; line-height:1.02; letter-spacing:-.04em; margin-bottom:26px; color:#fff; }
+        .hero-a-title em { color:var(--gold); font-style:italic; }
+        .hero-quote { border-left:2px solid var(--gold); padding-left:18px; color:rgba(255,255,255,.84); max-width:520px; margin-bottom:30px; font-size:1rem; line-height:1.75; }
+        .hero-quote small { display:block; margin-top:10px; color:var(--gold); text-transform:uppercase; letter-spacing:1.6px; font-weight:700; font-size:.76rem; }
+        .hero-actions { display:flex; gap:14px; flex-wrap:wrap; }
+        .btn-gold { background:var(--gold); color:#070707; border:1px solid var(--gold); border-radius:6px; padding:15px 28px; font-weight:900; letter-spacing:.7px; text-transform:uppercase; transition:all .25s ease; text-decoration:none; }
+        .btn-gold:hover { background:#f0c94d; border-color:#f0c94d; color:#070707; transform:translateY(-2px); box-shadow:0 14px 30px rgba(212,175,55,.18); }
+        .btn-ghost { border:1px solid rgba(255,255,255,.45); color:#fff; background:rgba(255,255,255,.02); border-radius:6px; padding:15px 28px; font-weight:900; letter-spacing:.7px; text-transform:uppercase; text-decoration:none; transition:all .25s ease; }
+        .btn-ghost:hover { border-color:var(--gold); color:var(--gold); background:rgba(212,175,55,.06); transform:translateY(-2px); }
+        .trust-indicators { margin-top:34px; padding-top:22px; border-top:1px solid rgba(255,255,255,.09); display:flex; flex-wrap:wrap; gap:22px; }
+        .trust-item { color:rgba(255,255,255,.66); text-transform:uppercase; letter-spacing:1px; font-size:.78rem; font-weight:700; }
 
-/* ------------- VERSÃO A (LUXURY MINIMAL DARK) ------------- */
-.hero-a {
-    position: relative;
-    background: #050814; /* Deep Navy Base */
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    color: #ffffff;
-}
-/* Subtle Texture / Gradient / Lighting */
-.hero-a::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(circle at 60% 40%, rgba(212, 175, 55, 0.08) 0%, transparent 60%),
-                radial-gradient(circle at 20% 90%, rgba(255, 255, 255, 0.03) 0%, transparent 40%),
-                url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z" fill="%23cca43b" fill-opacity="0.03" fill-rule="nonzero"/%3E%3C/g%3E%3C/svg%3E');
-    z-index: 1;
-}
-/* Optional subtle watermark */
-.hero-a::after {
-    content: "JUSTITIA";
-    position: absolute;
-    top: 50%; left: 0%;
-    transform: translateY(-50%) rotate(0deg);
-    font-size: 20rem;
-    font-weight: 700;
-    color: rgba(255,255,255,0.015);
-    font-family: 'Playfair Display', serif;
-    letter-spacing: 2rem;
-    white-space: nowrap;
-    z-index: 0;
-    pointer-events: none;
-}
-.hero-a-content {
-    position: relative;
-    z-index: 3;
-}
-.hero-a-title {
-    font-size: clamp(3rem, 5vw, 4.5rem);
-    font-weight: 700;
-    line-height: 1.1;
-    margin-bottom: 25px;
-}
-.hero-a-subtitle {
-    font-family: 'Lato', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 300;
-    color: #cfd4da;
-    line-height: 1.8;
-}
-.trust-indicators {
-    margin-top: 40px;
-    display: flex;
-    gap: 30px;
-    align-items: center;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    padding-top: 20px;
-}
-.trust-item {
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.6);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-.hero-a-video-wrapper {
-    position: relative;
-    z-index: 3;
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    padding: 10px;
-    background: rgba(255,255,255,0.02);
-}
-.hero-a-video-wrapper video {
-    width: 100%;
-    filter: brightness(0.9) contrast(1.1);
-    display: block;
-}
+        .hero-video-card { position:relative; border:1px solid rgba(212,175,55,.48); border-radius:16px; overflow:hidden; background:#000; box-shadow:0 35px 90px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.04) inset; aspect-ratio:16/10; cursor:pointer; }
+        .hero-video-card video { width:100%; height:100%; display:block; object-fit:cover; object-position:center; background:#000; }
+        .hero-video-card::before { content:''; position:absolute; inset:0; background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.5)); z-index:2; pointer-events:none; }
+        .video-center-play { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); z-index:6; width:76px; height:76px; border-radius:50%; border:none; background:var(--gold); color:#070707; display:flex; align-items:center; justify-content:center; font-size:1.35rem; box-shadow:0 18px 45px rgba(0,0,0,.45); transition:.25s ease; }
+        .video-center-play:hover { transform:translate(-50%,-50%) scale(1.06); }
+        .hero-video-card.is-playing .video-center-play { opacity:0; pointer-events:none; }
+        .hero-video-card:hover .video-center-play { opacity:1; pointer-events:auto; }
+        .video-bottom-controls { position:absolute; left:18px; right:18px; bottom:16px; z-index:7; display:flex; align-items:center; gap:12px; opacity:1; transition:.25s ease; }
+        .hero-video-card.is-playing:not(:hover) .video-bottom-controls { opacity:.18; }
+        .video-control-btn { width:42px; height:42px; border-radius:50%; border:1px solid rgba(255,255,255,.28); background:rgba(0,0,0,.52); color:#fff; display:flex; align-items:center; justify-content:center; transition:.25s ease; }
+        .video-control-btn:hover { background:var(--gold); color:#070707; border-color:var(--gold); }
+        .video-progress { flex:1; height:5px; border-radius:999px; background:rgba(255,255,255,.25); overflow:hidden; cursor:pointer; }
+        .video-progress-fill { width:0%; height:100%; background:var(--gold); border-radius:999px; }
+        .video-time { color:rgba(255,255,255,.82); font-size:.74rem; min-width:82px; text-align:right; }
+        .video-ended-overlay { position:absolute; inset:0; z-index:8; background:rgba(0,0,0,.72); display:none; align-items:center; justify-content:center; text-align:center; padding:28px; }
+        .video-ended-overlay.active { display:flex; }
+        .video-ended-box h3 { font-family:'Playfair Display',serif; color:#fff; font-weight:700; margin-bottom:18px; }
+        .video-ended-actions { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
 
-/* ------------- VERSÃO B (EDITORIAL LUXURY) ------------- */
-.hero-b {
-    position: relative;
-    background: #2a2522; /* Editorial Warm Charcoal / Bronze Dark */
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    color: #ffffff;
-    /* Removed padding-top and top-border to keep structure identical to A */
-}
-/* Lighting and Texture */
-.hero-b::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(circle at 30% 20%, rgba(212, 175, 55, 0.15) 0%, transparent 55%),
-                linear-gradient(135deg, rgba(20,20,20,0.8) 0%, transparent 100%),
-                url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.05"/%3E%3C/svg%3E');
-    z-index: 1;
-}
-/* Classic editorial motif */
-.hero-b::after {
-    content: "";
-    position: absolute;
-    top: 5%; bottom: 5%; left: 3%; right: 3%;
-    border: 1px solid rgba(212, 175, 55, 0.1);
-    z-index: 0;
-    pointer-events: none;
-}
-
-/* Fix modal/buttons inside A/B */
-.btn-gold {
-    background: var(--gold);
-    color: #fff;
-    border: none;
-    border-radius: 0;
-    padding: 15px 35px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: all 0.3s;
-}
-.btn-gold:hover { background: #b58d28; color: #fff; }
-.btn-dark-outline {
-    border: 1px solid #1a1a1a;
-    color: #1a1a1a;
-    border-radius: 0;
-    padding: 15px 35px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: all 0.3s;
-}
-.btn-dark-outline:hover { background: #1a1a1a; color: #fff; }
-.controls-overlay {
-    position: absolute;
-    bottom: 20px; right: 20px;
-    z-index: 10;
-    display: flex; gap: 10px;
-}
-.controls-overlay button {
-    background: rgba(0,0,0,0.5);
-    border: 1px solid rgba(255,255,255,0.2);
-    color: white;
-    width: 40px; height: 40px;
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer; transition: 0.3s;
-}
-.controls-overlay button:hover { background: var(--gold); border-color: var(--gold); }
+        .reveal-init { opacity:0; transform:translateY(44px); transition:.85s cubic-bezier(.19,1,.22,1); }
+        .revealed { opacity:1; transform:none; }
+        .float-whatsapp { position:fixed; right:26px; bottom:26px; width:60px; height:60px; border-radius:50%; background:#25D366; color:#fff!important; display:flex; align-items:center; justify-content:center; font-size:2rem; z-index:9998; box-shadow:0 14px 32px rgba(37,211,102,.35); text-decoration:none; animation:whatsPulse 2.4s infinite; }
+        @keyframes whatsPulse { 0% { box-shadow:0 0 0 0 rgba(37,211,102,.35); } 70% { box-shadow:0 0 0 14px rgba(37,211,102,0); } 100% { box-shadow:0 0 0 0 rgba(37,211,102,0); } }
+        @media(max-width:991.98px) { .hero-a { padding:120px 0 55px; min-height:auto; } .hero-a-title { font-size:clamp(2.5rem,11vw,4rem); } .hero-video-card { margin-top:35px; aspect-ratio:16/12; } }
+        @media(max-width:575.98px) { .hero-actions a { width:100%; text-align:center; } .video-time { display:none; } .brand-text-main { font-size:1.25rem; } }
 </style>
 </head>
-<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true">
-
-    <!-- Marca d'água no fundo de toda a página -->
-    <div class="site-watermark"></div>
-
-    <!-- Header / Navbar Automática (Tipográfica e Premium) -->
-    <!-- NAVBAR -->
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
-    <div class="container">
-        <a class="navbar-brand text-center" href="#inicio">
-            <div class="brand-text-main">Natanael Castro</div>
-            <div class="brand-text-sub">Advocacia</div>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fa fa-bars" style="color: var(--gold); font-size: 1.5rem;"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ms-auto py-4 py-lg-0 align-items-center">
-                <li class="nav-item"><a class="nav-link" href="#inicio">Início (A)</a></li>
-                <li class="nav-item"><a class="nav-link" href="#inicio-b">Início (B)</a></li>
-                <li class="nav-item"><a class="nav-link" href="#especialidades">Especialidades</a></li>
-                <li class="nav-item"><a class="nav-link" href="#about">Sobre</a></li>
-                <li class="nav-item"><a class="nav-link" href="#galeria">Galeria</a></li>
-                <li class="nav-item"><a class="nav-link" href="#duvidas">Dúvidas</a></li>
-                <li class="nav-item ms-lg-3"><a class="nav-link btn btn-nav-outline" href="#contact">Fale Conosco</a></li>
-            </ul>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#inicio" aria-label="Natanael Castro Advocacia">
+                <div class="brand-text-main">Natanael Castro</div>
+                <div class="brand-text-sub">Advocacia</div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Abrir menu"><i class="fa fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto py-4 py-lg-0 align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link active" href="#inicio">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#especialidades">Atuação</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sobre">Perfil Profissional</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#galeria">Estrutura</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#duvidas">Dúvidas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-nav-outline" target="_blank" href="https://wa.me/5511944725587?text=Ol%C3%A1%20Dr.%20Natanael%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20do%20meu%20caso.">Consultoria</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-    <!-- Seção Hero: Premium Boutique -->
-    <!-- ============================= -->
-    <!-- VERSÃO A - HERO ESCURO -->
-    <!-- ============================= -->
-    
-    <!-- VERSÃO A: LUXURY MINIMAL DARK -->
     <header class="hero-a" id="inicio">
         <div class="container hero-a-content">
             <div class="row align-items-center gx-lg-5">
-                <div class="col-lg-6 mb-5 mb-lg-0">
-                    <span class="gold-line mb-3"></span>
-                    <h1 class="hero-a-title font-serif">
-                        Defesa Estratégica &<br> <span class="gold-text">Soluções Premium</span>
-                    </h1>
-                    <p class="hero-a-subtitle mb-5">
-                        Assessoria jurídica boutique focada na excelência, discrição e resultados excepcionais para clientes exigentes em todo o Brasil.
-                    </p>
-                    <div class="d-flex gap-3">
-                        <a class="btn btn-gold" href="#contact">Consultoria Exclusiva</a>
+                <div class="col-lg-6" data-aos="fade-up">
+                    <span class="hero-kicker">Escritório de Advocacia Especializada</span>
+                    <h1 class="hero-a-title">A excelência na defesa dos <em>seus direitos.</em></h1>
+                    <div class="hero-quote">“A injustiça num lugar qualquer é uma ameaça à justiça em todo o lugar.”<small>— Martin Luther King</small></div>
+                    <div class="hero-actions">
+                        <a class="btn-gold" target="_blank" href="https://wa.me/5511944725587?text=Ol%C3%A1%20Dr.%20Natanael%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20do%20meu%20caso."><i class="fa-brands fa-whatsapp me-2"></i>Agendar Avaliação</a>
+                        <a class="btn-ghost" href="#especialidades">Nossas Áreas</a>
                     </div>
-                    
                     <div class="trust-indicators">
-                        <div class="trust-item"><i class="fa fa-balance-scale gold-text me-2"></i> Alta Complexidade</div>
-                        <div class="trust-item"><i class="fa fa-shield gold-text me-2"></i> Atuação Nacional</div>
+                        <div class="trust-item"><i class="fa fa-balance-scale gold-text me-2"></i>Defesa Estratégica</div>
+                        <div class="trust-item"><i class="fa fa-shield-halved gold-text me-2"></i>Atuação Nacional</div>
                     </div>
                 </div>
-                
-                <div class="col-lg-6">
-                    <div class="hero-a-video-wrapper shadow-lg">
-                        <video id="videoA" loop muted playsinline poster="images/justica.jpg">
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="150">
+                    <div class="hero-video-card" id="videoCard">
+                        <video id="heroVideo" muted playsinline preload="metadata" poster="images/justica.jpg">
+                            <source src="videos/VIDEO1.mp4" type="video/mp4">
                             <source src="videos/video_bg.mp4" type="video/mp4">
+                            <source src="images/VIDEO1.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeo HTML5.
                         </video>
-                        <div class="controls-overlay">
-                            <button onclick="var v=document.getElementById('videoA'); if(v.paused)v.play(); else v.pause();"><i class="fa fa-play"></i></button>
-                            <button onclick="var v=document.getElementById('videoA'); v.muted = !v.muted;"><i class="fa fa-volume-up"></i></button>
+                        <button class="video-center-play" id="centerPlayBtn" type="button" aria-label="Reproduzir vídeo"><i class="fa-solid fa-play" id="centerPlayIcon"></i></button>
+                        <div class="video-bottom-controls" id="videoControls">
+                            <button class="video-control-btn" id="togglePlayBtn" type="button" aria-label="Pausar ou reproduzir"><i class="fa-solid fa-play" id="playIcon"></i></button>
+                            <div class="video-progress" id="progressBar" aria-label="Progresso do vídeo"><div class="video-progress-fill" id="progressFill"></div></div>
+                            <span class="video-time"><span id="currentTime">0:00</span> / <span id="durationTime">0:00</span></span>
+                            <button class="video-control-btn" id="toggleMuteBtn" type="button" aria-label="Ativar ou desativar som"><i class="fa-solid fa-volume-xmark" id="muteIcon"></i></button>
                         </div>
+                        <div class="video-ended-overlay" id="videoEndOverlay"><div class="video-ended-box"><h3>Pronto para avançar com a sua defesa?</h3><div class="video-ended-actions"><button class="btn-gold" id="replayBtn" type="button"><i class="fa-solid fa-rotate-left me-2"></i>Assistir novamente</button><a class="btn-ghost" target="_blank" href="https://wa.me/5511944725587?text=Ol%C3%A1%20Dr.%20Natanael%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20do%20meu%20caso.">Falar com advogado</a></div></div></div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-
-
-    <!-- ============================= -->
-    <!-- VERSÃO B - HERO CLARO -->
-    <!-- ============================= -->
-    
-    <!-- VERSÃO B: EDITORIAL LUXURY / MAGAZINE -->
-    <header class="hero-b" id="inicio-b">
-        <div class="container hero-b-content">
-            <div class="row align-items-center gx-lg-5">
-                <div class="col-lg-6 mb-5 mb-lg-0">
-                    <span class="gold-line mb-3"></span>
-                    <h1 class="hero-b-title font-serif">
-                        Defesa Estratégica &<br> <span class="gold-text">Soluções Premium</span>
-                    </h1>
-                    <p class="hero-b-subtitle mb-5">
-                        Assessoria jurídica boutique focada na excelência, discrição e resultados excepcionais para clientes exigentes em todo o Brasil.
-                    </p>
-                    <div class="d-flex gap-3">
-                        <a class="btn btn-gold" href="#contact">Consultoria Exclusiva</a>
-                    </div>
-                    
-                    <div class="trust-indicators">
-                        <div class="trust-item"><i class="fa fa-balance-scale gold-text me-2"></i> Alta Complexidade</div>
-                        <div class="trust-item"><i class="fa fa-shield gold-text me-2"></i> Atuação Nacional</div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-6">
-                    <div class="hero-b-video-wrapper shadow-lg">
-                        <video id="videoB" loop muted playsinline poster="images/justica.jpg">
-                            <source src="videos/video_bg.mp4" type="video/mp4">
-                        </video>
-                        <div class="controls-overlay">
-                            <button onclick="var v=document.getElementById('videoB'); if(v.paused)v.play(); else v.pause();"><i class="fa fa-play"></i></button>
-                            <button onclick="var v=document.getElementById('videoB'); v.muted = !v.muted;"><i class="fa fa-volume-up"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-
-    
 
     <!-- Áreas de Especialidades -->
     <section id="especialidades" class="py-100 position-relative z-index-2">
@@ -731,199 +482,77 @@
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- Scripts Bootstrap -->
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Script AOS (Animações) -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-    <!-- Script Personalizado para Menu, Vídeo e Funcionalidades Extras -->
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Iniciar Animações (AOS) - Configuração Suave e Única
-            AOS.init({
-                duration: 800,
-                easing: 'ease-out-cubic',
-                once: true,
-                offset: 50
-            });
+        document.addEventListener('DOMContentLoaded', function () {
+            AOS.init({ duration:850, easing:'ease-out-cubic', once:true, offset:60 });
+            const year = document.getElementById('currentYear'); if (year) year.textContent = new Date().getFullYear();
+            document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
 
-            // Update Ano Automático
-            document.getElementById("currentYear").textContent = new Date().getFullYear();
+            const navbar = document.getElementById('mainNav');
+            const setNavbar = () => { if (window.scrollY > 60) navbar.classList.add('scrolled'); else navbar.classList.remove('scrolled'); };
+            setNavbar(); window.addEventListener('scroll', setNavbar, { passive:true });
 
-            // Ativar Tooltips
-            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-                return new bootstrap.Tooltip(tooltipTriggerEl)
-            });
+            const navLinks = Array.from(document.querySelectorAll('#mainNav .nav-link[href^="#"]')).filter(link => !link.classList.contains('btn-nav-outline'));
+            const sectionsSpy = navLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+            const activateNav = () => {
+                let currentId = '#inicio';
+                const checkPoint = window.scrollY + Math.max(120, window.innerHeight * 0.28);
+                sectionsSpy.forEach(section => { if (checkPoint >= section.offsetTop) currentId = '#' + section.id; });
+                navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === currentId));
+            };
+            activateNav(); window.addEventListener('scroll', activateNav, { passive:true });
 
-            // Efeito transição suave Header no Scroll
-            const navbar = document.getElementById("mainNav");
-            window.addEventListener("scroll", function() {
-                if (window.scrollY > 50) {
-                    navbar.classList.add("scrolled");
-                } else {
-                    navbar.classList.remove("scrolled");
-                }
-            });
+            const navbarCollapse = document.getElementById('navbarResponsive');
+            navLinks.forEach(link => link.addEventListener('click', () => { if (navbarCollapse && navbarCollapse.classList.contains('show')) bootstrap.Collapse.getOrCreateInstance(navbarCollapse).hide(); }));
 
-            // Lógica do Vídeo Integrado no Hero
-            const heroVideo = document.getElementById("heroVideo");
-            const toggleAudioBtn = document.getElementById("toggleAudioBtn");
-            const togglePlayBtn = document.getElementById("togglePlayBtn");
-            const playIcon = document.getElementById("playIcon");
-            const audioIcon = document.getElementById("audioIcon");
-            const videoWrapper = document.getElementById("videoWrapper");
-            const customControls = document.getElementById("customControls");
-            const progressBarContainer = document.getElementById("progressBarContainer");
-            const progressBarFill = document.getElementById("progressBarFill");
-            const currentTimeEl = document.getElementById("currentTime");
-            const durationTimeEl = document.getElementById("durationTime");
-            const videoEndOverlay = document.getElementById("videoEndOverlay");
-            const btnReplay = document.getElementById("btnReplay");
-            const centerPlayIcon = document.getElementById("centerPlayIcon");
+            const video = document.getElementById('heroVideo');
+            const card = document.getElementById('videoCard');
+            const centerBtn = document.getElementById('centerPlayBtn');
+            const centerIcon = document.getElementById('centerPlayIcon');
+            const playBtn = document.getElementById('togglePlayBtn');
+            const playIcon = document.getElementById('playIcon');
+            const muteBtn = document.getElementById('toggleMuteBtn');
+            const muteIcon = document.getElementById('muteIcon');
+            const progressBar = document.getElementById('progressBar');
+            const progressFill = document.getElementById('progressFill');
+            const currentTimeEl = document.getElementById('currentTime');
+            const durationTimeEl = document.getElementById('durationTime');
+            const endOverlay = document.getElementById('videoEndOverlay');
+            const replayBtn = document.getElementById('replayBtn');
 
-            if(heroVideo) {
-                let isUserInteracted = false;
-
-                // Formatar Tempo (0:00)
-                const formatTime = (time) => {
-                    const minutes = Math.floor(time / 60);
-                    const seconds = Math.floor(time % 60);
-                    return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+            if (video && card) {
+                const formatTime = (seconds) => { if (!Number.isFinite(seconds)) return '0:00'; const min = Math.floor(seconds / 60); const sec = Math.floor(seconds % 60).toString().padStart(2,'0'); return min + ':' + sec; };
+                const updateIcons = () => {
+                    const isPlaying = !video.paused && !video.ended;
+                    card.classList.toggle('is-playing', isPlaying);
+                    playIcon.className = isPlaying ? 'fa-solid fa-pause' : 'fa-solid fa-play';
+                    centerIcon.className = isPlaying ? 'fa-solid fa-pause' : 'fa-solid fa-play';
+                    muteIcon.className = video.muted ? 'fa-solid fa-volume-xmark' : 'fa-solid fa-volume-high';
                 };
-
-                // Carregamento Inicial do Vídeo
-                heroVideo.addEventListener('loadedmetadata', () => {
-                    durationTimeEl.textContent = formatTime(heroVideo.duration);
-                });
-
-                // Autoplay sutil de início (mudo)
-                setTimeout(() => {
-                    if (!isUserInteracted) {
-                        heroVideo.muted = true;
-                        heroVideo.play().then(() => {
-                            playIcon.classList.remove('fa-play');
-                            playIcon.classList.add('fa-pause');
-                        }).catch(error => console.log("Autoplay bloqueado", error));
-                    }
-                }, 3000);
-
-                // Alternar Play/Pause Global (Botão e Clique no Vídeo)
-                const togglePlay = () => {
-                    isUserInteracted = true;
-                    if(heroVideo.paused || heroVideo.ended) {
-                        if (heroVideo.ended) {
-                            videoEndOverlay.classList.remove("active");
-                            heroVideo.currentTime = 0;
-                        }
-                        heroVideo.play();
-                        playIcon.classList.remove('fa-play');
-                        playIcon.classList.add('fa-pause');
-                        
-                        // Efeito ícone central Play sumindo
-                        centerPlayIcon.style.opacity = '1';
-                        centerPlayIcon.style.transform = 'scale(1.2) translate(-50%, -50%)';
-                        setTimeout(() => centerPlayIcon.style.opacity = '0', 300);
-                        
-                    } else {
-                        heroVideo.pause();
-                        playIcon.classList.remove('fa-pause');
-                        playIcon.classList.add('fa-play');
-                        
-                        // Efeito ícone central Play aparecendo firme
-                        centerPlayIcon.innerHTML = '<i class="fa-solid fa-play"></i>';
-                        centerPlayIcon.style.opacity = '0.8';
-                        centerPlayIcon.style.transform = 'scale(1) translate(-50%, -50%)';
-                    }
-                };
-
-                // Clicões
-                togglePlayBtn.addEventListener('click', (e) => { e.stopPropagation(); togglePlay(); });
-                videoWrapper.addEventListener('click', (e) => { 
-                    if(e.target !== toggleAudioBtn && e.target !== audioIcon && e.target !== progressBarContainer && e.target !== progressBarFill && e.target !== togglePlayBtn && e.target !== playIcon && !e.target.closest('#videoEndOverlay')) {
-                        togglePlay(); 
-                    }
-                });
-
-                // Hover Efeitos Controle
-                videoWrapper.addEventListener('mouseenter', () => customControls.style.opacity = '1');
-                videoWrapper.addEventListener('mouseleave', () => {
-                    if(!heroVideo.paused) customControls.style.opacity = '0';
-                });
-
-                // Atualizar Tempo e Progresso (Barra)
-                heroVideo.addEventListener('timeupdate', () => {
-                    const percent = (heroVideo.currentTime / heroVideo.duration) * 100;
-                    progressBarFill.style.width = percent + '%';
-                    currentTimeEl.textContent = formatTime(heroVideo.currentTime);
-                });
-
-                // Clicar na barra de progresso
-                progressBarContainer.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const rect = progressBarContainer.getBoundingClientRect();
-                    const clickX = e.clientX - rect.left;
-                    const newTime = (clickX / rect.width) * heroVideo.duration;
-                    heroVideo.currentTime = newTime;
-                });
-
-                // Final do Vídeo (End Screen)
-                heroVideo.addEventListener('ended', () => {
-                    videoEndOverlay.classList.add("active");
-                    customControls.style.opacity = '0';
-                    playIcon.classList.remove('fa-pause');
-                    playIcon.classList.add('fa-play');
-                });
-
-                // Replay Button (Overlay)
-                btnReplay.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    videoEndOverlay.classList.remove("active");
-                    heroVideo.currentTime = 0;
-                    togglePlay();
-                });
-
-                // Alternar Volume
-                toggleAudioBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    isUserInteracted = true;
-                    if(heroVideo.muted) {
-                        heroVideo.muted = false;
-                        audioIcon.classList.remove('fa-volume-xmark');
-                        audioIcon.classList.add('fa-volume-high');
-                    } else {
-                        heroVideo.muted = true;
-                        audioIcon.classList.remove('fa-volume-high');
-                        audioIcon.classList.add('fa-volume-xmark');
-                    }
-                });
+                const playVideo = () => { endOverlay.classList.remove('active'); video.play().then(updateIcons).catch(() => updateIcons()); };
+                const togglePlay = () => { if (video.ended) { video.currentTime = 0; playVideo(); return; } if (video.paused) playVideo(); else video.pause(); updateIcons(); };
+                video.addEventListener('loadedmetadata', () => { durationTimeEl.textContent = formatTime(video.duration); });
+                video.addEventListener('timeupdate', () => { const percent = video.duration ? (video.currentTime / video.duration) * 100 : 0; progressFill.style.width = percent + '%'; currentTimeEl.textContent = formatTime(video.currentTime); });
+                video.addEventListener('play', updateIcons); video.addEventListener('pause', updateIcons);
+                video.addEventListener('ended', () => { updateIcons(); endOverlay.classList.add('active'); });
+                centerBtn.addEventListener('click', (e) => { e.stopPropagation(); togglePlay(); });
+                playBtn.addEventListener('click', (e) => { e.stopPropagation(); togglePlay(); });
+                card.addEventListener('click', (e) => { if (e.target.closest('button') || e.target.closest('a') || e.target.closest('#progressBar')) return; togglePlay(); });
+                muteBtn.addEventListener('click', (e) => { e.stopPropagation(); video.muted = !video.muted; updateIcons(); });
+                progressBar.addEventListener('click', (e) => { e.stopPropagation(); if (!video.duration) return; const rect = progressBar.getBoundingClientRect(); const ratio = Math.min(Math.max((e.clientX - rect.left) / rect.width,0),1); video.currentTime = ratio * video.duration; });
+                replayBtn.addEventListener('click', (e) => { e.stopPropagation(); video.currentTime = 0; playVideo(); });
+                setTimeout(() => { video.muted = true; playVideo(); }, 3000);
+                updateIcons();
             }
+
+            const revealItems = document.querySelectorAll('.feature-card, .about-image-wrapper, .premium-accordion .accordion-item, .footer-title');
+            const observer = new IntersectionObserver(entries => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('revealed'); }); }, { threshold:.14 });
+            revealItems.forEach(el => { el.classList.add('reveal-init'); observer.observe(el); });
         });
     </script>
-
-<script>
-    // A/B Test Autoplay Logic
-    document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(function() {
-            var vA = document.getElementById('videoA');
-            var vB = document.getElementById('videoB');
-            if(vA && vA.paused) { vA.play().catch(e => console.log('Autoplay blocked:', e)); }
-            if(vB && vB.paused) { vB.play().catch(e => console.log('Autoplay blocked:', e)); }
-        }, 3000);
-        
-        // Navbar Scroll Effect
-        window.addEventListener('scroll', function() {
-            var nav = document.getElementById('mainNav');
-            if(window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-    });
-</script>
 </body>
 </html>
-
-
