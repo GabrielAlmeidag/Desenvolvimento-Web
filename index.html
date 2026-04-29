@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Natanael Castro | Advocacia Trabalhista Especializada</title>
+    <title>Natanael Castro | Advocacia Especializada</title>
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -11,6 +11,9 @@
     <!-- FontAwesome (Ícones) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <!-- Google Fonts Premium: Playfair Display (Títulos) & Lato (Texto) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,8 +31,8 @@
     <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#inicio">
-                <img src="images/logo.png" alt="Logo Natanael Castro" class="nav-logo">
-                <span class="ms-3 d-none d-sm-block brand-text">Natanael Castro<br><small>Advocacia Trabalhista</small></span>
+                <img src="images/logo.jpg" alt="Logo Natanael Castro" class="nav-logo" style="border-radius: 5px;">
+                <span class="ms-3 d-none d-sm-block brand-text">Natanael Castro<br><small>Advocacia</small></span>
             </a>
             
             <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Alternar navegação">
@@ -62,14 +65,14 @@
     </nav>
 
     <!-- Seção Hero: Premium & Clean -->
-    <header id="inicio" class="hero-section">
-        <!-- Fundo Escuro Sólido -->
-        <div class="hero-background-layer"></div>
+    <header id="inicio" class="hero-section" style="background: url('images/justica.jpg') center/cover no-repeat; position: relative;">
+        <!-- Fundo Escuro Sólido / Overlay -->
+        <div class="hero-background-layer" style="background: rgba(10, 17, 40, 0.85); position: absolute; inset: 0; width: 100%; height: 100%;"></div>
 
         <div class="container-fluid px-4 px-xl-5 h-100 position-relative z-index-2">
             <div class="row h-100 align-items-center pt-5 pt-lg-0 justify-content-evenly">
-                <!-- Texto - Mais estreito para dar espaço ao vídeo -->
-                <div class="col-lg-5 col-xl-4 offset-xl-1 hero-content text-left order-2 order-lg-1 mt-5 mt-lg-0">
+                <!-- Texto -->
+                <div class="col-lg-5 col-xl-4 offset-xl-1 hero-content text-left order-2 order-lg-1 mt-5 mt-lg-0" data-aos="fade-up">
                     <div class="hero-badge mb-3">Escritório de Advocacia Especializada</div>
                     <h1 class="hero-title mb-4">A EXCELÊNCIA NA DEFESA DOS <span>SEUS DIREITOS.</span></h1>
                     
@@ -88,8 +91,7 @@
                     </div>
                 </div>
 
-                <!-- Vídeo - Maior, ocupando 50% ou mais -->
-                <div class="col-lg-6 col-xl-6 order-1 order-lg-2 hero-video-col mt-4 mt-lg-0 pe-xl-5">
+                <div class="col-lg-6 col-xl-6 order-1 order-lg-2 hero-video-col mt-4 mt-lg-0 pe-xl-5" data-aos="fade-left" data-aos-delay="200">
                     <div class="hero-video-container shadow-lg" style="border-radius: 8px; overflow: hidden; position: relative;">
                         
                         <!-- Capa do Vídeo -->
@@ -126,7 +128,7 @@
     <!-- Áreas de Especialidades -->
     <section id="especialidades" class="py-100 position-relative z-index-2">
         <div class="container">
-            <div class="row mb-5 justify-content-center text-center">
+            <div class="row mb-5 justify-content-center text-center" data-aos="fade-up">
                 <div class="col-lg-8">
                     <span class="sub-title">Expertise</span>
                     <h2 class="section-title">Áreas de Atuação</h2>
@@ -137,7 +139,7 @@
 
             <div class="row g-4 justify-content-center">
                 <!-- Card 1 -->
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="feature-card h-100">
                         <div class="icon-wrapper">
                             <i class="fa-solid fa-briefcase"></i>
@@ -147,7 +149,7 @@
                     </div>
                 </div>
                 <!-- Card 2 -->
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="feature-card h-100">
                         <div class="icon-wrapper">
                             <i class="fa-solid fa-basket-shopping"></i>
@@ -157,7 +159,7 @@
                     </div>
                 </div>
                 <!-- Card 3 -->
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="feature-card h-100">
                         <div class="icon-wrapper">
                             <i class="fa-solid fa-file-contract"></i>
@@ -174,7 +176,7 @@
     <section id="sobre" class="py-100 bg-soft position-relative z-index-2">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-5 mb-5 mb-lg-0 position-relative">
+                <div class="col-lg-5 mb-5 mb-lg-0 position-relative" data-aos="fade-right">
                     <div class="about-image-wrapper">
                         <div class="image-box">
                             <img src="images/Natan5.png" alt="Dr. Natanael Castro" class="img-fluid rounded shadow-lg object-fit-cover">
@@ -185,7 +187,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 offset-lg-1">
+                <div class="col-lg-6 offset-lg-1" data-aos="fade-left">
                     <span class="sub-title">O Advogado</span>
                     <h2 class="section-title text-start mb-4">Natanael Castro</h2>
                     
@@ -232,7 +234,7 @@
     <!-- Estrutura / Galeria (Estilo Premium/Editorial) -->
     <section id="galeria" class="py-100 position-relative z-index-2 bg-white">
         <div class="container">
-            <div class="row text-center mb-5">
+            <div class="row text-center mb-5" data-aos="fade-up">
                 <div class="col-12">
                     <span class="sub-title">Nossa Atuação</span>
                     <h2 class="section-title">Experiência e Confiança</h2>
@@ -243,14 +245,14 @@
 
             <!-- Bloco 1: Atuação em Audiências -->
             <div class="row align-items-center mb-5 pb-lg-4">
-                <div class="col-lg-5 mb-5 mb-lg-0 position-relative">
+                <div class="col-lg-4 col-md-5 mb-5 mb-lg-0 position-relative mx-auto" data-aos="fade-right">
                     <div class="about-image-wrapper">
                         <div class="image-box">
-                            <img src="images/FOTO2.jpg" alt="Atuação em Audiências" class="img-fluid rounded shadow-lg object-fit-cover w-100" style="height: 400px;">
+                            <img src="images/FOTO2.jpg" alt="Atuação em Audiências" class="img-fluid rounded shadow-lg object-fit-cover w-100" style="min-height: 500px;">
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 offset-lg-1">
+                <div class="col-lg-6 offset-lg-1 col-md-7" data-aos="fade-left">
                     <div class="d-flex align-items-center mb-3">
                         <i class="fa-solid fa-gavel text-gold fs-3 me-3"></i>
                         <h3 class="section-title text-start mb-0">Atuação em Audiências</h3>
@@ -262,16 +264,16 @@
             </div>
 
             <!-- Bloco 2: Atendimento Personalizado (Invertido) -->
-            <div class="row align-items-center mb-5 pb-lg-4 flex-lg-row-reverse">
-                <div class="col-lg-5 mb-5 mb-lg-0 position-relative offset-lg-1">
+            <div class="row align-items-center mb-5 pb-lg-4 flex-md-row-reverse">
+                <div class="col-lg-4 col-md-5 mb-5 mb-md-0 position-relative offset-lg-1 mx-auto" data-aos="fade-left">
                     <div class="about-image-wrapper">
                         <div class="image-box">
-                            <img src="images/FOTO%201.jpeg" alt="Atendimento Personalizado" class="img-fluid rounded shadow-lg object-fit-cover w-100" style="height: 400px;">
+                            <img src="images/Natan1.png" alt="Atendimento Personalizado" class="img-fluid rounded shadow-lg object-fit-cover w-100" style="min-height: 500px;">
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="d-flex align-items-center justify-content-lg-start mb-3">
+                <div class="col-lg-6 col-md-7" data-aos="fade-right">
+                    <div class="d-flex align-items-center justify-content-md-start mb-3">
                         <i class="fa-solid fa-user-tie text-gold fs-3 me-3"></i>
                         <h3 class="section-title text-start mb-0">Atendimento Personalizado</h3>
                     </div>
@@ -283,14 +285,14 @@
 
             <!-- Bloco 3: Defesa Estratégica -->
             <div class="row align-items-center">
-                <div class="col-lg-5 mb-5 mb-lg-0 position-relative">
+                <div class="col-lg-4 col-md-5 mb-5 mb-lg-0 position-relative mx-auto" data-aos="fade-right">
                     <div class="about-image-wrapper">
                         <div class="image-box">
-                            <img src="images/foto4.jpg" alt="Defesa Estratégica" class="img-fluid rounded shadow-lg object-fit-cover w-100" style="height: 400px;">
+                            <img src="images/foto4.jpg" alt="Defesa Estratégica" class="img-fluid rounded shadow-lg object-fit-cover w-100" style="min-height: 500px;">
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 offset-lg-1">
+                <div class="col-lg-6 offset-lg-1 col-md-7" data-aos="fade-left">
                     <div class="d-flex align-items-center mb-3">
                         <i class="fa-solid fa-chess-knight text-gold fs-3 me-3"></i>
                         <h3 class="section-title text-start mb-0">Defesa Estratégica</h3>
@@ -306,7 +308,7 @@
     <!-- FAQ (O que você precisa saber) -->
     <section id="duvidas" class="pt-5 pb-100 bg-soft position-relative z-index-2">
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center" data-aos="fade-up">
                 <div class="col-lg-9">
                     <div class="text-center mb-5">
                         <span class="sub-title">Perguntas Frequentes</span>
@@ -394,7 +396,7 @@
     </section>
 
     <!-- Footer Premium -->
-    <footer id="contato" class="premium-footer position-relative z-index-2">
+    <footer id="contato" class="premium-footer position-relative z-index-2" data-aos="fade-up">
         <div class="footer-top py-5">
             <div class="container mt-4">
                 <div class="row gy-5 align-items-center align-items-lg-start text-center text-lg-start">
@@ -466,9 +468,19 @@
     <!-- Scripts Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
+    <!-- Script AOS (Animações) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <!-- Script Personalizado para Menu, Vídeo e Funcionalidades Extras -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            // Iniciar Animações (AOS)
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100
+            });
+
             // Update Ano Automático
             document.getElementById("currentYear").textContent = new Date().getFullYear();
 
@@ -512,19 +524,22 @@
 
                 // Clicar manualmente no Play
                 playBtn.addEventListener('click', () => {
+                    heroVideo.muted = false; // Garante áudio ao clicar manualmente
                     playVideo();
                 });
 
                 function playVideo() {
                     hasPlayed = true;
-                    heroVideo.muted = false; // Garante áudio ao clicar
+                    // Tenta o autoplay do vídeo mudo primeiro (padrão dos browsers)
+                    if(heroVideo.paused) {
+                        heroVideo.muted = true;
+                    }
                     heroVideo.play().then(() => {
                         videoPoster.classList.add("hidden");
                         videoEndOverlay.classList.remove("visible");
                     }).catch(err => {
-                        console.log("Aguardando clique na capa para reproduzir com áudio.");
+                        console.log("Aguardando clique na capa para reproduzir.");
                         videoPoster.classList.remove("hidden");
-                        // Não mutar, esperar o usuário clicar no playBtn
                     });
                 }
 
